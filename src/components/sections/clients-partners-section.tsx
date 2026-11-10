@@ -26,16 +26,16 @@ export function ClientsPartnersSection() {
             {CLIENTS.map((client) => (
               <div
                 key={client.file}
-                className="group flex h-28 items-center justify-center bg-[#1E2335] p-6 hover:bg-[#252B42] transition-colors"
+                className="group flex h-32 sm:h-36 items-center justify-center bg-[#1E2335] p-6 hover:bg-[#252B42] transition-colors"
               >
-                <div className="relative h-10 w-full max-w-[120px]">
+                <div className="relative h-14 sm:h-16 w-full max-w-[150px] sm:max-w-[175px]">
                   <Image
                     src={client.path}
                     alt={client.name}
                     fill
                     loading="lazy"
-                    className="object-contain filter grayscale contrast-125 brightness-150 opacity-60 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-300"
-                    sizes="120px"
+                    className="object-contain transition-transform duration-300 group-hover:scale-110"
+                    sizes="(max-width: 640px) 150px, 175px"
                   />
                 </div>
               </div>
@@ -63,16 +63,16 @@ export function ClientsPartnersSection() {
             {PARTNERS.map((partner) => (
               <div
                 key={partner.file}
-                className="group flex h-28 items-center justify-center bg-[#1E2335] p-6 hover:bg-[#252B42] transition-colors"
+                className="group flex h-32 sm:h-36 items-center justify-center bg-[#1E2335] p-6 hover:bg-[#252B42] transition-colors"
               >
-                <div className="relative h-10 w-full max-w-[120px]">
+                <div className="relative h-14 sm:h-16 w-full max-w-[150px] sm:max-w-[175px]">
                   <Image
                     src={partner.path}
                     alt={partner.name}
                     fill
                     loading="lazy"
-                    className="object-contain filter grayscale contrast-125 brightness-150 opacity-60 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-300"
-                    sizes="120px"
+                    className="object-contain transition-transform duration-300 group-hover:scale-110"
+                    sizes="(max-width: 640px) 150px, 175px"
                   />
                 </div>
               </div>

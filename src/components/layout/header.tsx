@@ -36,7 +36,7 @@ export function Header() {
         {/* Minimalist studio nav */}
         <nav
           aria-label="Navigasi Utama"
-          className="hidden items-center gap-8 lg:flex text-xs uppercase tracking-widest font-medium text-[#888888]"
+          className="hidden items-center gap-8 lg:flex text-xs uppercase tracking-widest font-medium text-[#94A0B8]"
         >
           {SITE_CONFIG.navItems.map((item) => (
             <a
@@ -47,12 +47,6 @@ export function Header() {
               {item.label}
             </a>
           ))}
-          <a
-            href="#kontak"
-            className="text-white hover:text-red-500 transition-colors"
-          >
-            Contact
-          </a>
         </nav>
 
         {/* Mobile menu trigger */}

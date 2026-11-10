@@ -56,26 +56,30 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* Featured Large Visual Frame - Thinking*Room Project showcase style */}
-        <div className="relative w-full aspect-16/9 sm:aspect-21/9 overflow-hidden bg-[#171B2A] mt-6 border border-[#2D344E] group">
-          <Image
-            src="/images/brands/teams.webp"
-            alt="PT Jamparing Masagi Engineering Team"
-            fill
-            priority
-            className="object-cover object-center filter grayscale contrast-110 group-hover:scale-103 group-hover:grayscale-0 transition-all duration-700 ease-out"
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end justify-between p-6 sm:p-10">
-            <div>
-              <p className="text-xs font-mono uppercase tracking-widest text-red-500">
+        {/* Featured Visual Frame - Clean fit so all faces and team members are clearly visible */}
+        <div className="mt-8 border border-[#2D344E] bg-[#171B2A] overflow-hidden group">
+          <div className="relative w-full aspect-[547/364] max-h-[580px] bg-[#141824] flex items-center justify-center">
+            <Image
+              src="/images/brands/teams.webp"
+              alt="PT Jamparing Masagi Engineering Team"
+              fill
+              priority
+              className="object-contain object-center transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+              sizes="(max-width: 1024px) 100vw, 1200px"
+            />
+          </div>
+          {/* Metadata bar below photo - no overlapping text blocking faces */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between border-t border-[#2D344E] px-6 py-4 bg-[#1A1F30] text-xs font-mono gap-2">
+            <div className="flex items-center gap-3">
+              <span className="uppercase tracking-widest text-red-500 font-semibold">
                 Core Engineering Team
-              </p>
-              <p className="text-xl sm:text-2xl font-light text-white mt-1">
+              </span>
+              <span className="text-[#94A0B8] hidden sm:inline">&bull;</span>
+              <span className="text-white">
                 20+ Certified Engineers &amp; Consultants
-              </p>
+              </span>
             </div>
-            <span className="text-xs font-mono text-[#888888] tracking-widest">
+            <span className="text-[#94A0B8] tracking-widest">
               Graha DLA &amp; Workshop Cimahi
             </span>
           </div>

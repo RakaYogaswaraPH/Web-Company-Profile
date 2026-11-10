@@ -46,14 +46,6 @@ export function Footer() {
                   </a>
                 </li>
               ))}
-              <li>
-                <a
-                  href="#kontak"
-                  className="text-[#8E9BB5] hover:text-white transition-colors"
-                >
-                  Kontak
-                </a>
-              </li>
             </ul>
           </div>
 
