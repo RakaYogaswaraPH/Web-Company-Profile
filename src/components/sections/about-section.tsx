@@ -1,93 +1,82 @@
-import Image from "next/image";
 import { Container } from "@/components/ui/container";
-import { SectionHeader } from "@/components/ui/section-header";
-import { FadeIn } from "@/components/ui/fade-in";
 import { ABOUT_CONTENT } from "@/content/site-content";
 
 export function AboutSection() {
   return (
-    <section id="tentang" className="scroll-mt-24 bg-[#0B0F19] py-16 sm:py-24 border-b border-slate-800">
+    <section id="tentang" className="scroll-mt-20 bg-[#111111] text-white py-20 sm:py-32 border-b border-[#222222]">
       <Container>
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16 items-start">
-          {/* Left Column: Text & Pillars */}
-          <FadeIn className="lg:col-span-7 space-y-8">
-            <SectionHeader
-              tag={ABOUT_CONTENT.sectionTag}
-              title={ABOUT_CONTENT.heading}
-            />
+        {/* Thinking*Room Statement Layout: Large narrative text */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+          <div className="lg:col-span-4 space-y-4">
+            <span className="text-xs uppercase tracking-widest text-[#777777] font-mono block">
+              Company Statement
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-light text-white tracking-tight">
+              PT Jamparing Masagi
+            </h2>
+            <p className="text-xs text-[#888888] font-mono leading-relaxed pt-2">
+              ICT CONSULTING &bull; NETWORK INFRASTRUCTURE &bull; APPLICATION DEVELOPMENT &bull; CYBER SECURITY
+            </p>
+          </div>
 
-            <div className="space-y-4 text-base leading-relaxed text-slate-300">
-              {ABOUT_CONTENT.paragraphs.map((p, index) => (
-                <p key={index}>{p}</p>
+          <div className="lg:col-span-8 space-y-8">
+            <p className="text-2xl sm:text-3xl lg:text-4xl font-light text-[#E5E5E5] leading-relaxed">
+              Kami adalah perusahaan penyedia layanan Teknologi Informasi dan Komunikasi yang berbasis di Bandung dan Cimahi. Kami memberikan pendampingan teknis langsung dari tahap audit awal, implementasi lapangan, hingga pengujian menyeluruh.
+            </p>
+            <p className="text-base sm:text-lg text-[#999999] font-light leading-relaxed">
+              Dengan dukungan jaringan kemitraan resmi prinsipal teknologi global dan tim engineer berpengalaman, kami memastikan infrastruktur data center, konektivitas kantor cabang, dan sistem aplikasi berjalan stabil dengan jaminan dukungan operasional.
+            </p>
+
+            {/* Numbers bar - Thinking*Room clean numbers */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 border-t border-[#222222] pt-12">
+              {ABOUT_CONTENT.stats.map((stat) => (
+                <div key={stat.label} className="space-y-1">
+                  <span className="text-4xl sm:text-5xl font-light font-mono text-white tracking-tight">
+                    {stat.value}
+                  </span>
+                  <p className="text-xs uppercase tracking-widest text-[#888888] font-mono pt-1">
+                    {stat.label}
+                  </p>
+                </div>
               ))}
             </div>
+          </div>
+        </div>
 
-            {/* 4 Pillars Grid - Citcom-style cards with red accent */}
-            <div className="pt-4 border-t border-slate-800">
-              <h3 className="text-xs font-mono font-semibold tracking-wider text-slate-400 uppercase mb-6">
-                {"//"} Prinsip Pengerjaan Kami
+        {/* Working Principles - Thinking*Room Services/Pillars List (columns, not generic AI cards) */}
+        <div className="mt-24 sm:mt-32 pt-16 border-t border-[#222222]">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
+            <div>
+              <span className="text-xs uppercase tracking-widest text-[#777777] font-mono block">
+                Work Principles
+              </span>
+              <h3 className="text-3xl font-light text-white tracking-tight mt-2">
+                Bagaimana Kami Bekerja
               </h3>
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                {ABOUT_CONTENT.pillars.map((pillar) => (
-                  <div
-                    key={pillar.title}
-                    className="group rounded-xl border border-slate-800 bg-[#111827] p-5 transition-all hover:border-red-500/50 hover:bg-[#161F32]"
-                  >
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="size-1.5 rounded-full bg-red-500 shrink-0 group-hover:scale-125 transition-transform" />
-                      <h4 className="font-semibold text-white text-sm">
-                        {pillar.title}
-                      </h4>
-                    </div>
-                    <p className="text-xs leading-relaxed text-slate-400">
-                      {pillar.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
             </div>
-          </FadeIn>
+            <span className="text-xs font-mono text-[#555555]">
+              Systematic &bull; Standardized &bull; Accountable
+            </span>
+          </div>
 
-          {/* Right Column: Stats & Secondary Photo View */}
-          <FadeIn delay={0.15} className="lg:col-span-5 space-y-6">
-            <div className="rounded-2xl border border-slate-800 bg-[#111827] p-6 sm:p-8">
-              <h3 className="text-xs font-mono font-semibold tracking-wider text-slate-400 uppercase">
-                {"//"} Kapasitas Operasional
-              </h3>
-              <div className="mt-6 space-y-6 divide-y divide-slate-800">
-                {ABOUT_CONTENT.stats.map((stat, idx) => (
-                  <div key={stat.label} className={idx > 0 ? "pt-6" : ""}>
-                    <p className="text-3xl font-mono font-bold tracking-tight text-red-500 sm:text-4xl">
-                      {stat.value}
-                    </p>
-                    <p className="mt-1 font-semibold text-white text-sm">
-                      {stat.label}
-                    </p>
-                    {stat.description && (
-                      <p className="mt-1 text-xs text-slate-400">
-                        {stat.description}
-                      </p>
-                    )}
-                  </div>
-                ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {ABOUT_CONTENT.pillars.map((pillar, idx) => (
+              <div
+                key={pillar.title}
+                className="border-t border-[#222222] pt-6 space-y-3 group hover:border-red-600 transition-colors"
+              >
+                <span className="text-xs font-mono text-[#555555] group-hover:text-red-500 transition-colors">
+                  0{idx + 1}
+                </span>
+                <h4 className="text-lg font-normal text-white">
+                  {pillar.title}
+                </h4>
+                <p className="text-xs leading-relaxed text-[#888888] font-light">
+                  {pillar.description}
+                </p>
               </div>
-            </div>
-
-            <div className="overflow-hidden rounded-2xl border border-slate-800 bg-[#111827]">
-              <div className="aspect-4/3 relative w-full">
-                <Image
-                  src="/images/brands/teams.webp"
-                  alt="Keluarga Besar PT Jamparing Masagi"
-                  fill
-                  className="object-cover object-center filter brightness-95"
-                  sizes="(max-width: 1024px) 100vw, 400px"
-                />
-              </div>
-              <div className="bg-[#111827] px-4 py-3 text-xs text-slate-400 border-t border-slate-800">
-                Dukungan teknisi standby di kantor Graha DLA & Workshop Cimahi.
-              </div>
-            </div>
-          </FadeIn>
+            ))}
+          </div>
         </div>
       </Container>
     </section>

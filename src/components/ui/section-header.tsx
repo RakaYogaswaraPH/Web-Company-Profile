@@ -1,5 +1,3 @@
-import { cn } from "@/lib/cn";
-
 interface SectionHeaderProps {
   readonly tag?: string;
   readonly title: string;
@@ -13,31 +11,27 @@ export function SectionHeader({
   title,
   description,
   align = "left",
-  className,
+  className = "",
 }: SectionHeaderProps) {
   const isCenter = align === "center";
 
   return (
     <div
-      className={cn(
-        "max-w-3xl",
-        isCenter && "mx-auto text-center",
-        className
-      )}
+      className={`space-y-4 ${isCenter ? "text-center mx-auto max-w-4xl" : "max-w-4xl"} ${className}`}
     >
+      {/* NO BADGE, NO CARD, NO PILL - Thinking*Room minimal category title */}
       {tag && (
-        <div className="mb-3 inline-flex items-center gap-2">
-          <span className="size-1.5 rounded-full bg-red-500" />
-          <span className="text-xs font-mono font-semibold tracking-widest text-red-400 uppercase">
-            {tag}
-          </span>
-        </div>
+        <p className="text-xs uppercase tracking-widest text-[#888888] font-mono">
+          {tag}
+        </p>
       )}
-      <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl lg:text-4xl text-balance">
+
+      <h2 className="text-3xl font-light tracking-tight text-white sm:text-5xl lg:text-6xl text-balance leading-tight">
         {title}
       </h2>
+
       {description && (
-        <p className="mt-4 text-base leading-relaxed text-slate-400 sm:text-lg">
+        <p className="text-base text-[#999999] leading-relaxed sm:text-xl font-light max-w-3xl">
           {description}
         </p>
       )}

@@ -2,8 +2,14 @@
 
 @theme {
   --color-brand-red: #E31D28;
-  --color-blue-black: #0B0F19;
-  --color-blue-card: #111827;
-  --color-blue-border: #1F293D;
+  --color-tr-dark: #111111;
+  --color-tr-black: #0A0A0A;
+  --color-tr-yellow: #FEE777;
+}
+
+/* Custom smooth typography & scrollbar */
+::selection {
+  background-color: #E31D28;
+  color: #FFFFFF;
 }
 

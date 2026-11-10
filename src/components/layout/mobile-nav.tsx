@@ -1,8 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Image from "next/image";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { SITE_CONFIG } from "@/config/site";
 import { cn } from "@/lib/cn";
 
@@ -38,93 +37,92 @@ export function MobileNav({ isOpen, onToggle, onClose }: MobileNavProps) {
 
   return (
     <div className="lg:hidden">
-      {/* Toggle button */}
-      <button
-        type="button"
-        onClick={onToggle}
-        aria-expanded={isOpen}
-        aria-controls="mobile-navigation-drawer"
-        aria-label={isOpen ? "Tutup menu navigasi" : "Buka menu navigasi"}
-        className="flex min-h-11 min-w-11 items-center justify-center rounded-lg border border-slate-700 text-slate-200 hover:bg-slate-800 hover:text-white focus-visible:outline-2 focus-visible:outline-red-500 focus-visible:outline-offset-2 transition-colors cursor-pointer"
-      >
-        {isOpen ? <X className="size-6" /> : <Menu className="size-6" />}
-      </button>
+        <button
+          type="button"
+          onClick={onToggle}
+          aria-expanded={isOpen}
+          aria-controls="mobile-navigation-drawer"
+          aria-label={isOpen ? "Tutup menu navigasi" : "Buka menu navigasi"}
+          className="flex min-h-11 min-w-11 items-center justify-center text-white hover:text-red-500 transition-colors cursor-pointer"
+        >
+          {isOpen ? <X className="size-6" /> : <Menu className="size-6" />}
+        </button>
 
-      {/* Backdrop */}
-      {isOpen && (
-        <div
-          onClick={onClose}
-          aria-hidden="true"
-          className="fixed inset-0 z-40 bg-black/60 backdrop-blur-xs transition-opacity"
-        />
-      )}
-
-      {/* Drawer */}
-      <div
-        id="mobile-navigation-drawer"
-        ref={drawerRef}
-        role="dialog"
-        aria-modal="true"
-        aria-label="Menu navigasi mobile"
-        className={cn(
-          "fixed top-0 right-0 bottom-0 z-50 flex w-full max-w-xs flex-col bg-[#111827] text-slate-100 shadow-2xl transition-transform duration-300 ease-in-out border-l border-slate-800",
-          isOpen ? "translate-x-0" : "translate-x-full"
-        )}
-      >
-        {/* Header inside drawer */}
-        <div className="flex items-center justify-between border-b border-slate-800 px-6 py-4">
-          <div className="relative h-8 w-28">
-            <Image
-              src="/images/brands/logo-white.webp"
-              alt={SITE_CONFIG.name}
-              fill
-              className="object-contain object-left"
-              sizes="112px"
-            />
-          </div>
-          <button
-            type="button"
+        {/* Backdrop */}
+        {isOpen && (
+          <div
             onClick={onClose}
-            aria-label="Tutup menu navigasi"
-            className="flex min-h-11 min-w-11 items-center justify-center rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white focus-visible:outline-2 focus-visible:outline-red-500 focus-visible:outline-offset-2 cursor-pointer"
-          >
-            <X className="size-6" />
-          </button>
-        </div>
+            aria-hidden="true"
+            className="fixed inset-0 z-40 bg-black/80 backdrop-blur-sm transition-opacity"
+          />
+        )}
 
-        {/* Navigation list */}
-        <nav className="flex-1 overflow-y-auto px-6 py-6">
-          <ul className="flex flex-col gap-2">
-            {SITE_CONFIG.navItems.map((item) => (
-              <li key={item.href}>
+        {/* Drawer - Thinking*Room fullscreen/bold panel style */}
+        <div
+          id="mobile-navigation-drawer"
+          ref={drawerRef}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Menu navigasi mobile"
+          className={cn(
+            "fixed inset-0 z-50 flex flex-col bg-[#FEE777] text-[#111111] transition-transform duration-300 ease-in-out p-6 sm:p-12 justify-between",
+            isOpen ? "translate-y-0" : "-translate-y-full"
+          )}
+        >
+          <div className="flex items-center justify-between border-b border-[#111111]/10 pb-6">
+            <span className="font-bold text-xl tracking-tight text-[#111111]">
+              PT Jamparing Masagi
+            </span>
+            <button
+              type="button"
+              onClick={onClose}
+              aria-label="Tutup menu navigasi"
+              className="p-2 text-[#111111] hover:opacity-70 cursor-pointer"
+            >
+              <X className="size-7" />
+            </button>
+          </div>
+
+          <nav className="my-auto py-8">
+            <ul className="flex flex-col gap-4 sm:gap-6">
+              {SITE_CONFIG.navItems.map((item) => (
+                <li key={item.href}>
+                  <a
+                    href={item.href}
+                    onClick={onClose}
+                    className="text-4xl sm:text-6xl font-medium tracking-tight text-[#111111] hover:translate-x-3 transition-transform inline-block"
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+              <li>
                 <a
-                  href={item.href}
+                  href="#kontak"
                   onClick={onClose}
-                  className="flex min-h-11 items-center rounded-lg px-4 text-base font-medium text-slate-300 hover:bg-slate-800/80 hover:text-white focus-visible:outline-2 focus-visible:outline-red-500 transition-colors"
+                  className="text-4xl sm:text-6xl font-medium tracking-tight text-[#111111] hover:translate-x-3 transition-transform inline-block"
                 >
-                  {item.label}
+                  Kontak
                 </a>
               </li>
-            ))}
-          </ul>
+            </ul>
+          </nav>
 
-          <div className="mt-8 border-t border-slate-800 pt-6">
-            <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
-              Kontak Cepat
-            </p>
-            <a
-              href={`https://wa.me/${SITE_CONFIG.whatsapp}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={onClose}
-              className="mt-4 flex min-h-11 items-center justify-center gap-2 rounded-lg bg-red-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-red-700 transition-colors"
-            >
-              <span>Hubungi Kami</span>
-              <ArrowUpRight className="size-4" />
-            </a>
+          <div className="border-t border-[#111111]/10 pt-6 flex flex-col sm:flex-row justify-between text-xs tracking-wider uppercase font-mono text-[#111111]/70">
+            <div>
+              <p>Graha DLA Lt. 3 Suite 6, Bandung</p>
+              <p>Jl. Telexina No. 4, Cimahi</p>
+            </div>
+            <div className="mt-4 sm:mt-0">
+              <a
+                href={`mailto:${SITE_CONFIG.email}`}
+                className="hover:text-[#111111] transition-colors"
+              >
+                {SITE_CONFIG.email}
+              </a>
+            </div>
           </div>
-        </nav>
-      </div>
+        </div>
     </div>
   );
 }

@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
 import { SITE_CONFIG } from "@/config/site";
 import { Container } from "@/components/ui/container";
 import { MobileNav } from "./mobile-nav";
@@ -12,51 +11,52 @@ export function Header() {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-30 w-full border-b border-slate-800/80 bg-[#0B0F19]/90 backdrop-blur-md transition-colors">
+    <header className="sticky top-0 z-40 w-full border-b border-[#222222] bg-[#111111]/95 backdrop-blur-md">
       <Container className="flex h-20 items-center justify-between">
-        {/* Brand logo with original crisp white version */}
+        {/* Brand identity - Thinking*Room style with symbol + typography */}
         <Link
           href="#beranda"
-          className="group flex items-center gap-3 focus-visible:outline-2 focus-visible:outline-red-500 focus-visible:outline-offset-4 rounded-md"
+          className="group flex items-center gap-4 focus-visible:outline-2 focus-visible:outline-white"
         >
-          <div className="relative h-10 w-36 sm:w-44">
+          <span className="text-xl font-bold text-red-600 transition-transform group-hover:rotate-45 duration-300">
+            *
+          </span>
+          <div className="relative h-8 w-36 sm:w-44">
             <Image
               src="/images/brands/logo-white.webp"
               alt={SITE_CONFIG.name}
               fill
               priority
-              className="object-contain object-left transition-transform group-hover:scale-102"
+              className="object-contain object-left"
               sizes="(max-width: 640px) 144px, 176px"
             />
           </div>
         </Link>
 
-        {/* Desktop navigation */}
+        {/* Minimalist studio nav */}
         <nav
           aria-label="Navigasi Utama"
-          className="hidden items-center gap-1 lg:flex"
+          className="hidden items-center gap-8 lg:flex text-xs uppercase tracking-widest font-medium text-[#888888]"
         >
           {SITE_CONFIG.navItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="rounded-lg px-4 py-2 text-sm font-medium text-slate-300 hover:bg-slate-800/70 hover:text-white focus-visible:outline-2 focus-visible:outline-red-500 transition-colors"
+              className="hover:text-white transition-colors"
             >
               {item.label}
             </a>
           ))}
-        </nav>
-
-        {/* Desktop CTA & Mobile Toggle */}
-        <div className="flex items-center gap-3">
           <a
             href="#kontak"
-            className="hidden items-center gap-1.5 rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-white shadow-xs hover:bg-red-700 focus-visible:outline-2 focus-visible:outline-red-600 focus-visible:outline-offset-2 transition-colors sm:inline-flex"
+            className="text-white hover:text-red-500 transition-colors"
           >
-            <span>Hubungi Kami</span>
-            <ArrowUpRight className="size-4" />
+            Contact
           </a>
+        </nav>
 
+        {/* Mobile menu trigger */}
+        <div className="flex items-center gap-3">
           <MobileNav
             isOpen={isMobileNavOpen}
             onToggle={() => setIsMobileNavOpen((prev) => !prev)}
