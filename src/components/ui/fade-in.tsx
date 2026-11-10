@@ -1,6 +1,6 @@
 "use client";
 
-import type { ReactNode } from "react";
+import { useSyncExternalStore, type ReactNode } from "react";
 import * as m from "motion/react";
 import { cn } from "@/lib/cn";
 
@@ -11,19 +11,33 @@ interface FadeInProps {
   readonly y?: number;
 }
 
+function emptySubscribe() {
+  return () => {};
+}
+
 export function FadeIn({
   children,
   className,
   delay = 0,
-  y = 16,
+  y = 12,
 }: FadeInProps) {
+  const isHydrated = useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false
+  );
+
+  if (!isHydrated) {
+    return <div className={cn(className)}>{children}</div>;
+  }
+
   return (
     <m.motion.div
       initial={{ opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-40px" }}
+      viewport={{ once: true, amount: 0.05 }}
       transition={{
-        duration: 0.45,
+        duration: 0.4,
         delay,
         ease: [0.21, 0.47, 0.32, 0.98],
       }}

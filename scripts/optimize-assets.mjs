@@ -137,10 +137,32 @@ async function optimizeFolder(subFolder, maxWidth = 400) {
       targetHeight = Math.round((meta.height * maxWidth) / meta.width);
     }
 
-    await image
-      .resize(targetWidth, targetHeight, { fit: "inside" })
-      .webp({ quality: 85 })
-      .toFile(destFile);
+    if (file.toLowerCase().includes("czur")) {
+      // czur.webp has white typography. Convert to dark slate #0f172a for light backgrounds.
+      const rawCzur = await image.raw().toBuffer({ resolveWithObject: true });
+      const { data, info } = rawCzur;
+      for (let i = 0; i < data.length; i += 4) {
+        if (data[i + 3] > 30) {
+          const r = data[i];
+          const g = data[i + 1];
+          const b = data[i + 2];
+          if (r > 180 && g > 180 && b > 180) {
+            data[i] = 15;
+            data[i + 1] = 23;
+            data[i + 2] = 42;
+          }
+        }
+      }
+      await sharp(data, { raw: info })
+        .resize(targetWidth, targetHeight, { fit: "inside" })
+        .webp({ quality: 90 })
+        .toFile(destFile);
+    } else {
+      await image
+        .resize(targetWidth, targetHeight, { fit: "inside" })
+        .webp({ quality: 85 })
+        .toFile(destFile);
+    }
 
     results.push({
       name: cleanTitle(file),
@@ -185,10 +207,42 @@ async function main() {
       targetHeight = Math.round((meta.height * maxWidth) / meta.width);
     }
 
-    await image
-      .resize(targetWidth, targetHeight, { fit: "inside" })
-      .webp({ quality: 88 })
-      .toFile(destFile);
+    if (file.toLowerCase().includes("logo")) {
+      // The original Logo.webp has white typography for dark backgrounds.
+      // For clean bright backgrounds, convert white pixels to dark slate rgb(15, 23, 42)
+      // while preserving the original red emblem and smooth anti-aliased alpha.
+      const rawLogo = await image.raw().toBuffer({ resolveWithObject: true });
+      const { data, info } = rawLogo;
+      for (let i = 0; i < data.length; i += 4) {
+        const a = data[i + 3];
+        if (a > 30) {
+          const r = data[i];
+          const g = data[i + 1];
+          const b = data[i + 2];
+          if (r > 180 && g > 180 && b > 180) {
+            data[i] = 15;
+            data[i + 1] = 23;
+            data[i + 2] = 42;
+          }
+        }
+      }
+      await sharp(data, { raw: info })
+        .resize(targetWidth, targetHeight, { fit: "inside" })
+        .webp({ quality: 90 })
+        .toFile(destFile);
+
+      // Also save original light logo version
+      const lightDestFile = path.join(brandsDest, "logo-white.webp");
+      await sharp(srcFile)
+        .resize(targetWidth, targetHeight, { fit: "inside" })
+        .webp({ quality: 90 })
+        .toFile(lightDestFile);
+    } else {
+      await image
+        .resize(targetWidth, targetHeight, { fit: "inside" })
+        .webp({ quality: 88 })
+        .toFile(destFile);
+    }
 
     brandResults.push({
       name: cleanTitle(file),

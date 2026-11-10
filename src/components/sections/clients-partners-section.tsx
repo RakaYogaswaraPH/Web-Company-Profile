@@ -29,6 +29,7 @@ export function ClientsPartnersSection() {
                     src={client.path}
                     alt={client.name}
                     fill
+                    loading="eager"
                     className="object-contain filter grayscale group-hover:grayscale-0 transition-all"
                     sizes="120px"
                   />
@@ -62,6 +63,7 @@ export function ClientsPartnersSection() {
                     src={partner.path}
                     alt={partner.name}
                     fill
+                    loading="eager"
                     className="object-contain filter grayscale group-hover:grayscale-0 transition-all"
                     sizes="120px"
                   />
