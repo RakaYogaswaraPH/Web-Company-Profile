@@ -2,8 +2,9 @@
 
 @theme {
   --color-brand-red: #E31D28;
-  --color-tr-dark: #111111;
-  --color-tr-black: #0A0A0A;
+  --color-bg-base: #1E2335;
+  --color-bg-alt: #171B2A;
+  --color-border-subtle: #2D344E;
   --color-tr-yellow: #FEE777;
 }
 

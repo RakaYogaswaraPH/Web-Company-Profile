@@ -6,11 +6,11 @@ export function HeroSection() {
   return (
     <section
       id="beranda"
-      className="relative min-h-[90dvh] flex flex-col justify-between overflow-hidden bg-[#111111] text-white pt-12 pb-16 sm:pt-20 sm:pb-24 border-b border-[#222222]"
+      className="relative min-h-[90dvh] flex flex-col justify-between overflow-hidden bg-[#1E2335] text-white pt-12 pb-16 sm:pt-20 sm:pb-24 border-b border-[#2D344E]"
     >
       <Container className="grow flex flex-col justify-between">
         {/* Top Ticker / Meta text - Thinking*Room style */}
-        <div className="flex items-center justify-between border-b border-[#222222] pb-6 text-xs uppercase tracking-widest text-[#777777] font-mono">
+        <div className="flex items-center justify-between border-b border-[#2D344E] pb-6 text-xs uppercase tracking-widest text-[#94A0B8] font-mono">
           <span>PT Jamparing Masagi — Bandung &amp; Cimahi</span>
           <span className="hidden sm:inline">Enterprise ICT Infrastructure &amp; Systems</span>
           <span>EST. // 01</span>
@@ -23,17 +23,17 @@ export function HeroSection() {
               <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-light tracking-tight text-white leading-[1.05] text-balance">
                 More Than Just ICT Solution.
               </h1>
-              <p className="max-w-2xl text-lg sm:text-xl font-light text-[#A0A0A0] leading-relaxed">
+              <p className="max-w-2xl text-lg sm:text-xl font-light text-[#BAC4D8] leading-relaxed">
                 {HERO_CONTENT.subheadline}
               </p>
             </div>
 
             <div className="lg:col-span-4 flex flex-col justify-end space-y-6">
-              <div className="border-l border-[#333333] pl-6 space-y-3">
-                <p className="text-xs uppercase tracking-widest text-[#777777] font-mono">
+              <div className="border-l border-[#3E4766] pl-6 space-y-3">
+                <p className="text-xs uppercase tracking-widest text-[#94A0B8] font-mono">
                   Approach
                 </p>
-                <p className="text-sm text-[#CCCCCC] leading-relaxed font-light">
+                <p className="text-sm text-[#D1D8E6] leading-relaxed font-light">
                   Mendampingi BUMN, instansi pemerintah, dan korporasi dari tahap audit arsitektur hingga pemeliharaan SLA tanpa celah.
                 </p>
               </div>
@@ -41,13 +41,13 @@ export function HeroSection() {
               <div className="flex items-center gap-4 pt-2">
                 <a
                   href="#layanan"
-                  className="inline-flex items-center justify-center bg-white text-[#111111] hover:bg-red-600 hover:text-white px-8 py-3.5 text-xs font-semibold uppercase tracking-widest transition-colors duration-300"
+                  className="inline-flex items-center justify-center bg-white text-[#1E2335] hover:bg-red-600 hover:text-white px-8 py-3.5 text-xs font-semibold uppercase tracking-widest transition-colors duration-300"
                 >
                   Explore Capabilities
                 </a>
                 <a
                   href="#kontak"
-                  className="inline-flex items-center justify-center border border-[#333333] text-white hover:border-white px-8 py-3.5 text-xs font-semibold uppercase tracking-widest transition-colors duration-300"
+                  className="inline-flex items-center justify-center border border-[#3E4766] text-white hover:border-white px-8 py-3.5 text-xs font-semibold uppercase tracking-widest transition-colors duration-300"
                 >
                   Contact
                 </a>
@@ -57,7 +57,7 @@ export function HeroSection() {
         </div>
 
         {/* Featured Large Visual Frame - Thinking*Room Project showcase style */}
-        <div className="relative w-full aspect-16/9 sm:aspect-21/9 overflow-hidden bg-[#1A1A1A] mt-6 border border-[#222222] group">
+        <div className="relative w-full aspect-16/9 sm:aspect-21/9 overflow-hidden bg-[#171B2A] mt-6 border border-[#2D344E] group">
           <Image
             src="/images/brands/teams.webp"
             alt="PT Jamparing Masagi Engineering Team"

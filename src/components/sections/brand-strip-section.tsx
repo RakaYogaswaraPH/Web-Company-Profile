@@ -6,13 +6,13 @@ export function BrandStripSection() {
   const featured = PARTNERS.slice(0, 8);
 
   return (
-    <section aria-label="Mitra Utama" className="border-b border-[#222222] bg-[#0E0E0E] py-12 sm:py-16">
+    <section aria-label="Mitra Utama" className="border-b border-[#2D344E] bg-[#171B2A] py-12 sm:py-16">
       <Container>
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-[#222222] pb-6 mb-10 gap-4">
-          <p className="text-xs uppercase tracking-widest text-[#777777] font-mono">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-[#2D344E] pb-6 mb-10 gap-4">
+          <p className="text-xs uppercase tracking-widest text-[#94A0B8] font-mono">
             Selected Technology Partners &amp; Deployments
           </p>
-          <span className="text-xs font-mono text-[#555555]">
+          <span className="text-xs font-mono text-[#717E9B]">
             Global Principals / Enterprise Standard
           </span>
         </div>

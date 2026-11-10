@@ -7,7 +7,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-[#222222] bg-[#0A0A0A] text-[#888888]">
+    <footer className="border-t border-[#2D344E] bg-[#141724] text-[#8E9BB5]">
       <Container className="py-16 sm:py-24">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-12">
           {/* Brand info */}
@@ -21,10 +21,10 @@ export function Footer() {
                 sizes="176px"
               />
             </div>
-            <p className="text-sm leading-relaxed text-[#777777] max-w-sm font-light">
+            <p className="text-sm leading-relaxed text-[#8E9BB5] max-w-sm font-light">
               {SITE_CONFIG.legalName} &mdash; Perusahaan solusi infrastruktur, jaringan enterprise, dan rekayasa perangkat lunak.
             </p>
-            <div className="pt-2 text-xs text-[#666666] font-mono space-y-1">
+            <div className="pt-2 text-xs text-[#717E9B] font-mono space-y-1">
               <p>BANDUNG &bull; CIMAHI &bull; INDONESIA</p>
               <p>&copy; {currentYear} {SITE_CONFIG.legalName}. All rights reserved.</p>
             </div>
@@ -40,7 +40,7 @@ export function Footer() {
                 <li key={item.href}>
                   <a
                     href={item.href}
-                    className="text-[#888888] hover:text-white transition-colors"
+                    className="text-[#8E9BB5] hover:text-white transition-colors"
                   >
                     {item.label}
                   </a>
@@ -49,7 +49,7 @@ export function Footer() {
               <li>
                 <a
                   href="#kontak"
-                  className="text-[#888888] hover:text-white transition-colors"
+                  className="text-[#8E9BB5] hover:text-white transition-colors"
                 >
                   Kontak
                 </a>
@@ -62,7 +62,7 @@ export function Footer() {
             <p className="text-xs uppercase tracking-widest text-white font-mono mb-4">
               Locations
             </p>
-            <div className="text-xs font-light text-[#888888] space-y-4">
+            <div className="text-xs font-light text-[#8E9BB5] space-y-4">
               <div>
                 <p className="font-normal text-white">Graha DLA Lt. 3 Suite 6</p>
                 <p>Jl. Otto Iskandar Dinata No. 392, Bandung</p>

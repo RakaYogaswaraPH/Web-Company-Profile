@@ -11,7 +11,7 @@ export function Header() {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-[#222222] bg-[#111111]/95 backdrop-blur-md">
+    <header className="sticky top-0 z-40 w-full border-b border-[#2D344E] bg-[#1E2335]/95 backdrop-blur-md">
       <Container className="flex h-20 items-center justify-between">
         {/* Brand identity - Thinking*Room style with symbol + typography */}
         <Link
