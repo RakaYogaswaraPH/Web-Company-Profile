@@ -21,17 +21,17 @@ export function SectionHeader({
     >
       {/* NO BADGE, NO CARD, NO PILL - Thinking*Room minimal category title */}
       {tag && (
-        <p className="text-xs uppercase tracking-widest text-[#888888] font-mono">
+        <p className="text-xs uppercase tracking-widest text-slate-500 font-mono font-medium">
           {tag}
         </p>
       )}
 
-      <h2 className="text-3xl font-light tracking-tight text-white sm:text-5xl lg:text-6xl text-balance leading-tight">
+      <h2 className="text-3xl font-light tracking-tight text-slate-950 sm:text-5xl lg:text-6xl text-balance leading-tight">
         {title}
       </h2>
 
       {description && (
-        <p className="text-base text-[#999999] leading-relaxed sm:text-xl font-light max-w-3xl">
+        <p className="text-base text-slate-600 leading-relaxed sm:text-xl font-light max-w-3xl">
           {description}
         </p>
       )}

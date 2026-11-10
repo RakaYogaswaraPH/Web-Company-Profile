@@ -11,19 +11,16 @@ export function Header() {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-[#2D344E] bg-[#1E2335]/95 backdrop-blur-md">
+    <header className="sticky top-0 z-40 w-full border-b border-[#E2E5DC] bg-[#F6F7F3]/95 backdrop-blur-md">
       <Container className="flex h-20 items-center justify-between">
-        {/* Brand identity - Thinking*Room style with symbol + typography */}
+        {/* Brand identity without asterisk */}
         <Link
           href="#beranda"
-          className="group flex items-center gap-4 focus-visible:outline-2 focus-visible:outline-white"
+          className="group flex items-center focus-visible:outline-2 focus-visible:outline-slate-900"
         >
-          <span className="text-xl font-bold text-red-600 transition-transform group-hover:rotate-45 duration-300">
-            *
-          </span>
           <div className="relative h-8 w-36 sm:w-44">
             <Image
-              src="/images/brands/logo-white.webp"
+              src="/images/brands/logo.webp"
               alt={SITE_CONFIG.name}
               fill
               priority
@@ -33,16 +30,16 @@ export function Header() {
           </div>
         </Link>
 
-        {/* Minimalist studio nav */}
+        {/* Studio nav */}
         <nav
           aria-label="Navigasi Utama"
-          className="hidden items-center gap-8 lg:flex text-xs uppercase tracking-widest font-medium text-[#94A0B8]"
+          className="hidden items-center gap-8 lg:flex text-xs uppercase tracking-widest font-medium text-slate-700"
         >
           {SITE_CONFIG.navItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="hover:text-white transition-colors"
+              className="hover:text-red-600 transition-colors"
             >
               {item.label}
             </a>

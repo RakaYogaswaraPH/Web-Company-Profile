@@ -13,7 +13,7 @@ const inter = Inter({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#1E2335",
+  themeColor: "#F6F7F3",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -121,7 +121,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: safeJsonLdString }}
         />
       </head>
-      <body className={`${inter.className} min-h-dvh flex flex-col bg-[#1E2335] text-[#ECEFF5] antialiased`}>
+      <body className={`${inter.className} min-h-dvh flex flex-col bg-[#F6F7F3] text-slate-900 antialiased`}>
         {/* Skip to main content for accessibility */}
         <a
           href="#main-content"

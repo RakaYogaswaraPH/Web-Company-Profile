@@ -2,9 +2,9 @@
 
 @theme {
   --color-brand-red: #E31D28;
-  --color-bg-base: #1E2335;
-  --color-bg-alt: #171B2A;
-  --color-border-subtle: #2D344E;
+  --color-bg-base: #F6F7F3;
+  --color-bg-alt: #FFFFFF;
+  --color-border-subtle: #E2E5DC;
   --color-tr-yellow: #FEE777;
 }
 
@@ -27,8 +27,4 @@
   display: flex;
   width: max-content;
   animation: marquee 35s linear infinite;
-}
-
-.animate-marquee:hover {
-  animation-play-state: paused;
 }

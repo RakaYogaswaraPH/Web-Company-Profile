@@ -47,14 +47,14 @@ export function MobileNav({ isOpen, onToggle, onClose }: MobileNavProps) {
 
   return (
     <div className="lg:hidden">
-      {/* Hamburger button - always clean, visible, and high z-index */}
+      {/* Hamburger button - clean dark icon for light theme */}
       <button
         type="button"
         onClick={onToggle}
         aria-expanded={isOpen}
         aria-controls="mobile-navigation-drawer"
         aria-label={isOpen ? "Tutup menu navigasi" : "Buka menu navigasi"}
-        className="relative z-40 flex size-11 items-center justify-center rounded text-white hover:text-red-500 transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-white"
+        className="relative z-40 flex size-11 items-center justify-center rounded text-slate-900 hover:text-red-600 transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-slate-900"
       >
         {isOpen ? <X className="size-6" /> : <Menu className="size-6" />}
       </button>

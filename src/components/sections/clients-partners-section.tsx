@@ -4,66 +4,76 @@ import { CLIENTS, PARTNERS } from "@/content/asset-manifest";
 
 export function ClientsPartnersSection() {
   return (
-    <section id="klien-mitra" className="scroll-mt-20 bg-[#1E2335] text-white py-20 sm:py-32 border-b border-[#2D344E]">
+    <section id="klien-mitra" className="scroll-mt-20 bg-[#F6F7F3] text-slate-900 py-20 sm:py-32 border-b border-[#E2E5DC]">
       <Container>
         {/* Klien Pelanggan - Thinking*Room Works / Client Roster */}
         <div>
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-[#2D344E] pb-6 mb-12 gap-4">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-[#E2E5DC] pb-6 mb-12 gap-4">
             <div>
-              <span className="text-xs uppercase tracking-widest text-[#94A0B8] font-mono block">
+              <span className="text-xs uppercase tracking-widest text-slate-500 font-mono block font-medium">
                 Selected Client Deployments
               </span>
-              <h2 className="text-3xl sm:text-4xl font-light text-white tracking-tight mt-2">
+              <h2 className="text-3xl sm:text-4xl font-light text-slate-950 tracking-tight mt-2">
                 Klien &amp; Instansi
               </h2>
             </div>
-            <span className="text-xs font-mono text-[#717E9B]">
+            <span className="text-xs font-mono text-slate-500">
               State-Owned Enterprises &bull; Government &bull; Private
             </span>
           </div>
 
-          <div className="grid grid-cols-2 gap-px bg-[#2D344E] sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 border border-[#2D344E]">
-            {CLIENTS.map((client) => (
-              <div
-                key={client.file}
-                className="group flex h-32 sm:h-36 items-center justify-center bg-[#1E2335] p-6 hover:bg-[#252B42] transition-colors"
-              >
-                <div className="relative h-14 sm:h-16 w-full max-w-[150px] sm:max-w-[175px]">
-                  <Image
-                    src={client.path}
-                    alt={client.name}
-                    fill
-                    loading="lazy"
-                    className="object-contain transition-transform duration-300 group-hover:scale-110"
-                    sizes="(max-width: 640px) 150px, 175px"
-                  />
+          <div className="grid grid-cols-2 gap-px bg-[#E2E5DC] sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 border border-[#E2E5DC]">
+            {CLIENTS.map((client) => {
+              const isFurukawa = client.file.toLowerCase().includes("furukawa");
+
+              return (
+                <div
+                  key={client.file}
+                  className="group flex h-32 sm:h-36 items-center justify-center bg-white p-6 hover:bg-[#EEF0EA] transition-colors"
+                >
+                  <div
+                    className={
+                      isFurukawa
+                        ? "relative h-16 sm:h-20 w-full max-w-[175px] sm:max-w-[210px] scale-110 sm:scale-125"
+                        : "relative h-14 sm:h-16 w-full max-w-[150px] sm:max-w-[175px]"
+                    }
+                  >
+                    <Image
+                      src={client.path}
+                      alt={client.name}
+                      fill
+                      loading="lazy"
+                      className="object-contain transition-transform duration-300 group-hover:scale-110"
+                      sizes="(max-width: 640px) 150px, 175px"
+                    />
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 
         {/* Mitra Teknologi Global */}
         <div className="mt-24 sm:mt-32">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-[#2D344E] pb-6 mb-12 gap-4">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-[#E2E5DC] pb-6 mb-12 gap-4">
             <div>
-              <span className="text-xs uppercase tracking-widest text-[#94A0B8] font-mono block">
+              <span className="text-xs uppercase tracking-widest text-slate-500 font-mono block font-medium">
                 Technology Principals
               </span>
-              <h2 className="text-3xl sm:text-4xl font-light text-white tracking-tight mt-2">
+              <h2 className="text-3xl sm:text-4xl font-light text-slate-950 tracking-tight mt-2">
                 Mitra Perangkat &amp; Lisensi
               </h2>
             </div>
-            <span className="text-xs font-mono text-[#717E9B]">
+            <span className="text-xs font-mono text-slate-500">
               Authorized Integrations &bull; Tier-1 Hardware
             </span>
           </div>
 
-          <div className="grid grid-cols-2 gap-px bg-[#2D344E] sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 border border-[#2D344E]">
+          <div className="grid grid-cols-2 gap-px bg-[#E2E5DC] sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 border border-[#E2E5DC]">
             {PARTNERS.map((partner) => (
               <div
                 key={partner.file}
-                className="group flex h-32 sm:h-36 items-center justify-center bg-[#1E2335] p-6 hover:bg-[#252B42] transition-colors"
+                className="group flex h-32 sm:h-36 items-center justify-center bg-white p-6 hover:bg-[#EEF0EA] transition-colors"
               >
                 <div className="relative h-14 sm:h-16 w-full max-w-[150px] sm:max-w-[175px]">
                   <Image
