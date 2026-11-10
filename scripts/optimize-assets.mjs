@@ -42,27 +42,30 @@ async function ensureDir(dir) {
   }
 }
 
-async function processIcons(logoPath) {
-  console.log("Generating PWA icons from:", logoPath);
+async function processIcons(iconPath) {
+  console.log("Generating PWA icons from:", iconPath);
   await ensureDir(PUBLIC_ICONS_DIR);
 
-  const logoBuffer = await fs.promises.readFile(logoPath);
+  const iconBuffer = await fs.promises.readFile(iconPath);
+
+  // Copy raw Icons.webp to public/icons/icons.webp
+  await fs.promises.copyFile(iconPath, path.join(PUBLIC_ICONS_DIR, "icons.webp"));
 
   // 192x192 PNG
-  await sharp(logoBuffer)
+  await sharp(iconBuffer)
     .resize(192, 192, { fit: "contain", background: { r: 255, g: 255, b: 255, alpha: 0 } })
     .png()
     .toFile(path.join(PUBLIC_ICONS_DIR, "icon-192.png"));
 
   // 512x512 PNG
-  await sharp(logoBuffer)
+  await sharp(iconBuffer)
     .resize(512, 512, { fit: "contain", background: { r: 255, g: 255, b: 255, alpha: 0 } })
     .png()
     .toFile(path.join(PUBLIC_ICONS_DIR, "icon-512.png"));
 
-  // Maskable 512x512 with safe zone ~80% (410px) and white background
-  const innerLogo = await sharp(logoBuffer)
-    .resize(410, 410, { fit: "contain", background: { r: 255, g: 255, b: 255, alpha: 0 } })
+  // Maskable 512x512 with safe zone ~80% (410px) and #1E2335 background
+  const innerIcon = await sharp(iconBuffer)
+    .resize(410, 410, { fit: "contain", background: { r: 30, g: 35, b: 53, alpha: 0 } })
     .toBuffer();
 
   await sharp({
@@ -70,31 +73,54 @@ async function processIcons(logoPath) {
       width: 512,
       height: 512,
       channels: 4,
-      background: { r: 255, g: 255, b: 255, alpha: 1 },
+      background: { r: 30, g: 35, b: 53, alpha: 1 },
     },
   })
-    .composite([{ input: innerLogo, gravity: "center" }])
+    .composite([{ input: innerIcon, gravity: "center" }])
     .png()
     .toFile(path.join(PUBLIC_ICONS_DIR, "icon-maskable-512.png"));
 
   // Apple touch icon 180x180
-  await sharp(logoBuffer)
-    .resize(180, 180, { fit: "contain", background: { r: 255, g: 255, b: 255, alpha: 1 } })
+  const appleInner = await sharp(iconBuffer)
+    .resize(144, 144, { fit: "contain", background: { r: 30, g: 35, b: 53, alpha: 0 } })
+    .toBuffer();
+
+  await sharp({
+    create: {
+      width: 180,
+      height: 180,
+      channels: 4,
+      background: { r: 30, g: 35, b: 53, alpha: 1 },
+    },
+  })
+    .composite([{ input: appleInner, gravity: "center" }])
     .png()
     .toFile(path.join(PUBLIC_ICONS_DIR, "apple-touch-icon.png"));
 
-  // Favicon 32x32 PNG & 48x48 PNG
-  await sharp(logoBuffer)
+  // Favicon 32x32 PNG
+  await sharp(iconBuffer)
     .resize(32, 32, { fit: "contain", background: { r: 255, g: 255, b: 255, alpha: 0 } })
     .png()
     .toFile(path.join(PUBLIC_ICONS_DIR, "favicon-32x32.png"));
 
-  await sharp(logoBuffer)
+  // Favicon 16x16 PNG for tabs
+  await sharp(iconBuffer)
+    .resize(16, 16, { fit: "contain", background: { r: 255, g: 255, b: 255, alpha: 0 } })
+    .png()
+    .toFile(path.join(PUBLIC_ICONS_DIR, "favicon-16x16.png"));
+
+  // favicon.ico (32x32) in public and src/app
+  await sharp(iconBuffer)
     .resize(32, 32, { fit: "contain", background: { r: 255, g: 255, b: 255, alpha: 0 } })
     .png()
     .toFile(path.join(PUBLIC_DIR, "favicon.ico"));
 
-  console.log("PWA icons generated successfully.");
+  await sharp(iconBuffer)
+    .resize(32, 32, { fit: "contain", background: { r: 255, g: 255, b: 255, alpha: 0 } })
+    .png()
+    .toFile(path.join(ROOT, "src/app/favicon.ico"));
+
+  console.log("PWA and tab icons generated successfully from Icons.webp.");
 }
 
 async function optimizeFolder(subFolder, maxWidth = 400) {
@@ -254,9 +280,11 @@ async function main() {
     });
   }
 
-  // Generate PWA icons from logo
-  const logoPath = path.join(ASSETS_DIR, "Brands/Logo.webp");
-  await processIcons(logoPath);
+  // Generate PWA and tab icons from Icons.webp if present, otherwise Logo.webp
+  const iconPath = fs.existsSync(path.join(ASSETS_DIR, "Brands/Icons.webp"))
+    ? path.join(ASSETS_DIR, "Brands/Icons.webp")
+    : path.join(ASSETS_DIR, "Brands/Logo.webp");
+  await processIcons(iconPath);
 
   // Optimize Clients & Partners
   const clientResults = await optimizeFolder("Clients", 320);

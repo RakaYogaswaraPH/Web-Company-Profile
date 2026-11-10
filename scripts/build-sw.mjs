@@ -40,7 +40,9 @@ function generateSW() {
     "/icons/icon-maskable-512.png",
     "/icons/apple-touch-icon.png",
     "/icons/favicon-32x32.png",
-    "/images/brands/logo.webp",
+    "/icons/favicon-16x16.png",
+    "/icons/icons.webp",
+    "/images/brands/logo-white.webp",
   ];
 
   if (fs.existsSync(OUT_DIR)) {

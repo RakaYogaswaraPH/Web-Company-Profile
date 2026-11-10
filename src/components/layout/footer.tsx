@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { SITE_CONFIG } from "@/config/site";
 import { Container } from "@/components/ui/container";
 import { ExternalLink } from "@/components/ui/external-link";
@@ -12,14 +11,11 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-12">
           {/* Brand info */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="relative h-8 w-44">
-              <Image
-                src="/images/brands/logo-white.webp"
-                alt={SITE_CONFIG.name}
-                fill
-                className="object-contain object-left"
-                sizes="176px"
-              />
+            <div className="flex items-center gap-3">
+              <span className="text-xl font-bold text-red-600">*</span>
+              <span className="text-xl font-bold tracking-tight text-white uppercase font-mono">
+                {SITE_CONFIG.legalName}
+              </span>
             </div>
             <p className="text-sm leading-relaxed text-[#8E9BB5] max-w-sm font-light">
               {SITE_CONFIG.legalName} &mdash; Perusahaan solusi infrastruktur, jaringan enterprise, dan rekayasa perangkat lunak.

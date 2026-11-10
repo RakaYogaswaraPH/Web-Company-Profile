@@ -9,6 +9,14 @@ export interface AssetImage {
 
 export const BRANDS: AssetImage[] = [
   {
+    "name": "Icons",
+    "file": "icons.webp",
+    "path": "/images/brands/icons.webp",
+    "width": 400,
+    "height": 400,
+    "format": "webp"
+  },
+  {
     "name": "Logo",
     "file": "logo.webp",
     "path": "/images/brands/logo.webp",
@@ -20,8 +28,8 @@ export const BRANDS: AssetImage[] = [
     "name": "Teams",
     "file": "teams.webp",
     "path": "/images/brands/teams.webp",
-    "width": 547,
-    "height": 364,
+    "width": 581,
+    "height": 429,
     "format": "webp"
   }
 ];

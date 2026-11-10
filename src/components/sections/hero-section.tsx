@@ -56,16 +56,16 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* Featured Visual Frame - Clean fit so all faces and team members are clearly visible */}
-        <div className="mt-8 border border-[#2D344E] bg-[#171B2A] overflow-hidden group">
-          <div className="relative w-full aspect-[547/364] max-h-[580px] bg-[#141824] flex items-center justify-center">
+        {/* Featured Visual Frame - Clean fit & compact size so team photo is sharp, balanced, and never cropped */}
+        <div className="mt-8 mx-auto w-full max-w-4xl border border-[#2D344E] bg-[#171B2A] overflow-hidden group shadow-2xl">
+          <div className="relative w-full aspect-[581/429] max-h-[460px] bg-[#141824] flex items-center justify-center">
             <Image
               src="/images/brands/teams.webp"
               alt="PT Jamparing Masagi Engineering Team"
               fill
               priority
               className="object-contain object-center transition-transform duration-700 ease-out group-hover:scale-[1.02]"
-              sizes="(max-width: 1024px) 100vw, 1200px"
+              sizes="(max-width: 1024px) 100vw, 896px"
             />
           </div>
           {/* Metadata bar below photo - no overlapping text blocking faces */}
