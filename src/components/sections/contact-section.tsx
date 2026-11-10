@@ -2,6 +2,7 @@ import { Phone, Mail, MapPin, MessageSquare, ArrowUpRight } from "lucide-react";
 import { SITE_CONFIG } from "@/config/site";
 import { Container } from "@/components/ui/container";
 import { ExternalLink } from "@/components/ui/external-link";
+import { FadeIn } from "@/components/ui/fade-in";
 import { CONTACT_CONTENT } from "@/content/site-content";
 
 export function ContactSection() {
@@ -11,7 +12,7 @@ export function ContactSection() {
     <section id="kontak" className="scroll-mt-24 bg-slate-50 py-16 sm:py-24 border-t border-slate-200">
       <Container>
         {/* Single Primary CTA Band (bg-blue-600) permitted by Rule 02 §2 */}
-        <div className="rounded-2xl bg-blue-600 p-8 sm:p-12 lg:p-16 text-white shadow-md">
+        <FadeIn className="rounded-2xl bg-blue-600 p-8 sm:p-12 lg:p-16 text-white shadow-md">
           <div className="max-w-3xl space-y-4">
             <span className="inline-flex items-center gap-2 rounded-full bg-blue-500/50 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-blue-100">
               <span className="size-2 rounded-full bg-white" />
@@ -49,7 +50,7 @@ export function ContactSection() {
               {CONTACT_CONTENT.formNotice}
             </p>
           </div>
-        </div>
+        </FadeIn>
 
         {/* Office & Workshop Cards */}
         <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">

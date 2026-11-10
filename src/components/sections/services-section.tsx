@@ -1,6 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { SectionHeader } from "@/components/ui/section-header";
+import { FadeIn } from "@/components/ui/fade-in";
 import { SERVICES_CONTENT } from "@/content/site-content";
 
 export function ServicesSection() {
@@ -10,18 +11,21 @@ export function ServicesSection() {
       className="scroll-mt-24 border-t border-slate-200 bg-slate-50 py-16 sm:py-24"
     >
       <Container>
-        <SectionHeader
-          tag="Layanan Utama"
-          title="Solusi TIK Terarah untuk Kebutuhan Operasional Bisnis"
-          description="Dari perancangan arsitektur jaringan, instalasi perangkat keras, hingga pembangunan sistem aplikasi kustom, kami menyediakan kapabilitas end-to-end dengan dukungan SLA yang jelas."
-          align="center"
-          className="mb-12 sm:mb-16"
-        />
+        <FadeIn>
+          <SectionHeader
+            tag="Layanan Utama"
+            title="Solusi TIK Terarah untuk Kebutuhan Operasional Bisnis"
+            description="Dari perancangan arsitektur jaringan, instalasi perangkat keras, hingga pembangunan sistem aplikasi kustom, kami menyediakan kapabilitas end-to-end dengan dukungan SLA yang jelas."
+            align="center"
+            className="mb-12 sm:mb-16"
+          />
+        </FadeIn>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {SERVICES_CONTENT.map((service, index) => (
-            <div
+            <FadeIn
               key={service.id}
+              delay={index * 0.08}
               className="flex flex-col justify-between rounded-xl border border-slate-200 bg-white p-6 shadow-2xs transition-all hover:border-blue-400 hover:shadow-xs"
             >
               <div>
@@ -49,7 +53,7 @@ export function ServicesSection() {
                   {service.deliverable}
                 </p>
               </div>
-            </div>
+            </FadeIn>
           ))}
         </div>
 

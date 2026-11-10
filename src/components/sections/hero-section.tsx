@@ -2,6 +2,7 @@ import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
+import { FadeIn } from "@/components/ui/fade-in";
 import { HERO_CONTENT } from "@/content/site-content";
 
 export function HeroSection() {
@@ -13,7 +14,7 @@ export function HeroSection() {
       <Container>
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-8">
           {/* Text Column */}
-          <div className="lg:col-span-7 space-y-6">
+          <FadeIn className="lg:col-span-7 space-y-6">
             <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50/70 px-3.5 py-1.5 text-xs font-semibold text-blue-700">
               <span className="size-2 rounded-full bg-red-600" />
               <span>{HERO_CONTENT.badge}</span>
@@ -62,10 +63,10 @@ export function HeroSection() {
                 <p className="text-xs text-slate-500 font-medium">Komitmen SLA</p>
               </div>
             </div>
-          </div>
+          </FadeIn>
 
           {/* Image Column */}
-          <div className="lg:col-span-5">
+          <FadeIn delay={0.2} className="lg:col-span-5">
             <div className="relative mx-auto w-full max-w-md overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-sm sm:max-w-lg lg:max-w-none">
               <div className="aspect-4/3 w-full sm:aspect-16/11 relative">
                 <Image
@@ -86,7 +87,7 @@ export function HeroSection() {
                 </p>
               </div>
             </div>
-          </div>
+          </FadeIn>
         </div>
       </Container>
     </section>

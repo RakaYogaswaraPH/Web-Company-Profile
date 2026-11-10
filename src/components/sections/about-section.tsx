@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Container } from "@/components/ui/container";
 import { SectionHeader } from "@/components/ui/section-header";
+import { FadeIn } from "@/components/ui/fade-in";
 import { ABOUT_CONTENT } from "@/content/site-content";
 
 export function AboutSection() {
@@ -9,7 +10,7 @@ export function AboutSection() {
       <Container>
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16 items-start">
           {/* Left Column: Text & Pillars */}
-          <div className="lg:col-span-7 space-y-8">
+          <FadeIn className="lg:col-span-7 space-y-8">
             <SectionHeader
               tag={ABOUT_CONTENT.sectionTag}
               title={ABOUT_CONTENT.heading}
@@ -45,10 +46,10 @@ export function AboutSection() {
                 ))}
               </div>
             </div>
-          </div>
+          </FadeIn>
 
           {/* Right Column: Stats & Secondary Photo View */}
-          <div className="lg:col-span-5 space-y-6">
+          <FadeIn delay={0.15} className="lg:col-span-5 space-y-6">
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 sm:p-8">
               <h3 className="text-sm font-semibold tracking-wider text-slate-900 uppercase">
                 Kapasitas Operasional
@@ -86,7 +87,7 @@ export function AboutSection() {
                 Dukungan teknisi standby di kantor Graha DLA & Workshop Cimahi.
               </div>
             </div>
-          </div>
+          </FadeIn>
         </div>
       </Container>
     </section>
