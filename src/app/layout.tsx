@@ -4,6 +4,7 @@ import { SITE_CONFIG } from "@/config/site";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { MotionProvider } from "@/components/layout/motion-provider";
+import { ServiceWorkerRegister } from "@/components/layout/service-worker-register";
 import "./globals.css";
 
 const inter = Inter({
@@ -133,6 +134,7 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
+          <ServiceWorkerRegister />
         </MotionProvider>
       </body>
     </html>
