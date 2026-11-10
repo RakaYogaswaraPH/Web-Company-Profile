@@ -12,16 +12,16 @@ export function Header() {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-30 w-full border-b border-slate-200/80 bg-white/95 backdrop-blur-md transition-colors">
+    <header className="sticky top-0 z-30 w-full border-b border-slate-800/80 bg-[#0B0F19]/90 backdrop-blur-md transition-colors">
       <Container className="flex h-20 items-center justify-between">
-        {/* Brand logo */}
+        {/* Brand logo with original crisp white version */}
         <Link
           href="#beranda"
-          className="group flex items-center gap-3 focus-visible:outline-2 focus-visible:outline-blue-600 focus-visible:outline-offset-4 rounded-md"
+          className="group flex items-center gap-3 focus-visible:outline-2 focus-visible:outline-red-500 focus-visible:outline-offset-4 rounded-md"
         >
           <div className="relative h-10 w-36 sm:w-44">
             <Image
-              src="/images/brands/logo.webp"
+              src="/images/brands/logo-white.webp"
               alt={SITE_CONFIG.name}
               fill
               priority
@@ -40,7 +40,7 @@ export function Header() {
             <a
               key={item.href}
               href={item.href}
-              className="rounded-lg px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-blue-700 focus-visible:outline-2 focus-visible:outline-blue-600 transition-colors"
+              className="rounded-lg px-4 py-2 text-sm font-medium text-slate-300 hover:bg-slate-800/70 hover:text-white focus-visible:outline-2 focus-visible:outline-red-500 transition-colors"
             >
               {item.label}
             </a>

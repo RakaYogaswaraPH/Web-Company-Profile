@@ -6,7 +6,7 @@ import { CLIENTS_CONTENT, PARTNERS_CONTENT } from "@/content/site-content";
 
 export function ClientsPartnersSection() {
   return (
-    <section id="klien-mitra" className="scroll-mt-24 bg-white py-16 sm:py-24">
+    <section id="klien-mitra" className="scroll-mt-24 bg-[#0B0F19] py-16 sm:py-24 border-b border-slate-800">
       <Container>
         {/* Klien / Pelanggan */}
         <div>
@@ -22,7 +22,7 @@ export function ClientsPartnersSection() {
             {CLIENTS.map((client) => (
               <div
                 key={client.file}
-                className="group flex h-24 items-center justify-center rounded-xl border border-slate-200 bg-white p-4 transition-all hover:border-blue-400 hover:shadow-xs"
+                className="group flex h-24 items-center justify-center rounded-xl border border-slate-800 bg-[#111827] p-4 transition-all hover:border-slate-600 hover:bg-[#161F32]"
               >
                 <div className="relative h-12 w-full max-w-[120px]">
                   <Image
@@ -30,7 +30,7 @@ export function ClientsPartnersSection() {
                     alt={client.name}
                     fill
                     loading="eager"
-                    className="object-contain filter grayscale group-hover:grayscale-0 transition-all"
+                    className="object-contain filter grayscale contrast-125 brightness-150 opacity-70 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-300"
                     sizes="120px"
                   />
                 </div>
@@ -40,7 +40,7 @@ export function ClientsPartnersSection() {
         </div>
 
         {/* Pemisah halus */}
-        <hr className="my-16 sm:my-20 border-slate-200" />
+        <hr className="my-16 sm:my-20 border-slate-800" />
 
         {/* Mitra / Distributor Global */}
         <div>
@@ -56,7 +56,7 @@ export function ClientsPartnersSection() {
             {PARTNERS.map((partner) => (
               <div
                 key={partner.file}
-                className="group flex h-24 items-center justify-center rounded-xl border border-slate-200 bg-white p-4 transition-all hover:border-red-400 hover:shadow-xs"
+                className="group flex h-24 items-center justify-center rounded-xl border border-slate-800 bg-[#111827] p-4 transition-all hover:border-red-500/50 hover:bg-[#161F32]"
               >
                 <div className="relative h-12 w-full max-w-[120px]">
                   <Image
@@ -64,7 +64,7 @@ export function ClientsPartnersSection() {
                     alt={partner.name}
                     fill
                     loading="eager"
-                    className="object-contain filter grayscale group-hover:grayscale-0 transition-all"
+                    className="object-contain filter grayscale contrast-125 brightness-150 opacity-70 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-300"
                     sizes="120px"
                   />
                 </div>

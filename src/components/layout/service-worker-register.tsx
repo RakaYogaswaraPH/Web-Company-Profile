@@ -38,18 +38,21 @@ export function ServiceWorkerRegister() {
   );
 
   useEffect(() => {
-    // Only register service worker in production
-    if (process.env.NODE_ENV === "production" && "serviceWorker" in navigator) {
-      window.addEventListener("load", () => {
+    if ("serviceWorker" in navigator) {
+      const registerSW = () => {
         navigator.serviceWorker
           .register("/sw.js")
-          .then((registration) => {
-            console.log("Service Worker registered successfully:", registration.scope);
-          })
-          .catch((error) => {
-            console.error("Service Worker registration failed:", error);
+          .catch(() => {
+            // SW registration silently handled
           });
-      });
+      };
+
+      if (document.readyState === "complete") {
+        registerSW();
+      } else {
+        window.addEventListener("load", registerSW);
+        return () => window.removeEventListener("load", registerSW);
+      }
     }
 
     // Capture install prompt for Chromium
@@ -82,18 +85,18 @@ export function ServiceWorkerRegister() {
       {showInstallBanner && deferredPrompt && (
         <aside
           aria-label="Pemasangan Aplikasi"
-          className="fixed bottom-4 right-4 z-40 max-w-sm rounded-xl border border-blue-200 bg-white p-4 shadow-xl"
+          className="fixed bottom-4 right-4 z-40 max-w-sm rounded-xl border border-slate-700 bg-[#111827] p-4 text-slate-100 shadow-2xl"
         >
           <div className="flex items-start justify-between gap-3">
             <div className="flex items-start gap-3">
-              <div className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
+              <div className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-blue-950/80 text-blue-400 border border-blue-900">
                 <Download className="size-5" />
               </div>
               <div>
-                <p className="text-sm font-semibold text-slate-900">
+                <p className="text-sm font-semibold text-white">
                   Pasang Aplikasi Web
                 </p>
-                <p className="mt-0.5 text-xs text-slate-600">
+                <p className="mt-0.5 text-xs text-slate-400">
                   Akses profil PT Jamparing Masagi langsung dari layar utama perangkat Anda.
                 </p>
               </div>
@@ -102,7 +105,7 @@ export function ServiceWorkerRegister() {
               type="button"
               onClick={() => setShowInstallBanner(false)}
               aria-label="Tutup notifikasi pasang aplikasi"
-              className="text-slate-400 hover:text-slate-600 cursor-pointer"
+              className="text-slate-400 hover:text-white cursor-pointer"
             >
               <X className="size-4" />
             </button>
@@ -111,14 +114,14 @@ export function ServiceWorkerRegister() {
             <button
               type="button"
               onClick={() => setShowInstallBanner(false)}
-              className="rounded-lg px-3 py-1.5 text-xs font-medium text-slate-600 hover:bg-slate-100 cursor-pointer"
+              className="rounded-lg px-3 py-1.5 text-xs font-medium text-slate-400 hover:text-white cursor-pointer"
             >
               Nanti saja
             </button>
             <button
               type="button"
               onClick={handleInstallClick}
-              className="rounded-lg bg-blue-600 px-3.5 py-1.5 text-xs font-semibold text-white hover:bg-blue-700 cursor-pointer shadow-2xs"
+              className="rounded-lg bg-red-600 px-3.5 py-1.5 text-xs font-semibold text-white hover:bg-red-700 cursor-pointer shadow-2xs"
             >
               Pasang Sekarang
             </button>
@@ -131,9 +134,9 @@ export function ServiceWorkerRegister() {
         <button
           type="button"
           onClick={() => setShowIOSHint(true)}
-          className="fixed bottom-4 right-4 z-40 inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3.5 py-2 text-xs font-medium text-slate-700 shadow-md hover:bg-slate-50 cursor-pointer"
+          className="fixed bottom-4 right-4 z-40 inline-flex items-center gap-1.5 rounded-full border border-slate-700 bg-[#111827] px-3.5 py-2 text-xs font-medium text-slate-300 shadow-md hover:bg-slate-800 cursor-pointer"
         >
-          <Share className="size-3.5 text-blue-600" />
+          <Share className="size-3.5 text-red-500" />
           <span>Pasang di iPhone / iPad</span>
         </button>
       )}
@@ -141,20 +144,20 @@ export function ServiceWorkerRegister() {
       {isIOS && showIOSHint && (
         <aside
           aria-label="Panduan Pasang di iOS"
-          className="fixed bottom-4 right-4 z-40 max-w-xs rounded-xl border border-slate-200 bg-white p-4 text-xs text-slate-700 shadow-xl"
+          className="fixed bottom-4 right-4 z-40 max-w-xs rounded-xl border border-slate-700 bg-[#111827] p-4 text-xs text-slate-300 shadow-2xl"
         >
-          <div className="flex items-center justify-between font-semibold text-slate-900">
+          <div className="flex items-center justify-between font-semibold text-white">
             <span>Pasang di Layar Utama iOS:</span>
             <button
               type="button"
               onClick={() => setShowIOSHint(false)}
               aria-label="Tutup petunjuk iOS"
-              className="text-slate-400 hover:text-slate-600 cursor-pointer"
+              className="text-slate-400 hover:text-white cursor-pointer"
             >
               <X className="size-4" />
             </button>
           </div>
-          <ol className="mt-2.5 list-decimal space-y-1 pl-4 text-slate-600">
+          <ol className="mt-2.5 list-decimal space-y-1 pl-4 text-slate-400">
             <li>Tekan tombol Bagikan (Share) di Safari</li>
             <li>Gulir ke bawah dan pilih &quot;Tambah ke Layar Utama&quot;</li>
           </ol>

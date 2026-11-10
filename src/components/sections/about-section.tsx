@@ -6,7 +6,7 @@ import { ABOUT_CONTENT } from "@/content/site-content";
 
 export function AboutSection() {
   return (
-    <section id="tentang" className="scroll-mt-24 bg-white py-16 sm:py-24">
+    <section id="tentang" className="scroll-mt-24 bg-[#0B0F19] py-16 sm:py-24 border-b border-slate-800">
       <Container>
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16 items-start">
           {/* Left Column: Text & Pillars */}
@@ -16,30 +16,30 @@ export function AboutSection() {
               title={ABOUT_CONTENT.heading}
             />
 
-            <div className="space-y-4 text-base leading-relaxed text-slate-700">
+            <div className="space-y-4 text-base leading-relaxed text-slate-300">
               {ABOUT_CONTENT.paragraphs.map((p, index) => (
                 <p key={index}>{p}</p>
               ))}
             </div>
 
-            {/* 4 Pillars Grid */}
-            <div className="pt-4 border-t border-slate-200">
-              <h3 className="text-sm font-semibold tracking-wider text-slate-900 uppercase mb-6">
-                Prinsip Pengerjaan Kami
+            {/* 4 Pillars Grid - Citcom-style cards with red accent */}
+            <div className="pt-4 border-t border-slate-800">
+              <h3 className="text-xs font-mono font-semibold tracking-wider text-slate-400 uppercase mb-6">
+                {"//"} Prinsip Pengerjaan Kami
               </h3>
-              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 {ABOUT_CONTENT.pillars.map((pillar) => (
                   <div
                     key={pillar.title}
-                    className="rounded-xl border border-slate-200 bg-slate-50/60 p-5 transition-colors hover:border-blue-300 hover:bg-blue-50/30"
+                    className="group rounded-xl border border-slate-800 bg-[#111827] p-5 transition-all hover:border-red-500/50 hover:bg-[#161F32]"
                   >
                     <div className="flex items-center gap-2 mb-2">
-                      <span className="size-1.5 rounded-full bg-red-600 shrink-0" />
-                      <h4 className="font-semibold text-slate-900 text-sm">
+                      <span className="size-1.5 rounded-full bg-red-500 shrink-0 group-hover:scale-125 transition-transform" />
+                      <h4 className="font-semibold text-white text-sm">
                         {pillar.title}
                       </h4>
                     </div>
-                    <p className="text-xs leading-relaxed text-slate-600">
+                    <p className="text-xs leading-relaxed text-slate-400">
                       {pillar.description}
                     </p>
                   </div>
@@ -50,21 +50,21 @@ export function AboutSection() {
 
           {/* Right Column: Stats & Secondary Photo View */}
           <FadeIn delay={0.15} className="lg:col-span-5 space-y-6">
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 sm:p-8">
-              <h3 className="text-sm font-semibold tracking-wider text-slate-900 uppercase">
-                Kapasitas Operasional
+            <div className="rounded-2xl border border-slate-800 bg-[#111827] p-6 sm:p-8">
+              <h3 className="text-xs font-mono font-semibold tracking-wider text-slate-400 uppercase">
+                {"//"} Kapasitas Operasional
               </h3>
-              <div className="mt-6 space-y-6 divide-y divide-slate-200">
+              <div className="mt-6 space-y-6 divide-y divide-slate-800">
                 {ABOUT_CONTENT.stats.map((stat, idx) => (
                   <div key={stat.label} className={idx > 0 ? "pt-6" : ""}>
-                    <p className="text-3xl font-bold tracking-tight text-blue-600">
+                    <p className="text-3xl font-mono font-bold tracking-tight text-red-500 sm:text-4xl">
                       {stat.value}
                     </p>
-                    <p className="mt-1 font-semibold text-slate-900 text-sm">
+                    <p className="mt-1 font-semibold text-white text-sm">
                       {stat.label}
                     </p>
                     {stat.description && (
-                      <p className="mt-1 text-xs text-slate-500">
+                      <p className="mt-1 text-xs text-slate-400">
                         {stat.description}
                       </p>
                     )}
@@ -73,17 +73,17 @@ export function AboutSection() {
               </div>
             </div>
 
-            <div className="overflow-hidden rounded-2xl border border-slate-200">
+            <div className="overflow-hidden rounded-2xl border border-slate-800 bg-[#111827]">
               <div className="aspect-4/3 relative w-full">
                 <Image
                   src="/images/brands/teams.webp"
                   alt="Keluarga Besar PT Jamparing Masagi"
                   fill
-                  className="object-cover object-center"
+                  className="object-cover object-center filter brightness-95"
                   sizes="(max-width: 1024px) 100vw, 400px"
                 />
               </div>
-              <div className="bg-slate-100 px-4 py-3 text-xs text-slate-600">
+              <div className="bg-[#111827] px-4 py-3 text-xs text-slate-400 border-t border-slate-800">
                 Dukungan teknisi standby di kantor Graha DLA & Workshop Cimahi.
               </div>
             </div>
