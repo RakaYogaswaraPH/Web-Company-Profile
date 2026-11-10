@@ -55,6 +55,7 @@ const server = http.createServer((req, res) => {
   fs.createReadStream(filePath).pipe(res);
 });
 
-server.listen(PORT, () => {
+server.listen(PORT, "0.0.0.0", () => {
   console.log(`Preview server running at http://localhost:${PORT}`);
+  console.log(`Network access: http://<your-ip>:${PORT}`);
 });
