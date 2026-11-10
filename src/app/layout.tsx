@@ -5,6 +5,7 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { MotionProvider } from "@/components/layout/motion-provider";
 import { ServiceWorkerRegister } from "@/components/layout/service-worker-register";
+import { ScrollProgress } from "@/components/ui/scroll-progress";
 import "./globals.css";
 
 const inter = Inter({
@@ -131,6 +132,7 @@ export default function RootLayout({
         </a>
 
         <MotionProvider>
+          <ScrollProgress />
           <Header />
           <main id="main-content" className="flex-1">
             {children}
