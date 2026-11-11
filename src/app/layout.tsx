@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/footer";
 import { MotionProvider } from "@/components/layout/motion-provider";
 import { ServiceWorkerRegister } from "@/components/layout/service-worker-register";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
+import { Preloader } from "@/components/ui/preloader";
 import "./globals.css";
 
 const inter = Inter({
@@ -123,6 +124,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.className} min-h-dvh flex flex-col bg-[#F6F7F3] text-slate-900 antialiased`}>
+        <Preloader />
         {/* Skip to main content for accessibility */}
         <a
           href="#main-content"
