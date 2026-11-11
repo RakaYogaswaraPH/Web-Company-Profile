@@ -11,7 +11,7 @@ export function BrandStripSection() {
       <Container>
         <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-[#E2E5DC] pb-5 mb-8 gap-4">
           <p className="text-xs uppercase tracking-widest text-slate-600 font-mono font-medium">
-            Kemitraan Teknologi &amp; Implementasi
+            Mitra &amp; Klien
           </p>
           <span className="text-xs font-mono text-slate-500">
             Prinsipal Global &amp; Standar Enterprise

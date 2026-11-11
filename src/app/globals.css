@@ -14,6 +14,23 @@
   color: #FFFFFF;
 }
 
+/* Lenis inertial smooth scroll styles */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
 /* Custom slim scrollbar — hide default, show minimal track */
 ::-webkit-scrollbar {
   width: 4px;

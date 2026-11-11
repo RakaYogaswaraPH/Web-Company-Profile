@@ -37,7 +37,7 @@ export function HeroSection() {
                   Pendekatan Kerja
                 </p>
                 <p className="text-sm text-slate-700 leading-relaxed font-light">
-                  Mendampingi BUMN, instansi pemerintah, dan swasta dari tahap audit arsitektur hingga pemeliharaan SLA tanpa celah.
+                  Kami bermitra dengan perusahaan diberbagai bidang teknologi terpercaya untuk menjamin kualitas produk dan layanan yang kami berikan kepada klien.
                 </p>
               </div>
 

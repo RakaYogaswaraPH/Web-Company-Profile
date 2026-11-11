@@ -5,7 +5,7 @@ import { createPortal } from "react-dom";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { SITE_CONFIG } from "@/config/site";
-import { smoothScrollTo } from "@/lib/smooth-scroll";
+import { smoothScrollTo, getLenisInstance } from "@/lib/smooth-scroll";
 
 interface MobileNavProps {
   readonly isOpen: boolean;
@@ -63,6 +63,7 @@ export function MobileNav({ isOpen, onToggle, onClose }: MobileNavProps) {
       const sbw = window.innerWidth - document.documentElement.clientWidth;
       document.body.style.paddingRight = sbw > 0 ? `${sbw}px` : "";
       document.body.style.overflow = "hidden";
+      getLenisInstance()?.stop();
 
       // Two rAF frames: ensure drawer is painted before transition starts
       const raf = requestAnimationFrame(() =>
@@ -78,6 +79,7 @@ export function MobileNav({ isOpen, onToggle, onClose }: MobileNavProps) {
       // Restore scroll immediately (prevents layout jump during close)
       document.body.style.overflow = "";
       document.body.style.paddingRight = "";
+      getLenisInstance()?.start();
 
       if (drawerRef.current) {
         drawerRef.current.style.opacity = "0";
@@ -148,6 +150,7 @@ export function MobileNav({ isOpen, onToggle, onClose }: MobileNavProps) {
         createPortal(
           <div
             id="mobile-navigation-drawer"
+            data-lenis-prevent
             role="dialog"
             aria-modal="true"
             aria-label="Menu navigasi mobile"

@@ -4,6 +4,7 @@ import { SITE_CONFIG } from "@/config/site";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { MotionProvider } from "@/components/layout/motion-provider";
+import { SmoothScrollProvider } from "@/components/layout/smooth-scroll-provider";
 import { ServiceWorkerRegister } from "@/components/layout/service-worker-register";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
 import { Preloader } from "@/components/ui/preloader";
@@ -134,13 +135,15 @@ export default function RootLayout({
         </a>
 
         <MotionProvider>
-          <ScrollProgress />
-          <Header />
-          <main id="main-content" className="flex-1">
-            {children}
-          </main>
-          <Footer />
-          <ServiceWorkerRegister />
+          <SmoothScrollProvider>
+            <ScrollProgress />
+            <Header />
+            <main id="main-content" className="flex-1">
+              {children}
+            </main>
+            <Footer />
+            <ServiceWorkerRegister />
+          </SmoothScrollProvider>
         </MotionProvider>
       </body>
     </html>

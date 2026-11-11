@@ -4,7 +4,7 @@ export const HERO_CONTENT = {
   badge: "Penyedia Solusi TIK Terintegrasi",
   headline: "Infrastruktur & Sistem Informasi untuk Skala Perusahaan",
   subheadline:
-    "PT Jamparing Masagi mendampingi BUMN, instansi pemerintah, dan perusahaan swasta dalam perancangan jaringan data, pembangunan aplikasi, hingga pengamanan sistem operasional.",
+    "PT Jamparing Masagi membangun kerja sama dengan BUMN, instansi pemerintah, dan perusahaan swasta dalam merencanakan dan membangun infrastruktur jaringan dan juga layanan operasional.",
   ctaPrimary: {
     label: "Hubungi Tim Kami",
     href: "#kontak",

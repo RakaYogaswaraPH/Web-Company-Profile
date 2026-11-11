@@ -55,7 +55,7 @@ export function AboutSection() {
               </h3>
             </div>
             <span className="text-xs font-mono text-slate-500">
-              Sistematis &bull; Terstandar &bull; Akuntabel
+              Sistematis &bull; Terstandar &bull; Terpercaya
             </span>
           </div>
 
