@@ -148,7 +148,7 @@ export function ServicesSection() {
 
                         <div className="pt-3 border-t border-[#E2E5DC] flex items-center justify-between">
                           <span className="text-xs text-slate-500 font-mono">
-                            Siap implementasi skala korporasi &amp; BUMN
+                            Siap implementasi skala perusahaan &amp; BUMN
                           </span>
                           <a
                             href="#kontak"

@@ -4,7 +4,7 @@ export const HERO_CONTENT = {
   badge: "Penyedia Solusi TIK Terintegrasi",
   headline: "Infrastruktur & Sistem Informasi untuk Skala Perusahaan",
   subheadline:
-    "PT Jamparing Masagi mendampingi BUMN, instansi pemerintah, dan korporasi swasta dalam perancangan jaringan data, pembangunan aplikasi, hingga pengamanan sistem operasional.",
+    "PT Jamparing Masagi mendampingi BUMN, instansi pemerintah, dan perusahaan swasta dalam perancangan jaringan data, pembangunan aplikasi, hingga pengamanan sistem operasional.",
   ctaPrimary: {
     label: "Hubungi Tim Kami",
     href: "#kontak",
@@ -112,7 +112,7 @@ export const CLIENTS_CONTENT = {
   sectionTag: "Portfolio Klien",
   heading: "Instansi & Perusahaan yang Telah Bekerja Sama",
   description:
-    "Kami dipercaya oleh lembaga pemerintahan, universitas, BUMN terkemuka, dan korporasi swasta untuk kebutuhan TIK mereka.",
+    "Kami dipercaya oleh lembaga pemerintahan, universitas, BUMN terkemuka, dan perusahaan swasta untuk kebutuhan TIK mereka.",
 } as const;
 
 export const PARTNERS_CONTENT = {

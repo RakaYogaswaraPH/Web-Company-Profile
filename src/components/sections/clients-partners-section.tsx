@@ -65,7 +65,7 @@ export function ClientsPartnersSection() {
               </h2>
             </div>
             <span className="text-xs font-mono text-slate-500">
-              BUMN &bull; Instansi Pemerintah &bull; Korporasi Swasta
+              BUMN &bull; Instansi Pemerintah &bull; Perusahaan Swasta
             </span>
           </div>
 
