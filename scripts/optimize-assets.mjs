@@ -63,9 +63,9 @@ async function processIcons(iconPath) {
     .png()
     .toFile(path.join(PUBLIC_ICONS_DIR, "icon-512.png"));
 
-  // Maskable 512x512 with safe zone ~80% (410px) and #1E2335 background
+  // Maskable 512x512 with safe zone ~80% (410px) and transparent background (pure red logo only)
   const innerIcon = await sharp(iconBuffer)
-    .resize(410, 410, { fit: "contain", background: { r: 30, g: 35, b: 53, alpha: 0 } })
+    .resize(410, 410, { fit: "contain", background: { r: 255, g: 255, b: 255, alpha: 0 } })
     .toBuffer();
 
   await sharp({
@@ -73,16 +73,16 @@ async function processIcons(iconPath) {
       width: 512,
       height: 512,
       channels: 4,
-      background: { r: 30, g: 35, b: 53, alpha: 1 },
+      background: { r: 255, g: 255, b: 255, alpha: 0 },
     },
   })
     .composite([{ input: innerIcon, gravity: "center" }])
     .png()
     .toFile(path.join(PUBLIC_ICONS_DIR, "icon-maskable-512.png"));
 
-  // Apple touch icon 180x180
+  // Apple touch icon 180x180 - transparent background
   const appleInner = await sharp(iconBuffer)
-    .resize(144, 144, { fit: "contain", background: { r: 30, g: 35, b: 53, alpha: 0 } })
+    .resize(144, 144, { fit: "contain", background: { r: 255, g: 255, b: 255, alpha: 0 } })
     .toBuffer();
 
   await sharp({
@@ -90,7 +90,7 @@ async function processIcons(iconPath) {
       width: 180,
       height: 180,
       channels: 4,
-      background: { r: 30, g: 35, b: 53, alpha: 1 },
+      background: { r: 255, g: 255, b: 255, alpha: 0 },
     },
   })
     .composite([{ input: appleInner, gravity: "center" }])
