@@ -39,7 +39,7 @@ export const CLIENTS: AssetImage[] = [
     "name": "Allied Telesis",
     "file": "allied-telesis.webp",
     "path": "/images/clients/allied-telesis.webp",
-    "width": 320,
+    "width": 220,
     "height": 36,
     "format": "webp"
   },
