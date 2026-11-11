@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { SITE_CONFIG } from "@/config/site";
 
@@ -162,9 +163,15 @@ export function MobileNav({ isOpen, onToggle, onClose }: MobileNavProps) {
           >
             {/* Header */}
             <div className="flex items-center justify-between border-b border-slate-200 pb-6">
-              <span className="font-bold text-xl tracking-tight text-slate-900">
-                PT Jamparing Masagi
-              </span>
+              <div className="relative h-8 w-36 sm:w-40">
+                <Image
+                  src="/images/brands/logo.webp"
+                  alt={SITE_CONFIG.name}
+                  fill
+                  className="object-contain object-left"
+                  sizes="160px"
+                />
+              </div>
               <button
                 type="button"
                 onClick={onClose}
