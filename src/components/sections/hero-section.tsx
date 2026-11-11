@@ -9,46 +9,49 @@ export function HeroSection() {
   return (
     <section
       id="beranda"
-      className="relative min-h-[90dvh] flex flex-col justify-between overflow-hidden bg-[#F6F7F3] text-slate-900 pt-12 pb-16 sm:pt-20 sm:pb-24 border-b border-[#E2E5DC]"
+      className="relative min-h-[90dvh] flex flex-col justify-between overflow-hidden bg-[#F6F7F3] text-slate-900 pt-8 pb-16 sm:pt-16 sm:pb-24 border-b border-[#E2E5DC]"
     >
       <Container className="grow flex flex-col justify-between">
-        {/* Top Ticker / Meta text - Thinking*Room style in clean Indonesian */}
-        <div className="flex items-center justify-between border-b border-[#E2E5DC] pb-6 text-xs uppercase tracking-widest text-slate-500 font-mono">
-          <span>PT Jamparing Masagi — Bandung &amp; Cimahi</span>
-          <span className="hidden sm:inline">Infrastruktur TIK &amp; Sistem Skala Enterprise</span>
-          <span>DIDIRIKAN // 01</span>
+        {/* Top Ticker / Meta text - Clean single-line layout on mobile and desktop */}
+        <div className="flex items-center justify-between border-b border-[#E2E5DC] pb-3 sm:pb-6 text-[10px] sm:text-xs uppercase tracking-widest text-slate-500 font-mono">
+          <span>
+            <span className="sm:hidden">PT Jamparing Masagi</span>
+            <span className="hidden sm:inline">PT Jamparing Masagi &mdash; Bandung &amp; Cimahi</span>
+          </span>
+          <span className="hidden md:inline text-slate-400">Infrastruktur TIK &amp; Sistem Skala Enterprise</span>
+          <span className="text-slate-400 shrink-0 font-medium">DIDIRIKAN // 01</span>
         </div>
 
-        {/* Big Editorial Headline - directly placed, NO PILLS, NO CARDS, NO DOTS */}
-        <div className="my-auto py-12 lg:py-20">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
-            <div className="lg:col-span-8 space-y-8">
-              <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-light tracking-tight text-slate-950 leading-[1.05] text-balance">
+        {/* Big Editorial Headline - Centered on Mobile, Left-aligned on Desktop */}
+        <div className="my-auto py-8 sm:py-12 lg:py-20">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end">
+            <div className="lg:col-span-8 space-y-6 sm:space-y-8 text-center lg:text-left">
+              <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-light tracking-tight text-slate-950 leading-[1.08] text-balance mx-auto lg:mx-0">
                 More Than Just ICT Solution.
               </h1>
-              <p className="max-w-2xl text-lg sm:text-xl font-light text-slate-600 leading-relaxed">
+              <p className="max-w-2xl text-base sm:text-lg lg:text-xl font-light text-slate-600 leading-relaxed mx-auto lg:mx-0">
                 {HERO_CONTENT.subheadline}
               </p>
             </div>
 
-            <div className="lg:col-span-4 flex flex-col justify-end space-y-6">
-              <div className="border-l border-slate-300 pl-6 space-y-3">
-                <p className="text-xs uppercase tracking-widest text-slate-500 font-mono">
+            <div className="lg:col-span-4 flex flex-col justify-end space-y-6 text-center lg:text-left">
+              <div className="border-l-0 lg:border-l border-slate-300 pl-0 lg:pl-6 space-y-2 sm:space-y-3 mx-auto lg:mx-0 max-w-md lg:max-w-none">
+                <p className="text-[11px] sm:text-xs uppercase tracking-widest text-slate-500 font-mono">
                   Pendekatan Kerja
                 </p>
-                <p className="text-sm text-slate-700 leading-relaxed font-light">
+                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-light">
                   Kami bermitra dengan perusahaan diberbagai bidang teknologi terpercaya untuk menjamin kualitas produk dan layanan yang kami berikan kepada klien.
                 </p>
               </div>
 
-              <div className="flex items-center gap-4 pt-2">
+              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-2">
                 <a
                   href="#layanan"
                   onClick={(e) => {
                     e.preventDefault();
                     smoothScrollTo("layanan");
                   }}
-                  className="inline-flex items-center justify-center bg-slate-950 text-white hover:bg-red-600 px-8 py-3.5 text-xs font-semibold uppercase tracking-widest transition-colors duration-300 cursor-pointer"
+                  className="w-full sm:w-auto inline-flex items-center justify-center bg-slate-950 text-white hover:bg-red-600 px-8 py-3.5 text-xs font-semibold uppercase tracking-widest transition-colors duration-300 cursor-pointer"
                 >
                   Jelajahi Layanan
                 </a>
@@ -58,7 +61,7 @@ export function HeroSection() {
                     e.preventDefault();
                     smoothScrollTo("kontak");
                   }}
-                  className="inline-flex items-center justify-center border border-slate-400 text-slate-900 hover:border-slate-950 hover:bg-slate-100 px-8 py-3.5 text-xs font-semibold uppercase tracking-widest transition-colors duration-300 cursor-pointer"
+                  className="w-full sm:w-auto inline-flex items-center justify-center border border-slate-400 text-slate-900 hover:border-slate-950 hover:bg-slate-100 px-8 py-3.5 text-xs font-semibold uppercase tracking-widest transition-colors duration-300 cursor-pointer"
                 >
                   Hubungi Kami
                 </a>

@@ -21,6 +21,9 @@ const MIME_TYPES = {
   ".webp": "image/webp",
   ".svg": "image/svg+xml",
   ".ico": "image/x-icon",
+  ".woff2": "font/woff2",
+  ".woff": "font/woff",
+  ".ttf": "font/ttf",
   ".txt": "text/plain; charset=utf-8",
 };
 
@@ -42,7 +45,10 @@ const server = http.createServer((req, res) => {
   if (!fs.existsSync(filePath)) {
     const notFound = path.join(OUT_DIR, "404.html");
     if (fs.existsSync(notFound)) {
-      res.writeHead(404, { "Content-Type": "text/html; charset=utf-8" });
+      res.writeHead(404, {
+        "Content-Type": "text/html; charset=utf-8",
+        "Cache-Control": "no-cache",
+      });
       fs.createReadStream(notFound).pipe(res);
       return;
     }
@@ -56,11 +62,17 @@ const server = http.createServer((req, res) => {
 
   const headers = {
     "Content-Type": contentType,
+    "X-Content-Type-Options": "nosniff",
   };
 
-  // Cache headers for static immutable next.js bundles & images
-  if (urlPath.startsWith("/_next/static/") || ext === ".webp" || ext === ".svg") {
+  // High-performance cache headers
+  if (
+    urlPath.startsWith("/_next/static/") ||
+    [".webp", ".svg", ".png", ".jpg", ".jpeg", ".ico", ".woff2", ".woff"].includes(ext)
+  ) {
     headers["Cache-Control"] = "public, max-age=31536000, immutable";
+  } else if (ext === ".html" || urlPath === "/" || urlPath.endsWith("/")) {
+    headers["Cache-Control"] = "public, max-age=0, must-revalidate";
   } else {
     headers["Cache-Control"] = "public, max-age=3600, must-revalidate";
   }
@@ -70,10 +82,20 @@ const server = http.createServer((req, res) => {
     contentType.startsWith("text/") ||
     contentType.includes("javascript") ||
     contentType.includes("json") ||
-    contentType.includes("svg");
+    contentType.includes("svg") ||
+    ext === ".html" ||
+    ext === ".css" ||
+    ext === ".js" ||
+    ext === ".json";
 
-  if (isCompressible && acceptEncoding.includes("gzip")) {
+  if (isCompressible && acceptEncoding.includes("br")) {
+    headers["Content-Encoding"] = "br";
+    headers["Vary"] = "Accept-Encoding";
+    res.writeHead(200, headers);
+    fs.createReadStream(filePath).pipe(zlib.createBrotliCompress()).pipe(res);
+  } else if (isCompressible && acceptEncoding.includes("gzip")) {
     headers["Content-Encoding"] = "gzip";
+    headers["Vary"] = "Accept-Encoding";
     res.writeHead(200, headers);
     fs.createReadStream(filePath).pipe(zlib.createGzip()).pipe(res);
   } else {
