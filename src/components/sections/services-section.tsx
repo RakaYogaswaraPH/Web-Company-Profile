@@ -35,7 +35,7 @@ export function ServicesSection() {
               Solusi &amp; Layanan TIK
             </h2>
           </div>
-          <p className="max-w-md text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
+          <p className="max-w-md text-sm sm:text-base text-slate-600 font-light leading-relaxed">
             Perancangan, instalasi fisik, hingga arsitektur perangkat lunak dengan pendekatan berorientasi SLA jangka panjang.
           </p>
         </div>
@@ -81,7 +81,7 @@ export function ServicesSection() {
                   </div>
 
                   <div className="lg:col-span-4">
-                    <p className="text-sm text-slate-600 font-light leading-relaxed">
+                    <p className="text-sm sm:text-base text-slate-600 font-light leading-relaxed">
                       {service.summary}
                     </p>
                   </div>
@@ -178,7 +178,7 @@ export function ServicesSection() {
             <h4 className="text-lg font-medium text-slate-950">
               Penyusunan KAK &amp; Spesifikasi BoQ Pengadaan
             </h4>
-            <p className="text-xs text-slate-500 font-mono mt-1">
+            <p className="text-sm text-slate-500 font-light mt-1.5">
               Konsultasi teknis awal bersama tenaga ahli jaringan &amp; sistem bersertifikasi kami.
             </p>
           </div>

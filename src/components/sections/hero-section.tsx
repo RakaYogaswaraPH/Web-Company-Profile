@@ -39,7 +39,7 @@ export function HeroSection() {
                 <p className="text-[11px] sm:text-xs uppercase tracking-widest text-slate-500 font-mono">
                   Pendekatan Kerja
                 </p>
-                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-light">
+                <p className="text-sm text-slate-700 leading-relaxed font-light">
                   Kami bermitra dengan perusahaan diberbagai bidang teknologi terpercaya untuk menjamin kualitas produk dan layanan yang kami berikan kepada klien.
                 </p>
               </div>

@@ -71,7 +71,7 @@ export function AboutSection() {
                 <h4 className="text-lg font-medium text-slate-900 group-hover:text-slate-950 transition-colors">
                   {pillar.title}
                 </h4>
-                <p className="text-xs leading-relaxed text-slate-600 font-light">
+                <p className="text-sm leading-relaxed text-slate-600 font-light">
                   {pillar.description}
                 </p>
               </div>
