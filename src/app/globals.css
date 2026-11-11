@@ -35,6 +35,24 @@
   scrollbar-color: #cbd5e1 transparent;
 }
 
+/* Off-main-thread scroll progress animation (Chrome/Edge/Safari 18+) */
+@keyframes scrollProgressAnim {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@supports (animation-timeline: scroll()) {
+  .scroll-progress-indicator {
+    transform-origin: left center !important;
+    animation: scrollProgressAnim linear both !important;
+    animation-timeline: scroll(root block) !important;
+  }
+}
+
 @keyframes marquee {
   0% {
     transform: translateX(0%);

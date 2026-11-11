@@ -1,15 +1,31 @@
-import { ArrowUpRight } from "lucide-react";
+"use client";
+
+import { useState } from "react";
+import Image from "next/image";
+import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { SERVICES_CONTENT } from "@/content/site-content";
 
+const SERVICE_TAGS: Record<string, readonly string[]> = {
+  "konsultan-tik": ["Enterprise Architecture", "IT Governance", "BoQ Planning"],
+  "infrastruktur-jaringan": ["Fiber Optic Backbone", "Core Routing", "Server Racking"],
+  "pembangunan-aplikasi": ["Next.js & Cloud Native", "REST/GraphQL API", "Mobile Apps"],
+  "integrasi-sistem": ["Data Synchronization", "Enterprise Bus", "Zero Data Loss"],
+  "multimedia-surveillance": ["Command Center NOC", "AI Analytics CCTV", "Video Wall"],
+  "keamanan-tik": ["NGFW Defense", "Endpoint Security", "Zero Trust Architecture"],
+};
+
 export function ServicesSection() {
+  // Default first item active on desktop, or changes on hover/tap
+  const [activeId, setActiveId] = useState<string | null>("konsultan-tik");
+
   return (
     <section
       id="layanan"
       className="scroll-mt-20 border-b border-[#E2E5DC] bg-white text-slate-900 py-20 sm:py-32"
     >
       <Container>
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-[#E2E5DC] pb-8 mb-16 gap-6">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-[#E2E5DC] pb-8 mb-12 sm:mb-16 gap-6">
           <div>
             <span className="text-xs uppercase tracking-widest text-slate-500 font-mono block font-medium">
               Services &amp; Capabilities
@@ -23,44 +39,132 @@ export function ServicesSection() {
           </p>
         </div>
 
-        {/* Thinking*Room Editorial List / Table Layout: NO AI BOX CARDS */}
+        {/* Editorial Accordion List: Clean Thinking*Room style with smooth reveal */}
         <div className="divide-y divide-[#E2E5DC]">
-          {SERVICES_CONTENT.map((service, index) => (
-            <div
-              key={service.id}
-              className="py-10 sm:py-14 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start group hover:bg-[#F6F7F3] transition-colors -mx-4 px-4 sm:-mx-6 sm:px-6 rounded-lg"
-            >
-              <div className="lg:col-span-2 flex items-center justify-between">
-                <span className="text-sm font-mono text-slate-400 group-hover:text-red-600 transition-colors">
-                  /{index < 9 ? `0${index + 1}` : index + 1}
-                </span>
-                <span className="lg:hidden text-xs uppercase tracking-widest text-slate-500 font-mono">
-                  ICT Service
-                </span>
-              </div>
+          {SERVICES_CONTENT.map((service, index) => {
+            const isActive = activeId === service.id;
+            const tags = SERVICE_TAGS[service.id] ?? [];
 
-              <div className="lg:col-span-4">
-                <h3 className="text-2xl sm:text-3xl font-light text-slate-950 tracking-tight group-hover:text-red-600 transition-colors">
-                  {service.title}
-                </h3>
-              </div>
+            return (
+              <div
+                key={service.id}
+                onMouseEnter={() => setActiveId(service.id)}
+                onClick={() => setActiveId(isActive ? null : service.id)}
+                className={`py-8 sm:py-10 transition-colors duration-300 -mx-4 px-4 sm:-mx-6 sm:px-6 rounded-lg cursor-pointer ${
+                  isActive ? "bg-[#F6F7F3]" : "hover:bg-[#FAFBF8]"
+                }`}
+              >
+                {/* Header row */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+                  <div className="lg:col-span-2 flex items-center justify-between">
+                    <span
+                      className={`text-sm font-mono transition-colors duration-200 ${
+                        isActive ? "text-red-600 font-semibold" : "text-slate-400"
+                      }`}
+                    >
+                      /{index < 9 ? `0${index + 1}` : index + 1}
+                    </span>
+                    <span className="lg:hidden text-[10px] uppercase tracking-widest text-slate-500 font-mono">
+                      ICT Service
+                    </span>
+                  </div>
 
-              <div className="lg:col-span-4">
-                <p className="text-sm text-slate-600 font-light leading-relaxed">
-                  {service.summary}
-                </p>
-              </div>
+                  <div className="lg:col-span-4">
+                    <h3
+                      className={`text-2xl sm:text-3xl font-light tracking-tight transition-colors duration-200 ${
+                        isActive ? "text-red-600 font-normal" : "text-slate-950"
+                      }`}
+                    >
+                      {service.title}
+                    </h3>
+                  </div>
 
-              <div className="lg:col-span-2 flex flex-col justify-between items-start lg:items-end space-y-2">
-                <span className="text-[10px] uppercase tracking-widest text-slate-400 font-mono">
-                  Deliverable:
-                </span>
-                <span className="text-xs text-slate-800 font-mono text-left lg:text-right">
-                  {service.deliverable}
-                </span>
+                  <div className="lg:col-span-4">
+                    <p className="text-sm text-slate-600 font-light leading-relaxed">
+                      {service.summary}
+                    </p>
+                  </div>
+
+                  <div className="lg:col-span-2 flex flex-col justify-between items-start lg:items-end space-y-1">
+                    <span className="text-[10px] uppercase tracking-widest text-slate-400 font-mono">
+                      Deliverable:
+                    </span>
+                    <span className="text-xs text-slate-800 font-mono text-left lg:text-right">
+                      {service.deliverable}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Smooth Expandable Image Preview Drawer (without overlapping content) */}
+                <div
+                  className={`grid transition-[grid-template-rows,opacity] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                    isActive
+                      ? "grid-rows-[1fr] opacity-100 mt-6 pt-6 border-t border-[#E2E5DC]/80"
+                      : "grid-rows-[0fr] opacity-0 pointer-events-none"
+                  }`}
+                >
+                  <div className="overflow-hidden">
+                    <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                      {/* Image preview frame */}
+                      <div className="md:col-span-7 relative w-full h-56 sm:h-72 rounded bg-slate-200 overflow-hidden shadow-sm group">
+                        <Image
+                          src={`/images/services/${service.id}.webp`}
+                          alt={`${service.title} Jamparing Masagi`}
+                          fill
+                          loading="lazy"
+                          decoding="async"
+                          sizes="(max-width: 768px) 100vw, 640px"
+                          className="object-cover object-center transition-transform duration-700 ease-out hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent pointer-events-none" />
+                        <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-white text-xs font-mono">
+                          <span className="tracking-widest uppercase font-semibold text-white/90">
+                            {service.title}
+                          </span>
+                          <span className="text-white/70">
+                            Verified SLA Deployment
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Capabilities & Highlights info beside image */}
+                      <div className="md:col-span-5 flex flex-col justify-between h-full py-2 space-y-4">
+                        <div className="space-y-3">
+                          <span className="text-[11px] uppercase tracking-widest text-slate-500 font-mono block">
+                            Key Competencies
+                          </span>
+                          <div className="flex flex-wrap gap-2">
+                            {tags.map((tag) => (
+                              <span
+                                key={tag}
+                                className="inline-flex items-center gap-1.5 text-xs font-mono bg-white border border-[#E2E5DC] text-slate-800 px-3 py-1 rounded"
+                              >
+                                <CheckCircle2 className="size-3 text-red-600 shrink-0" />
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+
+                        <div className="pt-3 border-t border-[#E2E5DC] flex items-center justify-between">
+                          <span className="text-xs text-slate-500 font-mono">
+                            Siap implementasi skala korporasi &amp; BUMN
+                          </span>
+                          <a
+                            href="#kontak"
+                            className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-slate-900 hover:text-red-600 transition-colors"
+                          >
+                            <span>Konsultasi</span>
+                            <ArrowUpRight className="size-3.5" />
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Technical Inquiry bar - sleek minimal banner */}
