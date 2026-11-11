@@ -56,18 +56,18 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* Featured Visual Frame with Official Company Logo Badge */}
+        {/* Featured Visual Frame with Official Company Logo Overlay */}
         <div className="mt-8 mx-auto w-full max-w-4xl border border-[#E2E5DC] bg-white overflow-hidden group shadow-lg">
           <div className="relative w-full aspect-[581/429] max-h-[460px] bg-[#EEF0EA] flex items-center justify-center">
-            {/* Eye-catching Official Logo Badge at top corner */}
-            <div className="absolute top-4 left-4 z-10 flex items-center gap-2 bg-white/95 backdrop-blur-xs px-3.5 py-1.5 rounded border border-[#E2E5DC] shadow-xs">
-              <div className="relative h-5 sm:h-6 w-20 sm:w-24">
+            {/* Transparent Floating Company Logo without background box */}
+            <div className="absolute top-4 left-4 sm:top-6 sm:left-6 z-10 pointer-events-none">
+              <div className="relative h-6 sm:h-8 w-24 sm:w-32">
                 <Image
                   src="/images/brands/logo.webp"
                   alt="Logo PT Jamparing Masagi"
                   fill
                   className="object-contain object-left"
-                  sizes="96px"
+                  sizes="(max-width: 640px) 96px, 128px"
                 />
               </div>
             </div>
