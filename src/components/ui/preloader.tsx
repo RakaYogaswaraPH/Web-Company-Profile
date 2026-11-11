@@ -13,7 +13,7 @@ export function Preloader() {
     const originalOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
 
-    // Progress increments deliberately paced (~2 seconds) so it's clearly visible
+    // Progress increments paced smoothly (~2 seconds)
     const steps = [
       { pct: 18, delay: 150 },
       { pct: 42, delay: 450 },
@@ -60,29 +60,29 @@ export function Preloader() {
           : "opacity-100 scale-100"
       }`}
     >
-      <div className="flex flex-col items-center space-y-6">
-        {/* Company Logo */}
-        <div className="relative h-9 w-44 sm:h-11 sm:w-52 transition-transform duration-500 ease-out">
+      <div className="flex flex-col items-center space-y-8 px-6 text-center">
+        {/* Company Logo - Larger and Prominent */}
+        <div className="relative h-14 w-52 sm:h-20 sm:w-72 md:h-24 md:w-88 transition-transform duration-500 ease-out">
           <Image
             src="/images/brands/logo.webp"
             alt="PT Jamparing Masagi"
             fill
             priority
             className="object-contain"
-            sizes="(max-width: 640px) 176px, 208px"
+            sizes="(max-width: 640px) 208px, (max-width: 768px) 288px, 352px"
           />
         </div>
 
-        {/* Minimal Progress Bar */}
-        <div className="w-48 sm:w-56 h-[3px] bg-[#E2E5DC] rounded-full overflow-hidden">
+        {/* Larger & Thicker Progress Bar */}
+        <div className="w-64 sm:w-80 md:w-96 h-2 sm:h-2.5 bg-[#E2E5DC] rounded-full overflow-hidden p-0.5">
           <div
-            className="h-full bg-red-600 rounded-full transition-all duration-300 ease-out"
+            className="h-full bg-red-600 rounded-full transition-all duration-300 ease-out shadow-xs"
             style={{ width: `${progress}%` }}
           />
         </div>
 
-        {/* Monospace percentage ticker */}
-        <div className="flex items-center justify-between w-48 sm:w-56 text-[10px] font-mono tracking-widest text-slate-500 uppercase">
+        {/* Monospace Percentage & Status Ticker */}
+        <div className="flex items-center justify-between w-64 sm:w-80 md:w-96 text-xs font-mono tracking-widest text-slate-600 uppercase font-medium">
           <span>MEMUAT // 01</span>
           <span>{progress}%</span>
         </div>
