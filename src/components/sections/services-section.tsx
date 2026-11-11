@@ -5,6 +5,7 @@ import Image from "next/image";
 import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { SERVICES_CONTENT } from "@/content/site-content";
+import { smoothScrollTo } from "@/lib/smooth-scroll";
 
 const SERVICE_TAGS: Record<string, readonly string[]> = {
   "konsultan-tik": ["Arsitektur Enterprise", "Tata Kelola TIK", "Perencanaan BoQ & KAK"],
@@ -152,7 +153,11 @@ export function ServicesSection() {
                           </span>
                           <a
                             href="#kontak"
-                            className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-slate-900 hover:text-red-600 transition-colors"
+                            onClick={(e) => {
+                              e.preventDefault();
+                              smoothScrollTo("kontak");
+                            }}
+                            className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-slate-900 hover:text-red-600 transition-colors cursor-pointer"
                           >
                             <span>Konsultasi</span>
                             <ArrowUpRight className="size-3.5" />
@@ -179,7 +184,11 @@ export function ServicesSection() {
           </div>
           <a
             href="#kontak"
-            className="inline-flex items-center gap-2 border border-slate-400 hover:border-slate-950 hover:bg-slate-50 px-6 py-3 text-xs font-semibold uppercase tracking-widest text-slate-900 transition-colors"
+            onClick={(e) => {
+              e.preventDefault();
+              smoothScrollTo("kontak");
+            }}
+            className="inline-flex items-center gap-2 border border-slate-400 hover:border-slate-950 hover:bg-slate-50 px-6 py-3 text-xs font-semibold uppercase tracking-widest text-slate-900 transition-colors cursor-pointer"
           >
             <span>Mulai Konsultasi</span>
             <ArrowUpRight className="size-4" />

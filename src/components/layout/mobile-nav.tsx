@@ -5,6 +5,7 @@ import { createPortal } from "react-dom";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { SITE_CONFIG } from "@/config/site";
+import { smoothScrollTo } from "@/lib/smooth-scroll";
 
 interface MobileNavProps {
   readonly isOpen: boolean;
@@ -189,8 +190,12 @@ export function MobileNav({ isOpen, onToggle, onClose }: MobileNavProps) {
                   <li key={item.href}>
                     <a
                       href={item.href}
-                      onClick={onClose}
-                      className="text-4xl sm:text-6xl font-medium tracking-tight text-slate-900 hover:text-red-600 hover:translate-x-3 transition-all inline-block"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        onClose();
+                        smoothScrollTo(item.href);
+                      }}
+                      className="text-4xl sm:text-6xl font-medium tracking-tight text-slate-900 hover:text-red-600 hover:translate-x-3 transition-all inline-block cursor-pointer"
                     >
                       {item.label}
                     </a>

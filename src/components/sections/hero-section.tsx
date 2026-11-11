@@ -1,6 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import { Container } from "@/components/ui/container";
 import { HERO_CONTENT } from "@/content/site-content";
+import { smoothScrollTo } from "@/lib/smooth-scroll";
 
 export function HeroSection() {
   return (
@@ -41,13 +44,21 @@ export function HeroSection() {
               <div className="flex items-center gap-4 pt-2">
                 <a
                   href="#layanan"
-                  className="inline-flex items-center justify-center bg-slate-950 text-white hover:bg-red-600 px-8 py-3.5 text-xs font-semibold uppercase tracking-widest transition-colors duration-300"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    smoothScrollTo("layanan");
+                  }}
+                  className="inline-flex items-center justify-center bg-slate-950 text-white hover:bg-red-600 px-8 py-3.5 text-xs font-semibold uppercase tracking-widest transition-colors duration-300 cursor-pointer"
                 >
                   Jelajahi Layanan
                 </a>
                 <a
                   href="#kontak"
-                  className="inline-flex items-center justify-center border border-slate-400 text-slate-900 hover:border-slate-950 hover:bg-slate-100 px-8 py-3.5 text-xs font-semibold uppercase tracking-widest transition-colors duration-300"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    smoothScrollTo("kontak");
+                  }}
+                  className="inline-flex items-center justify-center border border-slate-400 text-slate-900 hover:border-slate-950 hover:bg-slate-100 px-8 py-3.5 text-xs font-semibold uppercase tracking-widest transition-colors duration-300 cursor-pointer"
                 >
                   Hubungi Kami
                 </a>
