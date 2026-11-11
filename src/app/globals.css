@@ -6,6 +6,21 @@
   --color-bg-alt: #FFFFFF;
   --color-border-subtle: #E2E5DC;
   --color-tr-yellow: #FEE777;
+
+  /* Typography — font families from layout.tsx CSS variables */
+  --font-heading: var(--font-heading), "Chakra Petch", ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-body), "Open Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", "Menlo", "Monaco", "Consolas", monospace;
+}
+
+/* Apply heading font to all heading elements globally */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+/* Apply body font as the default for all body text */
+body {
+  font-family: var(--font-body);
 }
 
 /* Custom smooth typography & scrollbar */

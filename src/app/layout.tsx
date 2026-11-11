@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Chakra_Petch, Open_Sans } from "next/font/google";
 import { SITE_CONFIG } from "@/config/site";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
@@ -10,9 +10,20 @@ import { ScrollProgress } from "@/components/ui/scroll-progress";
 import { Preloader } from "@/components/ui/preloader";
 import "./globals.css";
 
-const inter = Inter({
+// Heading font — Chakra Petch (editorial, strong character)
+const chakraPetch = Chakra_Petch({
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
+  variable: "--font-heading",
+});
+
+// Body / description font — Open Sans (legible, clean)
+const openSans = Open_Sans({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+  variable: "--font-body",
 });
 
 export const viewport: Viewport = {
@@ -124,7 +135,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: safeJsonLdString }}
         />
       </head>
-      <body className={`${inter.className} min-h-dvh flex flex-col bg-[#F6F7F3] text-slate-900 antialiased`}>
+      <body className={`${chakraPetch.variable} ${openSans.variable} font-body min-h-dvh flex flex-col bg-[#F6F7F3] text-slate-900 antialiased`}>
         <Preloader />
         {/* Skip to main content for accessibility */}
         <a
