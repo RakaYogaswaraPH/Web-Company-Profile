@@ -33,7 +33,7 @@ export function ClientsPartnersSection() {
               if (isFurukawa) {
                 sizeClass = "relative h-11 sm:h-13 w-full max-w-[130px] sm:max-w-[145px] scale-90 sm:scale-95";
               } else if (isAlliedTelesis) {
-                sizeClass = "relative h-14 sm:h-16 w-full max-w-[175px] sm:max-w-[200px] scale-115 sm:scale-125";
+                sizeClass = "relative h-11 sm:h-12 w-full max-w-[135px] sm:max-w-[155px]";
               } else if (isApc) {
                 sizeClass = "relative h-16 sm:h-18 w-full max-w-[160px] sm:max-w-[185px] scale-125 sm:scale-135";
               }
