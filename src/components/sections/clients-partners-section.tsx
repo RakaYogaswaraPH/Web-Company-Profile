@@ -24,20 +24,26 @@ export function ClientsPartnersSection() {
 
           <div className="grid grid-cols-2 gap-px bg-[#E2E5DC] sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 border border-[#E2E5DC]">
             {CLIENTS.map((client) => {
-              const isFurukawa = client.file.toLowerCase().includes("furukawa");
+              const fileLower = client.file.toLowerCase();
+              const isFurukawa = fileLower.includes("furukawa");
+              const isAlliedTelesis = fileLower.includes("allied");
+              const isApc = fileLower.includes("apc");
+
+              let sizeClass = "relative h-14 sm:h-16 w-full max-w-[150px] sm:max-w-[175px]";
+              if (isFurukawa) {
+                sizeClass = "relative h-11 sm:h-13 w-full max-w-[130px] sm:max-w-[145px] scale-90 sm:scale-95";
+              } else if (isAlliedTelesis) {
+                sizeClass = "relative h-14 sm:h-16 w-full max-w-[175px] sm:max-w-[200px] scale-115 sm:scale-125";
+              } else if (isApc) {
+                sizeClass = "relative h-16 sm:h-18 w-full max-w-[160px] sm:max-w-[185px] scale-125 sm:scale-135";
+              }
 
               return (
                 <div
                   key={client.file}
                   className="group flex h-32 sm:h-36 items-center justify-center bg-white p-6 hover:bg-[#EEF0EA] transition-colors"
                 >
-                  <div
-                    className={
-                      isFurukawa
-                        ? "relative h-16 sm:h-20 w-full max-w-[175px] sm:max-w-[210px] scale-110 sm:scale-125"
-                        : "relative h-14 sm:h-16 w-full max-w-[150px] sm:max-w-[175px]"
-                    }
-                  >
+                  <div className={sizeClass}>
                     <Image
                       src={client.path}
                       alt={client.name}
