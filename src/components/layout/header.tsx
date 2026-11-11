@@ -69,7 +69,7 @@ export function Header() {
         {/* Center: Centered Studio Nav Links (Click scrolls smoothly without adding # to URL) */}
         <nav
           aria-label="Navigasi Utama"
-          className="hidden items-center justify-center gap-8 xl:gap-10 lg:flex text-xs uppercase tracking-widest font-medium text-slate-700 flex-1 mx-4"
+          className="hidden items-center justify-center gap-8 xl:gap-10 lg:flex font-heading text-xs uppercase tracking-widest font-semibold text-slate-700 flex-1 mx-4"
         >
           {SITE_CONFIG.navItems.map((item) => (
             <a

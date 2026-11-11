@@ -198,7 +198,7 @@ export function MobileNav({ isOpen, onToggle, onClose }: MobileNavProps) {
                         onClose();
                         smoothScrollTo(item.href);
                       }}
-                      className="text-4xl sm:text-6xl font-medium tracking-tight text-slate-900 hover:text-red-600 hover:translate-x-3 transition-all inline-block cursor-pointer"
+                      className="font-heading text-4xl sm:text-6xl font-medium tracking-tight text-slate-900 hover:text-red-600 hover:translate-x-3 transition-all inline-block cursor-pointer"
                     >
                       {item.label}
                     </a>
