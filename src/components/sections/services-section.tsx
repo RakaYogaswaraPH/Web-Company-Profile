@@ -174,11 +174,11 @@ export function ServicesSection() {
 
         {/* Technical Inquiry bar - sleek minimal banner */}
         <div className="mt-20 border-t border-[#E2E5DC] pt-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-          <div>
-            <h4 className="text-lg font-medium text-slate-950">
+          <div className="space-y-2">
+            <h4 className="text-xl sm:text-2xl font-semibold sm:font-medium tracking-tight text-slate-950">
               Penyusunan KAK &amp; Spesifikasi BoQ Pengadaan
             </h4>
-            <p className="text-sm text-slate-500 font-light mt-1.5">
+            <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed">
               Konsultasi teknis awal bersama tenaga ahli jaringan &amp; sistem bersertifikasi kami.
             </p>
           </div>
@@ -188,7 +188,7 @@ export function ServicesSection() {
               e.preventDefault();
               smoothScrollTo("kontak");
             }}
-            className="inline-flex items-center gap-2 border border-slate-400 hover:border-slate-950 hover:bg-slate-50 px-6 py-3 text-xs font-semibold uppercase tracking-widest text-slate-900 transition-colors cursor-pointer"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-slate-400 hover:border-slate-950 hover:bg-slate-50 px-7 py-3.5 text-xs sm:text-sm font-semibold uppercase tracking-wider text-slate-900 transition-colors cursor-pointer shrink-0"
           >
             <span>Mulai Konsultasi</span>
             <ArrowUpRight className="size-4" />
