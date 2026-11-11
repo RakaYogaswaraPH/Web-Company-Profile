@@ -22,18 +22,18 @@ export function Footer() {
               />
             </div>
             <p className="text-sm leading-relaxed text-slate-600 max-w-sm font-light">
-              {SITE_CONFIG.legalName} &mdash; Perusahaan solusi infrastruktur, jaringan enterprise, dan rekayasa perangkat lunak.
+              {SITE_CONFIG.legalName} &mdash; Perusahaan penyedia solusi infrastruktur, jaringan enterprise, dan rekayasa perangkat lunak.
             </p>
             <div className="pt-2 text-xs text-slate-500 font-mono space-y-1">
               <p>BANDUNG &bull; CIMAHI &bull; INDONESIA</p>
-              <p>&copy; {currentYear} {SITE_CONFIG.legalName}. All rights reserved.</p>
+              <p>&copy; {currentYear} {SITE_CONFIG.legalName}. Hak cipta dilindungi.</p>
             </div>
           </div>
 
-          {/* Locations (Offices) */}
+          {/* Lokasi Kantor */}
           <div className="lg:col-span-4 space-y-4">
             <p className="text-xs uppercase tracking-widest text-slate-950 font-mono mb-4 font-semibold">
-              Locations
+              Lokasi Kantor
             </p>
             <div className="text-xs font-light text-slate-600 space-y-4">
               <div>
@@ -41,16 +41,16 @@ export function Footer() {
                 <p>Jl. Otto Iskandar Dinata No. 392, Bandung</p>
               </div>
               <div>
-                <p className="font-medium text-slate-900">Workshop &amp; Lab</p>
+                <p className="font-medium text-slate-900">Workshop &amp; Laboratorium</p>
                 <p>Jl. Telexina No. 4 Kebonkopi, Cibeureum, Cimahi</p>
               </div>
             </div>
           </div>
 
-          {/* Contact Direct */}
+          {/* Kontak & Kanal Langsung */}
           <div className="lg:col-span-3 space-y-4">
             <p className="text-xs uppercase tracking-widest text-slate-950 font-mono mb-4 font-semibold">
-              Connect
+              Kontak &amp; Kanal
             </p>
             <ul className="space-y-2 text-xs font-mono">
               <li>
@@ -58,7 +58,7 @@ export function Footer() {
                   href={`mailto:${SITE_CONFIG.email}`}
                   className="text-slate-600 hover:text-slate-950 transition-colors"
                 >
-                  Email Inquiry
+                  Kirim Email
                 </ExternalLink>
               </li>
               <li>

@@ -9,11 +9,11 @@ export function HeroSection() {
       className="relative min-h-[90dvh] flex flex-col justify-between overflow-hidden bg-[#F6F7F3] text-slate-900 pt-12 pb-16 sm:pt-20 sm:pb-24 border-b border-[#E2E5DC]"
     >
       <Container className="grow flex flex-col justify-between">
-        {/* Top Ticker / Meta text - Thinking*Room style */}
+        {/* Top Ticker / Meta text - Thinking*Room style in clean Indonesian */}
         <div className="flex items-center justify-between border-b border-[#E2E5DC] pb-6 text-xs uppercase tracking-widest text-slate-500 font-mono">
           <span>PT Jamparing Masagi — Bandung &amp; Cimahi</span>
-          <span className="hidden sm:inline">Enterprise ICT Infrastructure &amp; Systems</span>
-          <span>EST. // 01</span>
+          <span className="hidden sm:inline">Infrastruktur TIK &amp; Sistem Skala Enterprise</span>
+          <span>DIDIRIKAN // 01</span>
         </div>
 
         {/* Big Editorial Headline - directly placed, NO PILLS, NO CARDS, NO DOTS */}
@@ -31,7 +31,7 @@ export function HeroSection() {
             <div className="lg:col-span-4 flex flex-col justify-end space-y-6">
               <div className="border-l border-slate-300 pl-6 space-y-3">
                 <p className="text-xs uppercase tracking-widest text-slate-500 font-mono">
-                  Approach
+                  Pendekatan Kerja
                 </p>
                 <p className="text-sm text-slate-700 leading-relaxed font-light">
                   Mendampingi BUMN, instansi pemerintah, dan korporasi dari tahap audit arsitektur hingga pemeliharaan SLA tanpa celah.
@@ -43,40 +43,54 @@ export function HeroSection() {
                   href="#layanan"
                   className="inline-flex items-center justify-center bg-slate-950 text-white hover:bg-red-600 px-8 py-3.5 text-xs font-semibold uppercase tracking-widest transition-colors duration-300"
                 >
-                  Explore Capabilities
+                  Jelajahi Layanan
                 </a>
                 <a
                   href="#kontak"
                   className="inline-flex items-center justify-center border border-slate-400 text-slate-900 hover:border-slate-950 hover:bg-slate-100 px-8 py-3.5 text-xs font-semibold uppercase tracking-widest transition-colors duration-300"
                 >
-                  Contact
+                  Hubungi Kami
                 </a>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Featured Visual Frame - Clean fit & compact size so team photo is sharp, balanced, and never cropped */}
+        {/* Featured Visual Frame with Official Company Logo Badge */}
         <div className="mt-8 mx-auto w-full max-w-4xl border border-[#E2E5DC] bg-white overflow-hidden group shadow-lg">
           <div className="relative w-full aspect-[581/429] max-h-[460px] bg-[#EEF0EA] flex items-center justify-center">
+            {/* Eye-catching Official Logo Badge at top corner */}
+            <div className="absolute top-4 left-4 z-10 flex items-center gap-2 bg-white/95 backdrop-blur-xs px-3.5 py-1.5 rounded border border-[#E2E5DC] shadow-xs">
+              <div className="relative h-5 sm:h-6 w-20 sm:w-24">
+                <Image
+                  src="/images/brands/logo.webp"
+                  alt="Logo PT Jamparing Masagi"
+                  fill
+                  className="object-contain object-left"
+                  sizes="96px"
+                />
+              </div>
+            </div>
+
             <Image
               src="/images/brands/teams.webp"
-              alt="PT Jamparing Masagi Engineering Team"
+              alt="Tim Tenaga Ahli PT Jamparing Masagi"
               fill
               priority
               className="object-contain object-center transition-transform duration-700 ease-out group-hover:scale-[1.02]"
               sizes="(max-width: 1024px) 100vw, 896px"
             />
           </div>
-          {/* Metadata bar below photo - no overlapping text blocking faces */}
+
+          {/* Metadata bar below photo */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between border-t border-[#E2E5DC] px-6 py-4 bg-[#F2F4ED] text-xs font-mono gap-2">
             <div className="flex items-center gap-3">
               <span className="uppercase tracking-widest text-red-600 font-semibold">
-                Core Engineering Team
+                Tim Rekayasa Inti
               </span>
               <span className="text-slate-400 hidden sm:inline">&bull;</span>
               <span className="text-slate-900 font-medium">
-                20+ Certified Engineers &amp; Consultants
+                20+ Tenaga Ahli &amp; Konsultan Bersertifikasi
               </span>
             </div>
             <span className="text-slate-500 tracking-widest">

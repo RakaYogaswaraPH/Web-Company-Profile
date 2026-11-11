@@ -26,7 +26,7 @@ export const ABOUT_CONTENT = {
     {
       value: "20+",
       label: "Tenaga Ahli",
-      description: "Engineer jaringan, sistem, dan pengembang aplikasi bersertifikasi",
+      description: "Tenaga ahli jaringan, sistem, dan pengembang aplikasi bersertifikasi",
     },
     {
       value: "15+",
@@ -48,12 +48,12 @@ export const ABOUT_CONTENT = {
     {
       title: "Standar Industri",
       description:
-        "Setiap tahapan penggelaran kabel, rack mounting, dan deployment server mengikuti best practice sertifikasi vendor.",
+        "Setiap tahapan penggelaran kabel, pemasangan rak, dan implementasi server mengikuti standar sertifikasi vendor.",
     },
     {
       title: "Dukungan Berkelanjutan",
       description:
-        "Pendampingan pasca-instalasi mencakup transfer knowledge internal tim, dokumentasi as-built, dan SLA pemeliharaan.",
+        "Pendampingan pasca-instalasi mencakup transfer wawasan bagi tim internal, dokumentasi rancang-bangun (as-built), dan pemeliharaan SLA.",
     },
     {
       title: "Kepatuhan Keamanan",

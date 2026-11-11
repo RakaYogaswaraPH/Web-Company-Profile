@@ -6,19 +6,19 @@ export function ClientsPartnersSection() {
   return (
     <section id="klien-mitra" className="scroll-mt-20 bg-[#F6F7F3] text-slate-900 py-20 sm:py-32 border-b border-[#E2E5DC]">
       <Container>
-        {/* Klien Pelanggan - Thinking*Room Works / Client Roster */}
+        {/* Mitra Perangkat & Lisensi */}
         <div>
           <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-[#E2E5DC] pb-6 mb-12 gap-4">
             <div>
               <span className="text-xs uppercase tracking-widest text-slate-500 font-mono block font-medium">
-                Selected Client Deployments
+                Kemitraan Perangkat &amp; Prinsipal
               </span>
               <h2 className="text-3xl sm:text-4xl font-light text-slate-950 tracking-tight mt-2">
-                Klien &amp; Instansi
+                Mitra Perangkat &amp; Lisensi
               </h2>
             </div>
             <span className="text-xs font-mono text-slate-500">
-              State-Owned Enterprises &bull; Government &bull; Private
+              Integrasi Resmi &bull; Perangkat Keras Tier-1
             </span>
           </div>
 
@@ -53,19 +53,19 @@ export function ClientsPartnersSection() {
           </div>
         </div>
 
-        {/* Mitra Teknologi Global */}
+        {/* Portofolio Kerja Sama: Klien & Instansi */}
         <div className="mt-24 sm:mt-32">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-[#E2E5DC] pb-6 mb-12 gap-4">
             <div>
               <span className="text-xs uppercase tracking-widest text-slate-500 font-mono block font-medium">
-                Technology Principals
+                Portofolio Kerja Sama
               </span>
               <h2 className="text-3xl sm:text-4xl font-light text-slate-950 tracking-tight mt-2">
-                Mitra Perangkat &amp; Lisensi
+                Klien &amp; Instansi
               </h2>
             </div>
             <span className="text-xs font-mono text-slate-500">
-              Authorized Integrations &bull; Tier-1 Hardware
+              BUMN &bull; Instansi Pemerintah &bull; Korporasi Swasta
             </span>
           </div>
 

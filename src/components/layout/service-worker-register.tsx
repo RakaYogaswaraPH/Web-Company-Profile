@@ -38,10 +38,11 @@ export function ServiceWorkerRegister() {
   );
 
   useEffect(() => {
-    if ("serviceWorker" in navigator) {
+    // Only register Service Worker in secure context (https or localhost)
+    if ("serviceWorker" in navigator && (window.isSecureContext || window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1")) {
       const registerSW = () => {
         navigator.serviceWorker
-          .register("/sw.js")
+          .register("/sw.js", { scope: "/" })
           .catch(() => {
             // SW registration silently handled
           });
@@ -55,7 +56,7 @@ export function ServiceWorkerRegister() {
       }
     }
 
-    // Capture install prompt for Chromium
+    // Capture install prompt for Chromium browsers
     function handleBeforeInstallPrompt(e: Event) {
       e.preventDefault();
       setDeferredPrompt(e as BeforeInstallPromptEvent);
@@ -81,23 +82,23 @@ export function ServiceWorkerRegister() {
 
   return (
     <>
-      {/* Chromium Install Banner */}
+      {/* Chromium Install Banner - Matched to Studio Light Theme */}
       {showInstallBanner && deferredPrompt && (
         <aside
           aria-label="Pemasangan Aplikasi"
-          className="fixed bottom-4 right-4 z-40 max-w-sm rounded-xl border border-slate-700 bg-[#111827] p-4 text-slate-100 shadow-2xl"
+          className="fixed bottom-6 right-6 z-50 max-w-sm rounded border border-[#E2E5DC] bg-white p-5 text-slate-900 shadow-2xl"
         >
-          <div className="flex items-start justify-between gap-3">
+          <div className="flex items-start justify-between gap-4">
             <div className="flex items-start gap-3">
-              <div className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-blue-950/80 text-blue-400 border border-blue-900">
-                <Download className="size-5" />
+              <div className="flex size-9 shrink-0 items-center justify-center rounded bg-red-50 text-red-600 border border-red-100">
+                <Download className="size-4" />
               </div>
-              <div>
-                <p className="text-sm font-semibold text-white">
+              <div className="space-y-1">
+                <p className="text-sm font-semibold text-slate-950">
                   Pasang Aplikasi Web
                 </p>
-                <p className="mt-0.5 text-xs text-slate-400">
-                  Akses profil PT Jamparing Masagi langsung dari layar utama perangkat Anda.
+                <p className="text-xs text-slate-600 leading-relaxed font-light">
+                  Akses profil PT Jamparing Masagi langsung dari layar utama perangkat Anda secara instan.
                 </p>
               </div>
             </div>
@@ -105,23 +106,23 @@ export function ServiceWorkerRegister() {
               type="button"
               onClick={() => setShowInstallBanner(false)}
               aria-label="Tutup notifikasi pasang aplikasi"
-              className="text-slate-400 hover:text-white cursor-pointer"
+              className="text-slate-400 hover:text-slate-900 cursor-pointer"
             >
               <X className="size-4" />
             </button>
           </div>
-          <div className="mt-3 flex items-center justify-end gap-2">
+          <div className="mt-4 flex items-center justify-end gap-3 pt-3 border-t border-[#E2E5DC]">
             <button
               type="button"
               onClick={() => setShowInstallBanner(false)}
-              className="rounded-lg px-3 py-1.5 text-xs font-medium text-slate-400 hover:text-white cursor-pointer"
+              className="px-3 py-1.5 text-xs font-mono uppercase tracking-wider text-slate-500 hover:text-slate-900 cursor-pointer"
             >
               Nanti saja
             </button>
             <button
               type="button"
               onClick={handleInstallClick}
-              className="rounded-lg bg-red-600 px-3.5 py-1.5 text-xs font-semibold text-white hover:bg-red-700 cursor-pointer shadow-2xs"
+              className="bg-slate-950 hover:bg-red-600 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white transition-colors cursor-pointer"
             >
               Pasang Sekarang
             </button>
@@ -134,9 +135,9 @@ export function ServiceWorkerRegister() {
         <button
           type="button"
           onClick={() => setShowIOSHint(true)}
-          className="fixed bottom-4 right-4 z-40 inline-flex items-center gap-1.5 rounded-full border border-slate-700 bg-[#111827] px-3.5 py-2 text-xs font-medium text-slate-300 shadow-md hover:bg-slate-800 cursor-pointer"
+          className="fixed bottom-6 right-6 z-50 inline-flex items-center gap-2 rounded border border-[#E2E5DC] bg-white px-4 py-2.5 text-xs font-mono uppercase tracking-wider text-slate-900 shadow-md hover:bg-slate-50 cursor-pointer"
         >
-          <Share className="size-3.5 text-red-500" />
+          <Share className="size-3.5 text-red-600" />
           <span>Pasang di iPhone / iPad</span>
         </button>
       )}
@@ -144,22 +145,22 @@ export function ServiceWorkerRegister() {
       {isIOS && showIOSHint && (
         <aside
           aria-label="Panduan Pasang di iOS"
-          className="fixed bottom-4 right-4 z-40 max-w-xs rounded-xl border border-slate-700 bg-[#111827] p-4 text-xs text-slate-300 shadow-2xl"
+          className="fixed bottom-6 right-6 z-50 max-w-xs rounded border border-[#E2E5DC] bg-white p-5 text-xs text-slate-700 shadow-2xl"
         >
-          <div className="flex items-center justify-between font-semibold text-white">
-            <span>Pasang di Layar Utama iOS:</span>
+          <div className="flex items-center justify-between font-semibold text-slate-950">
+            <span>Pasang di Layar Utama:</span>
             <button
               type="button"
               onClick={() => setShowIOSHint(false)}
               aria-label="Tutup petunjuk iOS"
-              className="text-slate-400 hover:text-white cursor-pointer"
+              className="text-slate-400 hover:text-slate-900 cursor-pointer"
             >
               <X className="size-4" />
             </button>
           </div>
-          <ol className="mt-2.5 list-decimal space-y-1 pl-4 text-slate-400">
+          <ol className="mt-3 list-decimal space-y-1.5 pl-4 text-slate-600 font-light">
             <li>Tekan tombol Bagikan (Share) di Safari</li>
-            <li>Gulir ke bawah dan pilih &quot;Tambah ke Layar Utama&quot;</li>
+            <li>Pilih menu &quot;Tambah ke Layar Utama&quot;</li>
           </ol>
         </aside>
       )}

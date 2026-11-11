@@ -84,5 +84,6 @@ const server = http.createServer((req, res) => {
 
 server.listen(PORT, "0.0.0.0", () => {
   console.log(`Preview server running at http://localhost:${PORT}`);
+  console.log(`PWA install (secure context): http://localhost:${PORT} or http://127.0.0.1:${PORT}`);
   console.log(`Network access: http://<your-ip>:${PORT}`);
 });

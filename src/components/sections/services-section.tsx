@@ -7,12 +7,12 @@ import { Container } from "@/components/ui/container";
 import { SERVICES_CONTENT } from "@/content/site-content";
 
 const SERVICE_TAGS: Record<string, readonly string[]> = {
-  "konsultan-tik": ["Enterprise Architecture", "IT Governance", "BoQ Planning"],
-  "infrastruktur-jaringan": ["Fiber Optic Backbone", "Core Routing", "Server Racking"],
-  "pembangunan-aplikasi": ["Next.js & Cloud Native", "REST/GraphQL API", "Mobile Apps"],
-  "integrasi-sistem": ["Data Synchronization", "Enterprise Bus", "Zero Data Loss"],
-  "multimedia-surveillance": ["Command Center NOC", "AI Analytics CCTV", "Video Wall"],
-  "keamanan-tik": ["NGFW Defense", "Endpoint Security", "Zero Trust Architecture"],
+  "konsultan-tik": ["Arsitektur Enterprise", "Tata Kelola TIK", "Perencanaan BoQ & KAK"],
+  "infrastruktur-jaringan": ["Kabel Fiber Optik", "Perutean Inti & Switch", "Penataan Rak Server"],
+  "pembangunan-aplikasi": ["Aplikasi Web & Mobile", "Integrasi API Terstandar", "Digitalisasi Alur Kerja"],
+  "integrasi-sistem": ["Sinkronisasi Basis Data", "Konektivitas Antar Sistem", "Konsolidasi Informasi"],
+  "multimedia-surveillance": ["Ruang Kendali (Command Center)", "CCTV Enterprise Terpusat", "Sistem Video Conference"],
+  "keamanan-tik": ["Firewall Generasi Baru (NGFW)", "Proteksi Titik Akhir (Endpoint)", "Manajemen VPN Aman"],
 };
 
 export function ServicesSection() {
@@ -28,7 +28,7 @@ export function ServicesSection() {
         <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-[#E2E5DC] pb-8 mb-12 sm:mb-16 gap-6">
           <div>
             <span className="text-xs uppercase tracking-widest text-slate-500 font-mono block font-medium">
-              Services &amp; Capabilities
+              Solusi &amp; Kapabilitas
             </span>
             <h2 className="text-3xl sm:text-5xl font-light text-slate-950 tracking-tight mt-3">
               Solusi &amp; Layanan TIK
@@ -65,7 +65,7 @@ export function ServicesSection() {
                       /{index < 9 ? `0${index + 1}` : index + 1}
                     </span>
                     <span className="lg:hidden text-[10px] uppercase tracking-widest text-slate-500 font-mono">
-                      ICT Service
+                      Layanan TIK
                     </span>
                   </div>
 
@@ -87,7 +87,7 @@ export function ServicesSection() {
 
                   <div className="lg:col-span-2 flex flex-col justify-between items-start lg:items-end space-y-1">
                     <span className="text-[10px] uppercase tracking-widest text-slate-400 font-mono">
-                      Deliverable:
+                      Hasil Kerja:
                     </span>
                     <span className="text-xs text-slate-800 font-mono text-left lg:text-right">
                       {service.deliverable}
@@ -122,7 +122,7 @@ export function ServicesSection() {
                             {service.title}
                           </span>
                           <span className="text-white/70">
-                            Verified SLA Deployment
+                            Implementasi Standar SLA
                           </span>
                         </div>
                       </div>
@@ -131,7 +131,7 @@ export function ServicesSection() {
                       <div className="md:col-span-5 flex flex-col justify-between h-full py-2 space-y-4">
                         <div className="space-y-3">
                           <span className="text-[11px] uppercase tracking-widest text-slate-500 font-mono block">
-                            Key Competencies
+                            Kompetensi Utama
                           </span>
                           <div className="flex flex-wrap gap-2">
                             {tags.map((tag) => (
@@ -174,7 +174,7 @@ export function ServicesSection() {
               Penyusunan KAK &amp; Spesifikasi BoQ Pengadaan
             </h4>
             <p className="text-xs text-slate-500 font-mono mt-1">
-              Konsultasi teknis awal bersama certified network &amp; systems engineer kami.
+              Konsultasi teknis awal bersama tenaga ahli jaringan &amp; sistem bersertifikasi kami.
             </p>
           </div>
           <a
