@@ -38,7 +38,7 @@ export const SITE_CONFIG: SiteConfig = {
   ],
   navItems: [
     { label: "Beranda", href: "#beranda" },
-    { label: "Tentang Kami", href: "#tentang" },
+    { label: "Tentang Kami", href: "#tentang-kami" },
     { label: "Layanan", href: "#layanan" },
     { label: "Klien & Mitra", href: "#klien-mitra" },
     { label: "Kontak", href: "#kontak" },

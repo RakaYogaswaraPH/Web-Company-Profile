@@ -5,8 +5,9 @@ export function AboutSection() {
   return (
     <section
       id="tentang-kami"
-      className="scroll-mt-20 border-b border-[#E2E5DC] bg-[#F6F7F3] text-slate-900 py-20 sm:py-32"
+      className="scroll-mt-20 border-b border-[#E2E5DC] bg-[#F6F7F3] text-slate-900 py-20 sm:py-32 relative"
     >
+      <div id="tentang" className="sr-only" aria-hidden="true" />
       <Container>
         {/* Thinking*Room Style: Big editorial headline + 2-column manifest layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">

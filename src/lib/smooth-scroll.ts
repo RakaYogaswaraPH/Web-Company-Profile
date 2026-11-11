@@ -2,7 +2,16 @@ export function smoothScrollTo(targetHref: string) {
   if (typeof window === "undefined") return;
 
   const targetId = targetHref.replace(/^#/, "");
-  const targetEl = document.getElementById(targetId);
+  let targetEl = document.getElementById(targetId);
+
+  // Fallback alias resolution
+  if (!targetEl) {
+    if (targetId === "tentang" || targetId === "tentang-kami") {
+      targetEl =
+        document.getElementById("tentang-kami") ||
+        document.getElementById("tentang");
+    }
+  }
 
   if (targetEl) {
     targetEl.scrollIntoView({ behavior: "smooth" });
