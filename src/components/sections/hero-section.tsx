@@ -37,10 +37,10 @@ export function HeroSection() {
             <div className="lg:col-span-4 flex flex-col justify-end space-y-6 text-center lg:text-left">
               <div className="border-l-0 lg:border-l border-slate-300 pl-0 lg:pl-6 space-y-2 sm:space-y-3 mx-auto lg:mx-0 max-w-md lg:max-w-none">
                 <p className="text-[11px] sm:text-xs uppercase tracking-widest text-slate-500 font-mono">
-                  Pendekatan Kerja
+                  Bersama Kami
                 </p>
                 <p className="text-sm text-slate-700 leading-relaxed font-light">
-                  Kami bermitra dengan perusahaan diberbagai bidang teknologi terpercaya untuk menjamin kualitas produk dan layanan yang kami berikan kepada klien.
+                  Kami bermitra dengan berbagai perusahaan bidang teknologi untuk menjamin kualitas produk dan layanan yang kami berikan kepada klien.
                 </p>
               </div>
 
@@ -53,7 +53,7 @@ export function HeroSection() {
                   }}
                   className="w-full sm:w-auto inline-flex items-center justify-center bg-slate-950 text-white hover:bg-red-600 px-8 py-3.5 text-xs font-semibold uppercase tracking-widest transition-colors duration-300 cursor-pointer"
                 >
-                  Jelajahi Layanan
+                  Layanan Kami
                 </a>
                 <a
                   href="#kontak"
@@ -100,11 +100,11 @@ export function HeroSection() {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between border-t border-[#E2E5DC] px-6 py-4 bg-[#F2F4ED] text-xs font-mono gap-2">
             <div className="flex items-center gap-3">
               <span className="uppercase tracking-widest text-red-600 font-semibold">
-                Tim Rekayasa Inti
+                Tim Hebat Kami
               </span>
               <span className="text-slate-400 hidden sm:inline">&bull;</span>
               <span className="text-slate-900 font-medium">
-                20+ Tenaga Ahli &amp; Konsultan Bersertifikasi
+                20+ Tenaga Ahli &amp; Konsultan Berpengalaman
               </span>
             </div>
             <span className="text-slate-500 tracking-widest">

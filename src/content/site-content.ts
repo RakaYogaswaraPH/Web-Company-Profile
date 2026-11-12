@@ -4,7 +4,7 @@ export const HERO_CONTENT = {
   badge: "Penyedia Solusi TIK Terintegrasi",
   headline: "Infrastruktur & Sistem Informasi untuk Skala Perusahaan",
   subheadline:
-    "PT Jamparing Masagi membangun kerja sama dengan BUMN, instansi pemerintah, dan perusahaan swasta dalam merencanakan dan membangun infrastruktur jaringan dan juga layanan operasional.",
+    "PT Jamparing Masagi membangun kerja sama dengan BUMN, instansi pemerintah, dan perusahaan swasta dalam membangun infrastruktur dan juga layanan dalam bidang TIK.",
   ctaPrimary: {
     label: "Hubungi Tim Kami",
     href: "#kontak",
@@ -17,10 +17,10 @@ export const HERO_CONTENT = {
 
 export const ABOUT_CONTENT = {
   sectionTag: "Profil Perusahaan",
-  heading: "Mitra Pendamping TIK dari Rancangan hingga Pemeliharaan",
+  heading: "Mitra spesialis dalam bidang TIK untuk solusi tepat dan tepercaya",
   paragraphs: [
-    "PT Jamparing Masagi adalah perusahaan penyedia layanan Teknologi Informasi dan Komunikasi (TIK) yang berbasis di Bandung dan Cimahi. Kami memberikan pendampingan teknis langsung dari tahap audit awal, implementasi lapangan, hingga pengujian menyeluruh.",
-    "Dengan dukungan jaringan kemitraan resmi prinsipal teknologi global dan tim engineer berpengalaman, kami memastikan infrastruktur data center, konektivitas kantor cabang, dan sistem aplikasi berjalan stabil dengan jaminan dukungan operasional.",
+    "PT Jamparing Masagi adalah perusahaan penyedia layanan Teknologi Informasi dan Komunikasi (TIK) yang berbasis di Bandung dan Cimahi. Kami memberikan pelayanan untuk klien dari berbagai kebutuhan bidang TIK.",
+    "Dengan dukungan mitra resmi dan tim teknis berpengalaman, kami memastikan layanan yang kami berikan bisa tercapai sesuai harapan dan berjalan stabil dengan jaminan dukungan operasional oleh kami.",
   ],
   stats: [
     {
@@ -43,22 +43,22 @@ export const ABOUT_CONTENT = {
     {
       title: "Solutif & Tepat Sasaran",
       description:
-        "Rekomendasi teknis disusun berdasarkan evaluasi kondisi eksisting dan kebutuhan beban kerja nyata organisasi.",
+        "Kami memberikan solusi yang disusun berdasarkan evaluasi kondisi dan kebutuhan klien.",
     },
     {
       title: "Standar Industri",
       description:
-        "Setiap tahapan penggelaran kabel, pemasangan rak, dan implementasi server mengikuti standar sertifikasi vendor.",
+        "Setiap tahapan direncanakan dan dilaksanakan mengikuti standar operasional yang berlaku.",
     },
     {
       title: "Dukungan Berkelanjutan",
       description:
-        "Pendampingan pasca-instalasi mencakup transfer wawasan bagi tim internal, dokumentasi rancang-bangun (as-built), dan pemeliharaan SLA.",
+        "Mendampingi dan melayani klien yang seperti memberikan bantuan berupa solusi dan bantuan dari tim internal kami.",
     },
     {
       title: "Kepatuhan Keamanan",
       description:
-        "Konfigurasi perimeter jaringan mengutamakan isolasi data kritis dan proteksi akses bertingkat.",
+        "Mengutamakan keamanan data serta mengisolasi data kritis pada layanan TIK untuk menghindari kebocoran data.",
     },
   ] as readonly ValuePillar[],
 } as const;
@@ -68,21 +68,21 @@ export const SERVICES_CONTENT: readonly ServiceItem[] = [
     id: "konsultan-tik",
     title: "Konsultan TIK",
     summary:
-      "Penyusunan blueprint arsitektur informasi, audit kelayakan infrastruktur eksisting, serta perencanaan belanja teknologi yang terarah.",
+      "Penyusunan kebutuhan, audit, serta perencanaan implementasi teknologi TIK.",
     deliverable: "Dokumen Masterplan TIK & Rekomendasi Kapasitas",
   },
   {
     id: "infrastruktur-jaringan",
     title: "Infrastruktur Jaringan",
     summary:
-      "Pemasangan kabel fiber optic dan UTP terstruktur, instalasi switch, core router, wireless controller, dan penataan rack server.",
+      "Pemasangan dan perbaikan jaringan komputer serta pengembangan infrastruktur TIK.",
     deliverable: "Penggelaran Jaringan Data Center & Kantor Cabang",
   },
   {
     id: "pembangunan-aplikasi",
     title: "Pembangunan Aplikasi",
     summary:
-      "Rancang bangun aplikasi web dan mobile kustom untuk digitalisasi alur kerja, otomasi administrasi, dan pelaporan internal.",
+      "Rancang bangun aplikasi web dan mobile untuk digitalisasi alur kerja.",
     deliverable: "Aplikasi Khusus Siap Pakai & Dokumentasi API",
   },
   {
@@ -117,7 +117,7 @@ export const CLIENTS_CONTENT = {
 
 export const PARTNERS_CONTENT = {
   sectionTag: "Kemitraan Resmi",
-  heading: "Didukung oleh Prinsipal Teknologi Terpercaya",
+  heading: "Didukung oleh Perusahaan Teknologi Tepercaya",
   description:
     "Kami bekerja sama dengan vendor perangkat keras, jaringan, dan perangkat lunak global untuk menjamin orisinalitas produk serta garansi resmi.",
 } as const;

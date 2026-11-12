@@ -8,12 +8,12 @@ import { SERVICES_CONTENT } from "@/content/site-content";
 import { smoothScrollTo } from "@/lib/smooth-scroll";
 
 const SERVICE_TAGS: Record<string, readonly string[]> = {
-  "konsultan-tik": ["Arsitektur Enterprise", "Tata Kelola TIK", "Perencanaan BoQ & KAK"],
-  "infrastruktur-jaringan": ["Kabel Fiber Optik", "Perutean Inti & Switch", "Penataan Rak Server"],
-  "pembangunan-aplikasi": ["Aplikasi Web & Mobile", "Integrasi API Terstandar", "Digitalisasi Alur Kerja"],
-  "integrasi-sistem": ["Sinkronisasi Basis Data", "Konektivitas Antar Sistem", "Konsolidasi Informasi"],
-  "multimedia-surveillance": ["Ruang Kendali (Command Center)", "CCTV Enterprise Terpusat", "Sistem Video Conference"],
-  "keamanan-tik": ["Firewall Generasi Baru (NGFW)", "Proteksi Titik Akhir (Endpoint)", "Manajemen VPN Aman"],
+  "konsultan-tik": ["Perencanaan Pembangunan", "Tata Kelola TIK", "Kebutuhan Layanan"],
+  "infrastruktur-jaringan": ["Perencanaan Topologi Jaringan", "Instalasi PerangkatJaringan", "Jaringan Fiber Optik"],
+  "pembangunan-aplikasi": ["Aplikasi Web & Mobile", "Perangkat IOT", "Digitalisasi Alur Kerja"],
+  "integrasi-sistem": ["Sinkronisasi Basis Data", "Konektivitas Antar Sistem", "Konsultan Informasi"],
+  "multimedia-surveillance": ["Instalasi CCTV", "Sistem Video Recording CCTV"],
+  "keamanan-tik": ["Firewall Generasi Baru (NGFW)", "Manajemen VPN"],
 };
 
 export function ServicesSection() {
@@ -29,14 +29,14 @@ export function ServicesSection() {
         <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-[#E2E5DC] pb-8 mb-12 sm:mb-16 gap-6">
           <div>
             <span className="text-xs uppercase tracking-widest text-slate-500 font-mono block font-medium">
-              Solusi &amp; Kapabilitas
+              Yang Dapat Kami Berikan
             </span>
             <h2 className="text-3xl sm:text-5xl font-light text-slate-950 tracking-tight mt-3">
               Solusi &amp; Layanan TIK
             </h2>
           </div>
           <p className="max-w-md text-sm sm:text-base text-slate-600 font-light leading-relaxed">
-            Perancangan, instalasi fisik, hingga arsitektur perangkat lunak dengan pendekatan berorientasi SLA jangka panjang.
+            Perancangan, instalasi, hingga arsitektur perangkat keras dan lunak dengan bantuan layanan teknis kami.
           </p>
         </div>
 
@@ -80,19 +80,10 @@ export function ServicesSection() {
                     </h3>
                   </div>
 
-                  <div className="lg:col-span-4">
+                  <div className="lg:col-span-6">
                     <p className="text-sm sm:text-base text-slate-600 font-light leading-relaxed">
                       {service.summary}
                     </p>
-                  </div>
-
-                  <div className="lg:col-span-2 flex flex-col justify-between items-start lg:items-end space-y-1">
-                    <span className="text-[10px] uppercase tracking-widest text-slate-400 font-mono">
-                      Hasil Kerja:
-                    </span>
-                    <span className="text-xs text-slate-800 font-mono text-left lg:text-right">
-                      {service.deliverable}
-                    </span>
                   </div>
                 </div>
 

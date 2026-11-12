@@ -14,7 +14,7 @@ export function BrandStripSection() {
             Mitra &amp; Klien
           </p>
           <span className="text-xs font-mono text-slate-500">
-            Prinsipal Global &amp; Standar Enterprise
+            Perusaahan Bergerak Bersama Kami
           </span>
         </div>
       </Container>

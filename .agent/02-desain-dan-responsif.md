@@ -33,7 +33,7 @@ Gunakan palet bawaan Tailwind saja:
 
 **Copywriting**
 - Tulis kalimat konkret: apa yang dikerjakan, untuk siapa, di mana, dengan bukti.
-- Dilarang frasa kosong: "solusi terdepan", "inovatif", "terpercaya", "profesional dan berdedikasi", "melampaui ekspektasi", "one-stop solution", "mewujudkan visi", "era digital", "cutting-edge", "seamless", "unlock", "elevate".
+- Dilarang frasa kosong: "solusi terdepan", "inovatif", "tepercaya", "profesional dan berdedikasi", "melampaui ekspektasi", "one-stop solution", "mewujudkan visi", "era digital", "cutting-edge", "seamless", "unlock", "elevate".
 - Dilarang lorem ipsum, statistik karangan, testimoni karangan, tahun berdiri karangan, dan klaim sertifikasi karangan.
 - Info yang belum diberikan user ditulis `TODO(isi-konten): ...` di `src/content/`, dan dikumpulkan di laporan akhir. Jangan mengarang fakta perusahaan.
 
