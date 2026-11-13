@@ -18,8 +18,7 @@ export function HeroSection() {
             <span className="sm:hidden">PT Jamparing Masagi</span>
             <span className="hidden sm:inline">PT Jamparing Masagi &mdash; Bandung &amp; Cimahi</span>
           </span>
-          <span className="hidden md:inline text-slate-400">Infrastruktur TIK &amp; Sistem Skala Enterprise</span>
-          <span className="text-slate-400 shrink-0 font-medium">DIDIRIKAN // 01</span>
+          <span className="text-slate-400 shrink-0 font-medium">Infrastruktur &amp; Solusi TIK</span>
         </div>
 
         {/* Big Editorial Headline - Centered on Mobile, Left-aligned on Desktop */}
@@ -71,7 +70,7 @@ export function HeroSection() {
         </div>
 
         {/* Featured Visual Frame with Official Company Logo Overlay */}
-        <div className="mt-8 mx-auto w-full max-w-4xl border border-[#E2E5DC] bg-white overflow-hidden group shadow-lg">
+        <div className="mt-8 mx-auto w-full max-w-4xl border border-[#E2E5DC] bg-white overflow-hidden shadow-lg">
           <div className="relative w-full aspect-[581/429] max-h-[460px] bg-[#EEF0EA] flex items-center justify-center">
             {/* Transparent Floating Company Logo without background box */}
             <div className="absolute top-4 left-4 sm:top-6 sm:left-6 z-10 pointer-events-none">
@@ -91,7 +90,7 @@ export function HeroSection() {
               alt="Tim Tenaga Ahli PT Jamparing Masagi"
               fill
               priority
-              className="object-contain object-center transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+              className="object-contain object-center"
               sizes="(max-width: 1024px) 100vw, 896px"
             />
           </div>
@@ -100,11 +99,11 @@ export function HeroSection() {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between border-t border-[#E2E5DC] px-6 py-4 bg-[#F2F4ED] text-xs font-mono gap-2">
             <div className="flex items-center gap-3">
               <span className="uppercase tracking-widest text-red-600 font-semibold">
-                Tim Hebat Kami
+                Tim Kami
               </span>
               <span className="text-slate-400 hidden sm:inline">&bull;</span>
               <span className="text-slate-900 font-medium">
-                20+ Tenaga Ahli &amp; Konsultan Berpengalaman
+               Tenaga Ahli Berpengalaman
               </span>
             </div>
             <span className="text-slate-500 tracking-widest">

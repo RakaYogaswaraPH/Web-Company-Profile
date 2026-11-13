@@ -211,7 +211,7 @@ export function MobileNav({ isOpen, onToggle, onClose }: MobileNavProps) {
             <div className="border-t border-slate-200 pt-6 flex flex-col sm:flex-row justify-between text-xs tracking-wider uppercase font-mono text-slate-500 gap-4">
               <div>
                 <p className="font-semibold text-slate-900">
-                  Kantor &amp; Workshop:
+                  Kantor:
                 </p>
                 <p>Graha DLA Lt. 3 Suite 6, Bandung</p>
                 <p>Jl. Telexina No. 4, Cimahi</p>

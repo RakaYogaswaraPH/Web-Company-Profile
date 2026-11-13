@@ -11,14 +11,14 @@ export function ClientsPartnersSection() {
           <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-[#E2E5DC] pb-6 mb-12 gap-4">
             <div>
               <span className="text-xs uppercase tracking-widest text-slate-500 font-mono block font-medium">
-                Kemitraan Perangkat &amp; Prinsipal
+                Perusahaan yang telah bekerjasama
               </span>
               <h2 className="text-3xl sm:text-4xl font-light text-slate-950 tracking-tight mt-2">
                 Mitra Perangkat &amp; Lisensi
               </h2>
             </div>
             <span className="text-xs font-mono text-slate-500">
-              Integrasi Resmi &bull; Perangkat Keras Tier-1
+              Perusahaan Teknologi
             </span>
           </div>
 
@@ -64,7 +64,7 @@ export function ClientsPartnersSection() {
           <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-[#E2E5DC] pb-6 mb-12 gap-4">
             <div>
               <span className="text-xs uppercase tracking-widest text-slate-500 font-mono block font-medium">
-                Portofolio Kerja Sama
+                Perusahaan yang menerima layanan kami
               </span>
               <h2 className="text-3xl sm:text-4xl font-light text-slate-950 tracking-tight mt-2">
                 Klien &amp; Instansi

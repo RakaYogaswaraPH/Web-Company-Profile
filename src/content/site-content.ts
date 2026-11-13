@@ -20,7 +20,7 @@ export const ABOUT_CONTENT = {
   heading: "Mitra spesialis dalam bidang TIK untuk solusi tepat dan tepercaya",
   paragraphs: [
     "PT Jamparing Masagi adalah perusahaan penyedia layanan Teknologi Informasi dan Komunikasi (TIK) yang berbasis di Bandung dan Cimahi. Kami memberikan pelayanan untuk klien dari berbagai kebutuhan bidang TIK.",
-    "Dengan dukungan mitra resmi dan tim teknis berpengalaman, kami memastikan layanan yang kami berikan bisa tercapai sesuai harapan dan berjalan stabil dengan jaminan dukungan operasional oleh kami.",
+    "Dengan dukungan mitra resmi dan tim teknis berpengalaman, kami memastikan layanan yang kami berikan bisa tercapai dan berjalan dengan jaminan dukungan operasional oleh kami.",
   ],
   stats: [
     {
@@ -53,12 +53,12 @@ export const ABOUT_CONTENT = {
     {
       title: "Dukungan Berkelanjutan",
       description:
-        "Mendampingi dan melayani klien yang seperti memberikan bantuan berupa solusi dan bantuan dari tim internal kami.",
+        "Mendampingi dan melayani klien dengan memberikan bantuan berupa solusi dan bantuan dari tim internal kami.",
     },
     {
       title: "Kepatuhan Keamanan",
       description:
-        "Mengutamakan keamanan data serta mengisolasi data kritis pada layanan TIK untuk menghindari kebocoran data.",
+        "Mengutamakan keamanan data serta mengisolasi data penting pada layanan TIK untuk menghindari kebocoran data.",
     },
   ] as readonly ValuePillar[],
 } as const;
@@ -69,42 +69,36 @@ export const SERVICES_CONTENT: readonly ServiceItem[] = [
     title: "Konsultan TIK",
     summary:
       "Penyusunan kebutuhan, audit, serta perencanaan implementasi teknologi TIK.",
-    deliverable: "Dokumen Masterplan TIK & Rekomendasi Kapasitas",
   },
   {
     id: "infrastruktur-jaringan",
     title: "Infrastruktur Jaringan",
     summary:
-      "Pemasangan dan perbaikan jaringan komputer serta pengembangan infrastruktur TIK.",
-    deliverable: "Penggelaran Jaringan Data Center & Kantor Cabang",
+      "Pemasangan dan perbaikan jaringan serta pengembangan infrastruktur TIK.",
   },
   {
     id: "pembangunan-aplikasi",
     title: "Pembangunan Aplikasi",
     summary:
       "Rancang bangun aplikasi web dan mobile untuk digitalisasi alur kerja.",
-    deliverable: "Aplikasi Khusus Siap Pakai & Dokumentasi API",
   },
   {
     id: "integrasi-sistem",
     title: "Integrasi Sistem",
     summary:
-      "Penyambungan beberapa aplikasi terpisah menggunakan API gateway, sinkronisasi basis data, dan konsolidasi data operasional.",
-    deliverable: "Interkoneksi Antar Sistem Tanpa Redundansi Data",
+      "Mengintegrasikan dan mengelola data pelayanan dan juga fasilitas TIK.",
   },
   {
     id: "multimedia-surveillance",
     title: "Multimedia & Surveillance",
     summary:
-      "Penyediaan sistem video conference ruang rapat, command center, dan kamera CCTV enterprise terpusat dengan perekaman aman.",
-    deliverable: "Instalasi Command Center & Kamera Pengawas Terpusat",
+      "Menyediakan sistem video keamnan menggunakan kamera CCTV.",
   },
   {
     id: "keamanan-tik",
     title: "Keamanan TIK",
     summary:
-      "Konfigurasi Next-Generation Firewall (NGFW), perlindungan endpoint, manajemen VPN aman, dan pemindaian kerentanan sistem.",
-    deliverable: "Perlindungan Perimeter & Pengamanan Akses Jaringan",
+      "Konfigurasi Firewall untuk mengamankan data serta memindai celah sistem.",
   },
 ] as const;
 

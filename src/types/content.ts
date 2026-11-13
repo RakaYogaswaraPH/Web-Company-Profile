@@ -26,7 +26,6 @@ export interface ServiceItem {
   readonly id: string;
   readonly title: string;
   readonly summary: string;
-  readonly deliverable: string;
 }
 
 export interface ValuePillar {

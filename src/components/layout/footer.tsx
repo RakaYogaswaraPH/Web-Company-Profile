@@ -12,36 +12,36 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-12">
           {/* Brand info with company Logo - no asterisk */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="relative h-8 w-44">
+            <div className="relative h-10 sm:h-11 w-52 sm:w-56">
               <Image
                 src="/images/brands/logo.webp"
                 alt={SITE_CONFIG.name}
                 fill
                 className="object-contain object-left"
-                sizes="176px"
+                sizes="(max-width: 640px) 208px, 224px"
               />
             </div>
-            <p className="text-sm leading-relaxed text-slate-600 max-w-sm font-light">
-              {SITE_CONFIG.legalName} &mdash; Perusahaan penyedia solusi infrastruktur, jaringan enterprise, dan rekayasa perangkat lunak.
+            <p className="text-sm sm:text-base leading-relaxed text-slate-700 max-w-sm font-normal">
+              {SITE_CONFIG.legalName} &mdash; More Than Just ICT Solution.
             </p>
-            <div className="pt-2 text-xs text-slate-500 font-mono space-y-1">
-              <p>BANDUNG &bull; CIMAHI &bull; INDONESIA</p>
-              <p>&copy; {currentYear} {SITE_CONFIG.legalName}. Hak cipta dilindungi.</p>
+            <div className="pt-2 text-xs sm:text-sm text-slate-500 font-mono space-y-1.5">
+              <p>BANDUNG &bull; CIMAHI</p>
+              <p>&copy; {currentYear} {SITE_CONFIG.legalName}</p>
             </div>
           </div>
 
           {/* Lokasi Kantor */}
           <div className="lg:col-span-4 space-y-4">
-            <p className="text-xs uppercase tracking-widest text-slate-950 font-mono mb-4 font-semibold">
-              Lokasi Kantor
+            <p className="text-xs sm:text-sm uppercase tracking-widest text-slate-950 font-mono mb-4 font-semibold">
+              Lokasi Kami
             </p>
-            <div className="text-xs font-light text-slate-600 space-y-4">
+            <div className="text-sm text-slate-700 space-y-5 leading-relaxed font-normal">
               <div>
-                <p className="font-medium text-slate-900">Graha DLA Lt. 3 Suite 6</p>
-                <p>Jl. Otto Iskandar Dinata No. 392, Bandung</p>
+                <p className="font-semibold text-slate-900 mb-1">Kantor</p>
+                <p>Graha DLA Lt. 3 Suite 6 Jl. Otto Iskandar Dinata No. 392, Bandung</p>
               </div>
               <div>
-                <p className="font-medium text-slate-900">Workshop &amp; Laboratorium</p>
+                <p className="font-semibold text-slate-900 mb-1">Workshop</p>
                 <p>Jl. Telexina No. 4 Kebonkopi, Cibeureum, Cimahi</p>
               </div>
             </div>
@@ -49,22 +49,22 @@ export function Footer() {
 
           {/* Kontak & Kanal Langsung */}
           <div className="lg:col-span-3 space-y-4">
-            <p className="text-xs uppercase tracking-widest text-slate-950 font-mono mb-4 font-semibold">
-              Kontak &amp; Kanal
+            <p className="text-xs sm:text-sm uppercase tracking-widest text-slate-950 font-mono mb-4 font-semibold">
+              Kontak Kami
             </p>
-            <ul className="space-y-2 text-xs font-mono">
+            <ul className="space-y-3 text-sm font-mono">
               <li>
                 <ExternalLink
                   href={`mailto:${SITE_CONFIG.email}`}
-                  className="text-slate-600 hover:text-slate-950 transition-colors"
+                  className="text-slate-700 hover:text-slate-950 hover:underline transition-colors"
                 >
-                  Kirim Email
+                  Email
                 </ExternalLink>
               </li>
               <li>
                 <ExternalLink
                   href={`https://wa.me/${SITE_CONFIG.whatsapp}`}
-                  className="text-slate-600 hover:text-slate-950 transition-colors"
+                  className="text-slate-700 hover:text-slate-950 hover:underline transition-colors"
                 >
                   WhatsApp
                 </ExternalLink>
@@ -73,7 +73,7 @@ export function Footer() {
                 <li key={social.platform}>
                   <ExternalLink
                     href={social.url}
-                    className="text-slate-600 hover:text-slate-950 transition-colors"
+                    className="text-slate-700 hover:text-slate-950 hover:underline transition-colors"
                   >
                     {social.platform}
                   </ExternalLink>

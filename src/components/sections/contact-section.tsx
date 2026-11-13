@@ -11,13 +11,13 @@ export function ContactSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
           <div className="lg:col-span-7 space-y-8">
             <span className="text-xs uppercase tracking-widest text-slate-500 font-mono block font-medium">
-              Konsultasi &amp; Penawaran
+              Konsultasi &amp; Kerjasama
             </span>
             <h2 className="text-4xl sm:text-6xl lg:text-7xl font-light text-slate-950 tracking-tight leading-[1.05]">
               Bangun infrastruktur andal bersama kami.
             </h2>
             <p className="max-w-xl text-base sm:text-lg text-slate-600 font-light leading-relaxed">
-              Hubungi tim teknis kami untuk evaluasi kebutuhan infrastruktur data, pengadaan perangkat, atau integrasi aplikasi instansi Anda.
+              Hubungi tim kami untuk evaluasi soal kebutuhan, pengadaan, atau integrasi Layanan TIK Anda.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
@@ -43,7 +43,7 @@ export function ContactSection() {
           <div className="lg:col-span-5 space-y-12 lg:border-l lg:border-[#E2E5DC] lg:pl-16">
             <div className="space-y-4">
               <span className="text-xs uppercase tracking-widest text-slate-500 font-mono block font-medium">
-                Kantor Bandung
+                Kantor
               </span>
               <div className="text-sm font-light text-slate-600 leading-relaxed">
                 <p className="font-medium text-slate-900">{SITE_CONFIG.offices[0].line1}</p>
@@ -54,7 +54,7 @@ export function ContactSection() {
 
             <div className="space-y-4">
               <span className="text-xs uppercase tracking-widest text-slate-500 font-mono block font-medium">
-                Workshop &amp; Laboratorium Cimahi
+                Workshop 
               </span>
               <div className="text-sm font-light text-slate-600 leading-relaxed">
                 <p className="font-medium text-slate-900">{SITE_CONFIG.offices[1].line1}</p>
@@ -65,10 +65,9 @@ export function ContactSection() {
 
             <div className="pt-6 border-t border-[#E2E5DC] text-xs font-mono text-slate-500 space-y-2">
               <p className="text-slate-900 font-medium uppercase tracking-wider">
-                Jam Operasional Teknis
+                Jam Operasional
               </p>
               <p>Senin &ndash; Jumat: 08:30 &ndash; 17:00 WIB</p>
-              <p>Layanan tanggap darurat SLA 24/7 untuk klien kontrak aktif</p>
             </div>
           </div>
         </div>

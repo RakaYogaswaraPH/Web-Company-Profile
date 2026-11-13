@@ -167,10 +167,10 @@ export function ServicesSection() {
         <div className="mt-20 border-t border-[#E2E5DC] pt-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div className="space-y-2">
             <h4 className="text-xl sm:text-2xl font-semibold sm:font-medium tracking-tight text-slate-950">
-              Penyusunan KAK &amp; Spesifikasi BoQ Pengadaan
+              Konsultasi Kebutuhan Layanan TIK
             </h4>
             <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed">
-              Konsultasi teknis awal bersama tenaga ahli jaringan &amp; sistem bersertifikasi kami.
+              Bersama membangun awal yang baik bersama tenaga ahli bersama kami.
             </p>
           </div>
           <a
