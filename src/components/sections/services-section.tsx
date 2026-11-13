@@ -97,8 +97,8 @@ export function ServicesSection() {
                 >
                   <div className="overflow-hidden">
                     <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-                      {/* Image preview frame */}
-                      <div className="md:col-span-7 relative w-full h-56 sm:h-72 rounded bg-slate-200 overflow-hidden shadow-sm group">
+                      {/* Image preview frame - static without zoom animation */}
+                      <div className="md:col-span-7 relative w-full h-56 sm:h-72 rounded bg-slate-200 overflow-hidden shadow-sm">
                         <Image
                           src={`/images/services/${service.id}.webp`}
                           alt={`${service.title} Jamparing Masagi`}
@@ -106,7 +106,7 @@ export function ServicesSection() {
                           loading="lazy"
                           decoding="async"
                           sizes="(max-width: 768px) 100vw, 640px"
-                          className="object-cover object-center transition-transform duration-700 ease-out hover:scale-105"
+                          className="object-cover object-center"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent pointer-events-none" />
                         <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-white text-xs font-mono">
@@ -137,7 +137,7 @@ export function ServicesSection() {
 
                         <div className="pt-3 border-t border-[#E2E5DC] flex items-center justify-between">
                           <span className="text-xs text-slate-500 font-mono">
-                            Siap implementasi skala perusahaan &amp; BUMN
+                            Mulai Bersama Kami
                           </span>
                           <a
                             href="#kontak"
