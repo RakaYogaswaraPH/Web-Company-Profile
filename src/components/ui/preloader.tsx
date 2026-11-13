@@ -64,7 +64,7 @@ export function Preloader() {
       aria-valuenow={progress}
       aria-valuemin={0}
       aria-valuemax={100}
-      aria-label="Memuat PT Jamparing Masagi"
+      aria-label="Memuat PT. Jamparing Masagi"
       className={`fixed inset-0 z-[999999] flex flex-col items-center justify-center bg-[#F6F7F3] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
         isHiding
           ? "opacity-0 scale-[1.02] pointer-events-none"
@@ -76,7 +76,7 @@ export function Preloader() {
         <div className="relative h-10 w-44 sm:h-12 sm:w-52 md:h-14 md:w-60 transition-transform duration-500 ease-out">
           <Image
             src="/images/brands/logo.webp"
-            alt="PT Jamparing Masagi"
+            alt="PT. Jamparing Masagi"
             fill
             priority
             className="object-contain"

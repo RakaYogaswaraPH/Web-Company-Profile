@@ -4,7 +4,7 @@ export const HERO_CONTENT = {
   badge: "Penyedia Solusi TIK Terintegrasi",
   headline: "Infrastruktur & Sistem Informasi untuk Skala Perusahaan",
   subheadline:
-    "PT Jamparing Masagi membangun kerja sama dengan BUMN, instansi pemerintah, dan perusahaan swasta dalam membangun infrastruktur dan juga layanan dalam bidang TIK.",
+    "PT. Jamparing Masagi membangun kerja sama dengan BUMN, instansi pemerintah, dan perusahaan swasta dalam membangun infrastruktur dan juga layanan dalam bidang TIK.",
   ctaPrimary: {
     label: "Hubungi Tim Kami",
     href: "#kontak",
@@ -19,7 +19,7 @@ export const ABOUT_CONTENT = {
   sectionTag: "Profil Perusahaan",
   heading: "Mitra spesialis dalam bidang TIK untuk solusi tepat dan tepercaya",
   paragraphs: [
-    "PT Jamparing Masagi adalah perusahaan penyedia layanan Teknologi Informasi dan Komunikasi (TIK) yang berbasis di Bandung dan Cimahi. Kami memberikan pelayanan untuk klien dari berbagai kebutuhan bidang TIK.",
+    "PT. Jamparing Masagi adalah perusahaan penyedia layanan Teknologi Informasi dan Komunikasi (TIK) yang berbasis di Bandung dan Cimahi. Kami memberikan pelayanan untuk klien dari berbagai kebutuhan bidang TIK.",
     "Dengan dukungan mitra resmi dan tim teknis berpengalaman, kami memastikan layanan yang kami berikan bisa tercapai dan berjalan dengan jaminan dukungan operasional oleh kami.",
   ],
   stats: [

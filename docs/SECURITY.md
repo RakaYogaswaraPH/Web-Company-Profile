@@ -1,6 +1,6 @@
 # Kebijakan & Konfigurasi Keamanan (SECURITY.md)
 
-Dokumen ini menjelaskan postur keamanan website statis PT Jamparing Masagi, implementasi security headers untuk berbagai provider hosting, serta checklist operasional di luar kode.
+Dokumen ini menjelaskan postur keamanan website statis PT. Jamparing Masagi, implementasi security headers untuk berbagai provider hosting, serta checklist operasional di luar kode.
 
 ---
 

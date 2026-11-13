@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   authors: [{ name: SITE_CONFIG.legalName }],
   generator: "Next.js",
   keywords: [
-    "PT Jamparing Masagi",
+    "PT. Jamparing Masagi",
     "ICT Solution",
     "Konsultan TIK",
     "Infrastruktur Jaringan",

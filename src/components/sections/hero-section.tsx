@@ -15,8 +15,8 @@ export function HeroSection() {
         {/* Top Ticker / Meta text - Clean single-line layout on mobile and desktop */}
         <div className="flex items-center justify-between border-b border-[#E2E5DC] pb-3 sm:pb-6 text-[10px] sm:text-xs uppercase tracking-widest text-slate-500 font-mono">
           <span>
-            <span className="sm:hidden">PT Jamparing Masagi</span>
-            <span className="hidden sm:inline">PT Jamparing Masagi &mdash; Bandung &amp; Cimahi</span>
+            <span className="sm:hidden">PT. Jamparing Masagi</span>
+            <span className="hidden sm:inline">PT. Jamparing Masagi &mdash; Bandung &amp; Cimahi</span>
           </span>
           <span className="text-slate-400 shrink-0 font-medium">Infrastruktur &amp; Solusi TIK</span>
         </div>
@@ -77,7 +77,7 @@ export function HeroSection() {
               <div className="relative h-6 sm:h-8 w-24 sm:w-32">
                 <Image
                   src="/images/brands/logo.webp"
-                  alt="Logo PT Jamparing Masagi"
+                  alt="Logo PT. Jamparing Masagi"
                   fill
                   className="object-contain object-left"
                   sizes="(max-width: 640px) 96px, 128px"
@@ -87,7 +87,7 @@ export function HeroSection() {
 
             <Image
               src="/images/brands/teams.webp"
-              alt="Tim Tenaga Ahli PT Jamparing Masagi"
+              alt="Tim Tenaga Ahli PT. Jamparing Masagi"
               fill
               priority
               className="object-contain object-center"
