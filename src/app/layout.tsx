@@ -6,7 +6,6 @@ import { Footer } from "@/components/layout/footer";
 import { MotionProvider } from "@/components/layout/motion-provider";
 import { SmoothScrollProvider } from "@/components/layout/smooth-scroll-provider";
 import { ServiceWorkerRegister } from "@/components/layout/service-worker-register";
-import { ScrollProgress } from "@/components/ui/scroll-progress";
 import { Preloader } from "@/components/ui/preloader";
 import "./globals.css";
 
@@ -147,7 +146,6 @@ export default function RootLayout({
 
         <MotionProvider>
           <SmoothScrollProvider>
-            <ScrollProgress />
             <Header />
             <main id="main-content" className="flex-1">
               {children}

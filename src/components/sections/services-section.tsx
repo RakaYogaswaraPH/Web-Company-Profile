@@ -113,9 +113,6 @@ export function ServicesSection() {
                           <span className="tracking-widest uppercase font-semibold text-white/90">
                             {service.title}
                           </span>
-                          <span className="text-white/70">
-                            Implementasi Standar SLA
-                          </span>
                         </div>
                       </div>
 
