@@ -27,10 +27,10 @@ export function Logo3DScene({ className = "" }: Logo3DSceneProps) {
     const scene = new THREE.Scene();
 
     // Camera setup
-    const width = container.clientWidth || 320;
-    const height = container.clientHeight || 320;
-    const camera = new THREE.PerspectiveCamera(38, width / height, 0.1, 100);
-    camera.position.set(0, 0, 18);
+    const width = container.clientWidth || 360;
+    const height = container.clientHeight || 400;
+    const camera = new THREE.PerspectiveCamera(40, width / height, 0.1, 100);
+    camera.position.set(0, 0, 22);
 
     // Renderer
     const renderer = new THREE.WebGLRenderer({
@@ -52,8 +52,8 @@ export function Logo3DScene({ className = "" }: Logo3DSceneProps) {
     controls.autoRotateSpeed = 1.4;
     controls.enableZoom = false; // Prevent interfering with page scroll
     controls.enablePan = false;
-    controls.minDistance = 12;
-    controls.maxDistance = 25;
+    controls.minDistance = 16;
+    controls.maxDistance = 28;
 
     // Studio Lighting
     const ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
@@ -122,6 +122,8 @@ export function Logo3DScene({ className = "" }: Logo3DSceneProps) {
     logoGroup.position.set(-center.x, -center.y, -center.z);
 
     pivot.add(logoGroup);
+    // Scale slightly so 3D model never clips boundaries when rotated at any angle
+    pivot.scale.set(0.85, 0.85, 0.85);
     // Subtle initial isometric presentation angle
     pivot.rotation.x = 0.08;
     pivot.rotation.y = -0.22;
@@ -173,7 +175,7 @@ export function Logo3DScene({ className = "" }: Logo3DSceneProps) {
 
   return (
     <div
-      className={`relative w-full h-[280px] sm:h-[320px] lg:h-[360px] flex items-center justify-center select-none ${className}`}
+      className={`relative w-full h-[360px] sm:h-[420px] lg:h-[460px] xl:h-[480px] flex items-center justify-center select-none ${className}`}
     >
       <div
         ref={containerRef}
