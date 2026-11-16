@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { Container } from "@/components/ui/container";
 import { HERO_CONTENT } from "@/content/site-content";
 import { smoothScrollTo } from "@/lib/smooth-scroll";
@@ -61,49 +60,6 @@ export function HeroSection() {
             <div className="lg:col-span-5 xl:col-span-5 flex flex-col items-center justify-center">
               <Logo3DViewer />
             </div>
-          </div>
-        </div>
-
-        {/* Featured Visual Frame with Official Company Logo Overlay */}
-        <div className="mt-8 mx-auto w-full max-w-4xl border border-[#E2E5DC] bg-white overflow-hidden shadow-lg">
-          <div className="relative w-full aspect-[581/429] max-h-[460px] bg-[#EEF0EA] flex items-center justify-center">
-            {/* Transparent Floating Company Logo without background box */}
-            <div className="absolute top-4 left-4 sm:top-6 sm:left-6 z-10 pointer-events-none">
-              <div className="relative h-6 sm:h-8 w-24 sm:w-32">
-                <Image
-                  src="/images/brands/logo.webp"
-                  alt="Logo PT. Jamparing Masagi"
-                  fill
-                  className="object-contain object-left"
-                  sizes="(max-width: 640px) 96px, 128px"
-                />
-              </div>
-            </div>
-
-            <Image
-              src="/images/brands/teams.webp"
-              alt="Tim Tenaga Ahli PT. Jamparing Masagi"
-              fill
-              priority
-              className="object-contain object-center"
-              sizes="(max-width: 1024px) 100vw, 896px"
-            />
-          </div>
-
-          {/* Metadata bar below photo */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between border-t border-[#E2E5DC] px-6 py-4 bg-[#F2F4ED] text-xs font-mono gap-2">
-            <div className="flex items-center gap-3">
-              <span className="uppercase tracking-widest text-red-600 font-semibold">
-                Tim Kami
-              </span>
-              <span className="text-slate-400 hidden sm:inline">&bull;</span>
-              <span className="text-slate-900 font-medium">
-               Tenaga Ahli Berpengalaman
-              </span>
-            </div>
-            <span className="text-slate-500 tracking-widest">
-              Graha DLA &amp; Workshop Cimahi
-            </span>
           </div>
         </div>
       </Container>

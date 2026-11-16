@@ -30,19 +30,23 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Lokasi Kantor */}
+          {/* Lokasi Kantor & Jam Operasional */}
           <div className="lg:col-span-4 space-y-3">
             <p className="text-xs uppercase tracking-widest text-slate-950 font-mono mb-3 font-semibold">
-              Lokasi Kami
+              Lokasi &amp; Operasional
             </p>
-            <div className="text-xs sm:text-[13px] text-slate-600 space-y-4 leading-relaxed font-normal">
+            <div className="text-xs sm:text-[13px] text-slate-600 space-y-3.5 leading-relaxed font-normal">
               <div>
                 <p className="font-medium text-slate-900 mb-0.5">Kantor</p>
-                <p>Graha DLA Lt. 3 Suite 6 Jl. Otto Iskandar Dinata No. 392, Bandung</p>
+                <p>Graha DLA Lantai 3 Suite 6, Jl. Otto Iskandar Dinata No. 392, Bandung</p>
               </div>
               <div>
                 <p className="font-medium text-slate-900 mb-0.5">Workshop</p>
-                <p>Jl. Telexina No. 4 Kebonkopi, Cibeureum, Cimahi</p>
+                <p>Jl. Telexina No. 4 Kebonkopi, Cibeureum, Cimahi 40535</p>
+              </div>
+              <div className="pt-2 border-t border-[#DDE0D7] text-slate-500 font-mono text-[11px] space-y-0.5">
+                <p className="font-medium text-slate-900 uppercase tracking-wider">Jam Operasional</p>
+                <p>Senin &ndash; Jumat: 08:30 &ndash; 17:00 WIB</p>
               </div>
             </div>
           </div>
