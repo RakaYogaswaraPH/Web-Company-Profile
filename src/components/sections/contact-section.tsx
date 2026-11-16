@@ -36,7 +36,7 @@ export function ContactSection() {
               Konsultasi &amp; Kerjasama
             </span>
             <h2 className="text-3xl sm:text-5xl lg:text-5xl xl:text-6xl font-light text-slate-950 tracking-tight leading-[1.1] text-balance">
-              Bangun infrastruktur andal bersama kami.
+              Bangun infrastruktur bersama kami.
             </h2>
             <p className="max-w-md text-base sm:text-lg text-slate-600 font-light leading-relaxed">
               Hubungi tim kami untuk evaluasi soal kebutuhan, pengadaan, atau integrasi Layanan TIK Anda.
@@ -47,7 +47,7 @@ export function ContactSection() {
                 href={`https://wa.me/${SITE_CONFIG.whatsapp}?text=Halo%20PT%20Jamparing%20Masagi,%20saya%20ingin%20berkonsultasi%20mengenai%20kebutuhan%20TIK.`}
                 className="inline-flex min-h-11 items-center justify-center gap-2 bg-red-600 px-6 py-3 text-xs font-semibold uppercase tracking-widest text-white hover:bg-red-700 transition-colors shadow-sm"
               >
-                <span>Hotline WhatsApp</span>
+                <span>WhatsApp</span>
                 <ArrowUpRight className="size-3.5 shrink-0" />
               </ExternalLink>
 
@@ -62,7 +62,11 @@ export function ContactSection() {
           </div>
 
           {/* Kolom Kanan: Formulir Kontak (menggantikan tulisan kantor) */}
-          <div className="lg:col-span-7 lg:border-l lg:border-[#E2E5DC] lg:pl-12 xl:pl-16 pt-6 lg:pt-0">
+          <div className="lg:col-span-7 lg:border-l lg:border-[#E2E5DC] lg:pl-12 xl:pl-16 pt-6 lg:pt-0 space-y-6 sm:space-y-8">
+            <span className="text-xs uppercase tracking-widest text-slate-500 font-mono block font-medium">
+              Hubungi Kami
+            </span>
+
             {isSubmitted ? (
               <div className="p-8 border border-emerald-200 bg-emerald-50/60 text-slate-900 space-y-3">
                 <div className="flex items-center gap-2 text-emerald-700">
