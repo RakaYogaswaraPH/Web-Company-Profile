@@ -8,7 +8,7 @@ const Logo3DScene = dynamic(
   {
     ssr: false,
     loading: () => (
-      <div className="relative w-full h-[360px] sm:h-[420px] lg:h-[460px] xl:h-[480px] flex items-center justify-center">
+      <div className="relative w-full h-[380px] sm:h-[440px] lg:h-[480px] xl:h-[500px] flex items-center justify-center">
         <div className="relative w-36 h-36 opacity-30 animate-pulse">
           <Image
             src="/icons/icons.webp"
