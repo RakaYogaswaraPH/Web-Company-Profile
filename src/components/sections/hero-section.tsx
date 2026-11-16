@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Container } from "@/components/ui/container";
 import { HERO_CONTENT } from "@/content/site-content";
 import { smoothScrollTo } from "@/lib/smooth-scroll";
+import { Logo3DViewer } from "@/components/ui/logo-3d-viewer";
 
 export function HeroSection() {
   return (
@@ -21,27 +22,16 @@ export function HeroSection() {
           <span className="text-slate-400 shrink-0 font-medium">Infrastruktur &amp; Solusi TIK</span>
         </div>
 
-        {/* Big Editorial Headline - Centered on Mobile, Left-aligned on Desktop */}
-        <div className="my-auto py-8 sm:py-12 lg:py-20">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end">
-            <div className="lg:col-span-8 space-y-6 sm:space-y-8 text-center lg:text-left">
+        {/* Editorial Headline & Interactive 3D Brand Logo */}
+        <div className="my-auto py-8 sm:py-12 lg:py-16">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            <div className="lg:col-span-7 xl:col-span-7 space-y-6 sm:space-y-8 text-center lg:text-left">
               <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-light tracking-tight text-slate-950 leading-[1.08] text-balance mx-auto lg:mx-0">
                 More Than Just ICT Solution.
               </h1>
               <p className="max-w-2xl text-base sm:text-lg lg:text-xl font-light text-slate-600 leading-relaxed mx-auto lg:mx-0">
                 {HERO_CONTENT.subheadline}
               </p>
-            </div>
-
-            <div className="lg:col-span-4 flex flex-col justify-end space-y-6 text-center lg:text-left">
-              <div className="border-l-0 lg:border-l border-slate-300 pl-0 lg:pl-6 space-y-2 sm:space-y-3 mx-auto lg:mx-0 max-w-md lg:max-w-none">
-                <p className="text-[11px] sm:text-xs uppercase tracking-widest text-slate-500 font-mono">
-                  Bersama Kami
-                </p>
-                <p className="text-sm text-slate-700 leading-relaxed font-light">
-                  Kami bermitra dengan berbagai perusahaan bidang teknologi untuk menjamin kualitas produk dan layanan yang kami berikan kepada klien.
-                </p>
-              </div>
 
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-2">
                 <a
@@ -65,6 +55,11 @@ export function HeroSection() {
                   Hubungi Kami
                 </a>
               </div>
+            </div>
+
+            {/* 3D Interactive Brand Logo Asset */}
+            <div className="lg:col-span-5 xl:col-span-5 flex flex-col items-center justify-center">
+              <Logo3DViewer />
             </div>
           </div>
         </div>
