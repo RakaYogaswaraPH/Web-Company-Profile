@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import logoData from "./logo-3d-data.json";
@@ -11,8 +11,6 @@ interface Logo3DSceneProps {
 
 export function Logo3DScene({ className = "" }: Logo3DSceneProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const controlsRef = useRef<OrbitControls | null>(null);
-  const [isInteracted, setIsInteracted] = useState(false);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -48,7 +46,6 @@ export function Logo3DScene({ className = "" }: Logo3DSceneProps) {
 
     // Orbit Controls for smooth 360 drag interaction
     const controls = new OrbitControls(camera, renderer.domElement);
-    controlsRef.current = controls;
     controls.enableDamping = true;
     controls.dampingFactor = 0.06;
     controls.autoRotate = true;
@@ -58,56 +55,51 @@ export function Logo3DScene({ className = "" }: Logo3DSceneProps) {
     controls.minDistance = 12;
     controls.maxDistance = 25;
 
-    const onStartInteraction = () => {
-      setIsInteracted(true);
-    };
-    controls.addEventListener("start", onStartInteraction);
-
     // Studio Lighting
-    const ambientLight = new THREE.AmbientLight(0xffffff, 1.4);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
     scene.add(ambientLight);
 
     // Main key light
-    const keyLight = new THREE.DirectionalLight(0xffffff, 3.2);
+    const keyLight = new THREE.DirectionalLight(0xffffff, 3.0);
     keyLight.position.set(12, 16, 14);
     scene.add(keyLight);
 
-    // Soft red/warm fill light
-    const fillLight = new THREE.DirectionalLight(0xffe0e0, 1.6);
+    // Soft warm fill light
+    const fillLight = new THREE.DirectionalLight(0xffe2e2, 1.5);
     fillLight.position.set(-12, -6, -8);
     scene.add(fillLight);
 
     // Rim light from behind/top for edge definition
-    const rimLight = new THREE.DirectionalLight(0xffffff, 2.0);
+    const rimLight = new THREE.DirectionalLight(0xffffff, 1.8);
     rimLight.position.set(0, 12, -12);
     scene.add(rimLight);
 
-    // Subtle specular point light for glossy reflection highlight
-    const pointLight = new THREE.PointLight(0xff4455, 2.2, 35);
-    pointLight.position.set(3, 5, 10);
+    // Subtle point light for reflection highlights
+    const pointLight = new THREE.PointLight(0xff3344, 1.8, 30);
+    pointLight.position.set(2, 4, 9);
     scene.add(pointLight);
 
     // Extruded 3D Brand Logo
     const pivot = new THREE.Group();
     const logoGroup = new THREE.Group();
 
-    // High quality metallic/acrylic material with clearcoat gloss
+    // Clean physical material with smooth clearcoat
     const material = new THREE.MeshPhysicalMaterial({
       color: 0xe11d48, // Brand ruby red
-      roughness: 0.22,
-      metalness: 0.35,
-      clearcoat: 0.85,
+      roughness: 0.28,
+      metalness: 0.25,
+      clearcoat: 0.75,
       clearcoatRoughness: 0.15,
-      reflectivity: 0.95,
+      reflectivity: 0.85,
     });
 
     const extrudeSettings: THREE.ExtrudeGeometryOptions = {
-      depth: 1.25,
+      depth: 1.1,
       bevelEnabled: true,
-      bevelSegments: 4,
+      bevelSegments: 3,
       steps: 1,
-      bevelSize: 0.16,
-      bevelThickness: 0.22,
+      bevelSize: 0.12,
+      bevelThickness: 0.14,
     };
 
     (logoData as number[][][]).forEach((polygon) => {
@@ -119,7 +111,6 @@ export function Logo3DScene({ className = "" }: Logo3DSceneProps) {
       shape.closePath();
 
       const geom = new THREE.ExtrudeGeometry(shape, extrudeSettings);
-      geom.computeVertexNormals();
       const mesh = new THREE.Mesh(geom, material);
       logoGroup.add(mesh);
     });
@@ -131,9 +122,9 @@ export function Logo3DScene({ className = "" }: Logo3DSceneProps) {
     logoGroup.position.set(-center.x, -center.y, -center.z);
 
     pivot.add(logoGroup);
-    // Subtle natural isometric presentation angle
+    // Subtle initial isometric presentation angle
     pivot.rotation.x = 0.08;
-    pivot.rotation.y = -0.25;
+    pivot.rotation.y = -0.22;
     scene.add(pivot);
 
     // Animation loop
@@ -163,9 +154,7 @@ export function Logo3DScene({ className = "" }: Logo3DSceneProps) {
     return () => {
       isDisposed = true;
       cancelAnimationFrame(animationFrameId);
-      controls.removeEventListener("start", onStartInteraction);
       controls.dispose();
-      controlsRef.current = null;
       resizeObserver.disconnect();
 
       logoGroup.traverse((child) => {
@@ -182,12 +171,6 @@ export function Logo3DScene({ className = "" }: Logo3DSceneProps) {
     };
   }, []);
 
-  const handleReset = () => {
-    if (controlsRef.current) {
-      controlsRef.current.reset();
-    }
-  };
-
   return (
     <div
       className={`relative w-full h-[280px] sm:h-[320px] lg:h-[360px] flex items-center justify-center select-none ${className}`}
@@ -195,40 +178,7 @@ export function Logo3DScene({ className = "" }: Logo3DSceneProps) {
       <div
         ref={containerRef}
         className="w-full h-full cursor-grab active:cursor-grabbing touch-none"
-        title="Klik dan geser untuk memutar logo 3D ke segala arah"
       />
-
-      {/* Floating Interaction Hint Badge */}
-      <div
-        className={`pointer-events-none absolute bottom-2 left-1/2 -translate-x-1/2 flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900/75 backdrop-blur-xs text-[10px] font-mono uppercase tracking-wider text-white shadow-sm transition-opacity duration-500 ${
-          isInteracted ? "opacity-0" : "opacity-85 animate-pulse"
-        }`}
-      >
-        <svg
-          className="w-3.5 h-3.5 shrink-0 text-red-400"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67" />
-        </svg>
-        <span>Geser untuk rotasi 3D</span>
-      </div>
-
-      {/* Reset button if interacted */}
-      {isInteracted && (
-        <button
-          type="button"
-          onClick={handleReset}
-          className="absolute top-2 right-2 p-1.5 rounded bg-white/80 hover:bg-white text-slate-700 hover:text-slate-950 border border-slate-300/60 shadow-xs text-[10px] font-mono uppercase tracking-wider transition-colors cursor-pointer"
-          title="Reset posisi tampilan 3D"
-        >
-          Reset View
-        </button>
-      )}
     </div>
   );
 }
