@@ -4,7 +4,7 @@ export const HERO_CONTENT = {
   badge: "Penyedia Solusi TIK Terintegrasi",
   headline: "Infrastruktur & Sistem Informasi untuk Skala Perusahaan",
   subheadline:
-    "PT. Jamparing Masagi membangun kerja sama dengan BUMN, instansi pemerintah, dan perusahaan swasta dalam membangun infrastruktur dan juga layanan dalam bidang TIK.",
+    "PT. Jamparing Masagi membangun kerja sama dengan BUMN, instansi pemerintah, dan perusahaan swasta dalam membangun infrastruktur dan layanan dalam bidang TIK.",
   ctaPrimary: {
     label: "Hubungi Tim Kami",
     href: "#kontak",
@@ -86,7 +86,7 @@ export const SERVICES_CONTENT: readonly ServiceItem[] = [
     id: "integrasi-sistem",
     title: "Integrasi Sistem",
     summary:
-      "Mengintegrasikan dan mengelola data pelayanan dan juga fasilitas TIK.",
+      "Mengintegrasikan dan mengelola data pelayanan dan fasilitas TIK.",
   },
   {
     id: "multimedia-surveillance",

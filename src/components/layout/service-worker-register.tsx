@@ -4,8 +4,28 @@ import { useEffect } from "react";
 
 export function ServiceWorkerRegister() {
   useEffect(() => {
-    // Register Service Worker silently — no install prompts shown to user.
-    // The SW handles caching and offline support in the background.
+    // In development mode (npm run dev), active Service Workers cache older JS chunks
+    // and cause "Hydration failed: server rendered text didn't match client" errors.
+    // We immediately unregister any existing service worker and purge all caches.
+    if (process.env.NODE_ENV !== "production") {
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.getRegistrations().then((registrations) => {
+          for (const registration of registrations) {
+            registration.unregister();
+          }
+        });
+      }
+      if ("caches" in window) {
+        caches.keys().then((cacheNames) => {
+          for (const name of cacheNames) {
+            caches.delete(name);
+          }
+        });
+      }
+      return;
+    }
+
+    // Production mode: Register Service Worker silently in the background
     if (
       "serviceWorker" in navigator &&
       (window.isSecureContext ||
@@ -29,7 +49,6 @@ export function ServiceWorkerRegister() {
     }
 
     // Suppress the browser's built-in install prompt (beforeinstallprompt)
-    // so no native install banner appears either.
     function suppressInstallPrompt(e: Event) {
       e.preventDefault();
     }
@@ -39,6 +58,5 @@ export function ServiceWorkerRegister() {
     };
   }, []);
 
-  // No UI rendered — purely a background effect component
   return null;
 }
