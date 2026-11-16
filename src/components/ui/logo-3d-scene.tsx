@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+import { toCreasedNormals } from "three/examples/jsm/utils/BufferGeometryUtils.js";
 import logoData from "./logo-3d-data.json";
 
 interface Logo3DSceneProps {
@@ -83,23 +84,23 @@ export function Logo3DScene({ className = "" }: Logo3DSceneProps) {
     const pivot = new THREE.Group();
     const logoGroup = new THREE.Group();
 
-    // Clean physical material with smooth clearcoat
+    // Silky smooth physical material with clearcoat gloss
     const material = new THREE.MeshPhysicalMaterial({
       color: 0xe11d48, // Brand ruby red
-      roughness: 0.28,
-      metalness: 0.25,
-      clearcoat: 0.75,
-      clearcoatRoughness: 0.15,
-      reflectivity: 0.85,
+      roughness: 0.2,
+      metalness: 0.22,
+      clearcoat: 0.9,
+      clearcoatRoughness: 0.1,
+      reflectivity: 0.92,
     });
 
     const extrudeSettings: THREE.ExtrudeGeometryOptions = {
-      depth: 1.1,
+      depth: 1.15,
       bevelEnabled: true,
-      bevelSegments: 3,
+      bevelSegments: 8, // Buttery smooth bevel curve
       steps: 1,
-      bevelSize: 0.12,
-      bevelThickness: 0.14,
+      bevelSize: 0.14,
+      bevelThickness: 0.16,
     };
 
     (logoData as number[][][]).forEach((polygon) => {
@@ -110,8 +111,13 @@ export function Logo3DScene({ className = "" }: Logo3DSceneProps) {
       });
       shape.closePath();
 
-      const geom = new THREE.ExtrudeGeometry(shape, extrudeSettings);
-      const mesh = new THREE.Mesh(geom, material);
+      const baseGeom = new THREE.ExtrudeGeometry(shape, extrudeSettings);
+      // toCreasedNormals eliminates all polygonal faceting/banding along the curved walls
+      // while keeping the flat front and back faces crisp and planar.
+      const smoothGeom = toCreasedNormals(baseGeom, THREE.MathUtils.degToRad(35));
+      baseGeom.dispose();
+
+      const mesh = new THREE.Mesh(smoothGeom, material);
       logoGroup.add(mesh);
     });
 
