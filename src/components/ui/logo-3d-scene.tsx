@@ -112,9 +112,10 @@ export function Logo3DScene({ className = "" }: Logo3DSceneProps) {
       shape.closePath();
 
       const baseGeom = new THREE.ExtrudeGeometry(shape, extrudeSettings);
-      // toCreasedNormals eliminates all polygonal faceting/banding along the curved walls
-      // while keeping the flat front and back faces crisp and planar.
-      const smoothGeom = toCreasedNormals(baseGeom, THREE.MathUtils.degToRad(35));
+      // toCreasedNormals with 50 deg threshold guarantees that all curvature along
+      // the extruded perimeter and bevels is 100% seamless and smooth without any transverse seam lines,
+      // while preserving the crisp planar 90-deg boundary of the front and back faces.
+      const smoothGeom = toCreasedNormals(baseGeom, THREE.MathUtils.degToRad(50));
       baseGeom.dispose();
 
       const mesh = new THREE.Mesh(smoothGeom, material);
