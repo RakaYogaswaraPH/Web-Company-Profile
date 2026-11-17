@@ -108,7 +108,7 @@ export function ServicesSection() {
                           sizes="(max-width: 768px) 100vw, 640px"
                           className="object-cover object-center"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent pointer-events-none" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#2f2e2d]/60 via-[#2f2e2d]/10 to-transparent pointer-events-none" />
                         <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-white text-xs font-mono">
                           <span className="tracking-widest uppercase font-semibold text-white/90">
                             {service.title}

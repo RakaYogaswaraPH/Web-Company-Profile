@@ -3,7 +3,7 @@ import type { SiteConfig } from "@/types/content";
 export const SITE_CONFIG: SiteConfig = {
   name: "PT. Jamparing Masagi",
   legalName: "PT. Jamparing Masagi",
-  tagline: "More Than Just ICT Solution",
+  tagline: "ICT Solution",
   description:
     "Penyedia layanan solusi teknologi informasi dan komunikasi: konsultan TIK, infrastruktur jaringan, pembangunan aplikasi, integrasi sistem, dan keamanan TIK.",
   url: "https://jamparingmasagi.co.id", // TODO(isi-konten): konfirmasi domain produksi
