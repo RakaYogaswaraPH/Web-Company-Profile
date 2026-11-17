@@ -1,4 +1,4 @@
-import type { CompanyStat, ServiceItem, ValuePillar } from "@/types/content";
+import type { CompanyStat, ServiceItem, SolutionItem, ValuePillar } from "@/types/content";
 
 export const HERO_CONTENT = {
   badge: "Penyedia Solusi TIK Terintegrasi",
@@ -99,6 +99,94 @@ export const SERVICES_CONTENT: readonly ServiceItem[] = [
     title: "Keamanan TIK",
     summary:
       "Konfigurasi Firewall untuk mengamankan data serta memindai celah sistem.",
+  },
+] as const;
+
+export const SOLUTIONS_CONTENT: readonly SolutionItem[] = [
+  {
+    id: "digiars",
+    slug: "digiars",
+    num: "01",
+    title: "DIGIARS",
+    shortTag: "Sistem Manajemen Dokumen",
+    subtitle: "Digitalisasi arsip, tata kelola dokumen, dan persuratan elektronik.",
+    description:
+      "Platform manajemen arsip digital terpusat yang mempermudah penyimpanan, pencarian kilat, dan kontrol retensi berkas resmi untuk instansi pemerintah maupun korporasi.",
+    features: [
+      "Digitalisasi & pengindeksan dokumen otomatis dengan metadata dinamis",
+      "Pencarian cepat berbasis kata kunci, nomor surat, dan tanggal berkas",
+      "Pengaturan hak akses bertingkat dan enkripsi dokumen rahasia",
+      "Audit trail lengkap untuk pencatatan riwayat disposisi & unduhan",
+    ],
+    url: "https://app.jamparingmasagi.id/digiars",
+  },
+  {
+    id: "water-tracking",
+    slug: "water-tracking",
+    num: "02",
+    title: "WATER TRACKING",
+    shortTag: "Sistem Manajemen Pajak Air",
+    subtitle: "Pemantauan debit air tanah & pelaporan pajak air berbasis IoT.",
+    description:
+      "Sistem cerdas pemantauan penggunaan air tanah secara real-time melalui integrasi sensor IoT, otomatisasi penghitungan volume pemakaian, dan pelaporan pajak daerah yang akurat.",
+    features: [
+      "Telemetri pemantauan volume debit air tanah secara real-time via IoT",
+      "Kalkulasi otomatis ketetapan pajak air tanah sesuai regulasi daerah",
+      "Peringatan dini (early warning) atas anomali kuota pemakaian",
+      "Dasbor analitik monitoring terpusat untuk rekonsiliasi penerimaan pajak",
+    ],
+    url: "https://app.jamparingmasagi.id/water-tracking",
+  },
+  {
+    id: "pesandong",
+    slug: "pesandong",
+    num: "03",
+    title: "PESANDONG",
+    shortTag: "Sistem Manajemen Transaksi",
+    subtitle: "Pencatatan transaksi kasir, manajemen pesanan, dan inventori barang.",
+    description:
+      "Aplikasi kasir (POS) modern untuk gerai, ritel, dan operasional resto/bisnis yang mempermudah proses pemesanan cepat, menerima berbagai metode transaksi, pencetakan struk penjualan, hingga pemantauan stok produk.",
+    features: [
+      "Pencatatan transaksi kasir cepat dengan efisien",
+      "Multi-metode pembayaran (Tunai, QRIS, & Transfer Bank)",
+      "Manajemen katalog produk, varian harga, & stok real-time",
+      "Laporan penjualan harian/bulanan & rekapitulasi omzet berkala",
+    ],
+    url: "https://app.jamparingmasagi.id/pesandong",
+  },
+  {
+    id: "finance-system",
+    slug: "finance-system",
+    num: "04",
+    title: "FINANCE SYSTEM",
+    shortTag: "Sistem Manajemen Kas",
+    subtitle: "Pengelolaan arus kas, buku besar, dan laporan keuangan komprehensif.",
+    description:
+      "Sistem akuntansi dan manajemen keuangan enterprise yang memudahkan pemantauan arus kas harian, pencatatan biaya operasional, serta penyusunan laporan keuangan otomatis.",
+    features: [
+      "Pencatatan kas masuk dan keluar dengan kategorisasi akun terstandar",
+      "Pembuatan otomatis laporan laba rugi, neraca, dan arus kas",
+      "Manajemen faktur, tagihan piutang, dan konfirmasi pembayaran",
+      "Otorisasi anggaran berjenjang guna memastikan kepatuhan tata kelola kas",
+    ],
+    url: "https://app.jamparingmasagi.id/finance-system",
+  },
+  {
+    id: "hr-management",
+    slug: "hr-management",
+    num: "05",
+    title: "HR MANAGEMENT",
+    shortTag: "Sistem Manajemen SDM",
+    subtitle: "Pengelolaan data karyawan, absensi terintegrasi, dan penggajian otomatis.",
+    description:
+      "Aplikasi Human Resource Information System (HRIS) terintegrasi untuk menyederhanakan manajemen kepegawaian mulai dari rekapitulasi kehadiran, administrasi cuti, hingga slip gaji karyawan.",
+    features: [
+      "Manajemen absensi digital berbasis lokasi/geofencing dan selfie",
+      "Pengajuan dan persetujuan cuti, izin, serta lembur secara online",
+      "Perhitungan payroll otomatis mencakup komponen tunjangan dan potongan",
+      "Manajemen basis data kepegawaian dan riwayat penilaian kinerja KPI",
+    ],
+    url: "https://app.jamparingmasagi.id/hr-management",
   },
 ] as const;
 

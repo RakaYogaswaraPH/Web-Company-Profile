@@ -27,11 +27,13 @@ export function Logo3DScene({ className = "" }: Logo3DSceneProps) {
     // Scene setup
     const scene = new THREE.Scene();
 
-    // Camera setup - Wide FOV & close distance for bold prominent logo display
+    // Camera setup - Wide FOV & balanced distance for bold prominent logo display
     const width = container.clientWidth || 380;
     const height = container.clientHeight || 440;
-    const camera = new THREE.PerspectiveCamera(46, width / height, 0.1, 100);
-    camera.position.set(0, 0, 16.5);
+    const initialAspect = width / height;
+    const camera = new THREE.PerspectiveCamera(46, initialAspect, 0.1, 100);
+    const initialZ = initialAspect < 1.0 ? 15.0 : 16.5;
+    camera.position.set(0, 0, initialZ);
 
     // Renderer
     const renderer = new THREE.WebGLRenderer({
@@ -53,8 +55,22 @@ export function Logo3DScene({ className = "" }: Logo3DSceneProps) {
     controls.autoRotateSpeed = 1.4;
     controls.enableZoom = false; // Prevent interfering with page scroll
     controls.enablePan = false;
-    controls.minDistance = 12;
+    controls.minDistance = 10;
     controls.maxDistance = 24;
+
+    // Viewport-adaptive camera positioning
+    const updateCameraDistance = (w: number, h: number) => {
+      const aspect = w / h;
+      camera.aspect = aspect;
+      // On mobile screens (aspect < 1.0), position camera closer (z = 15.0)
+      // to render the 3D logo significantly larger and more impactful,
+      // while preserving comfortable safety margins to avoid clipping during rotation.
+      const targetZ = aspect < 1.0 ? 15.0 : 16.5;
+      camera.position.set(0, 0, targetZ);
+      camera.updateProjectionMatrix();
+      controls.target.set(0, 0, 0);
+      controls.update();
+    };
 
     // Studio Lighting
     const ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
@@ -151,8 +167,7 @@ export function Logo3DScene({ className = "" }: Logo3DSceneProps) {
       if (!entries[0]) return;
       const { width: newW, height: newH } = entries[0].contentRect;
       if (newW <= 0 || newH <= 0) return;
-      camera.aspect = newW / newH;
-      camera.updateProjectionMatrix();
+      updateCameraDistance(newW, newH);
       renderer.setSize(newW, newH);
     });
     resizeObserver.observe(container);
@@ -180,7 +195,7 @@ export function Logo3DScene({ className = "" }: Logo3DSceneProps) {
 
   return (
     <div
-      className={`relative w-full h-[380px] sm:h-[440px] lg:h-[480px] xl:h-[500px] flex items-center justify-center select-none ${className}`}
+      className={`relative w-full h-[420px] sm:h-[450px] lg:h-[480px] xl:h-[500px] flex items-center justify-center select-none ${className}`}
     >
       <div
         ref={containerRef}
