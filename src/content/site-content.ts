@@ -30,12 +30,12 @@ export const ABOUT_CONTENT = {
     },
     {
       value: "15+",
-      label: "Prinsipal Global",
+      label: "Mitra Perangkat",
       description: "Kemitraan perangkat keras dan lisensi enterprise terdaftar",
     },
     {
       value: "10+",
-      label: "Sektor Industri",
+      label: "Mitra Perusahaan",
       description: "Implementasi di BUMN, pendidikan tinggi, pertahanan, dan manufaktur",
     },
   ] as readonly CompanyStat[],
