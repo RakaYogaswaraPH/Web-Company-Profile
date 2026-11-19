@@ -8,7 +8,6 @@ import { SERVICES_CONTENT } from "@/content/site-content";
 import { smoothScrollTo } from "@/lib/smooth-scroll";
 
 const SERVICE_TAGS: Record<string, readonly string[]> = {
-  "konsultan-tik": ["Perencanaan Pembangunan", "Tata Kelola TIK", "Kebutuhan Layanan"],
   "infrastruktur-jaringan": ["Perencanaan Topologi Jaringan", "Instalasi PerangkatJaringan", "Jaringan Fiber Optik"],
   "pembangunan-aplikasi": ["Aplikasi Web & Mobile", "Perangkat IOT", "Digitalisasi Alur Kerja"],
   "integrasi-sistem": ["Sinkronisasi Basis Data", "Konektivitas Antar Sistem", "Konsultan Informasi"],

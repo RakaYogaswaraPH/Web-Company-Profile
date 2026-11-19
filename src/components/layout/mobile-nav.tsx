@@ -120,7 +120,7 @@ export function MobileNav({ isOpen, onToggle, onClose }: MobileNavProps) {
         aria-expanded={isOpen}
         aria-controls="mobile-navigation-drawer"
         aria-label={isOpen ? "Tutup menu navigasi" : "Buka menu navigasi"}
-        className="relative z-40 flex size-11 items-center justify-center border-0 border-none bg-transparent shadow-none text-slate-900 hover:text-red-600 transition-colors cursor-pointer focus:outline-none focus-visible:outline-2 focus-visible:outline-slate-900"
+        className="relative z-40 flex size-11 items-center justify-center rounded text-slate-900 hover:text-red-600 transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-slate-900"
       >
         <span
           className="absolute transition-all duration-300 ease-in-out"

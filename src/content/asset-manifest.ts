@@ -85,16 +85,16 @@ export const CLIENTS: AssetImage[] = [
   },
   {
     "name": "Hikvision",
-    "file": "hikvision.svg",
-    "path": "/images/clients/hikvision.svg",
+    "file": "hikvision.webp",
+    "path": "/images/clients/hikvision.webp",
     "width": 240,
     "height": 80,
     "format": "svg"
   },
   {
-    "name": "HP",
-    "file": "hp.webp",
-    "path": "/images/clients/hp.webp",
+    "name": "Dell",
+    "file": "dell.webp",
+    "path": "/images/clients/dell.webp",
     "width": 320,
     "height": 134,
     "format": "webp"
@@ -140,9 +140,9 @@ export const CLIENTS: AssetImage[] = [
     "format": "webp"
   },
   {
-    "name": "Sundray",
-    "file": "sundray.webp",
-    "path": "/images/clients/sundray.webp",
+    "name": "Ruijie",
+    "file": "ruijie.webp",
+    "path": "/images/clients/ruijie.webp",
     "width": 320,
     "height": 109,
     "format": "webp"
@@ -175,9 +175,9 @@ export const PARTNERS: AssetImage[] = [
     "format": "webp"
   },
   {
-    "name": "BHP",
-    "file": "bhp.webp",
-    "path": "/images/partners/bhp.webp",
+    "name": "astra",
+    "file": "astra.webp",
+    "path": "/images/partners/astra.webp",
     "width": 320,
     "height": 80,
     "format": "webp"
@@ -192,8 +192,8 @@ export const PARTNERS: AssetImage[] = [
   },
   {
     "name": "Danone",
-    "file": "danone.svg",
-    "path": "/images/partners/danone.svg",
+    "file": "danone.webp",
+    "path": "/images/partners/danone.webp",
     "width": 240,
     "height": 80,
     "format": "svg"
@@ -239,9 +239,9 @@ export const PARTNERS: AssetImage[] = [
     "format": "webp"
   },
   {
-    "name": "Pins",
-    "file": "pins.webp",
-    "path": "/images/partners/pins.webp",
+    "name": "Lintas",
+    "file": "lintas.webp",
+    "path": "/images/partners/lintas.webp",
     "width": 312,
     "height": 198,
     "format": "webp"

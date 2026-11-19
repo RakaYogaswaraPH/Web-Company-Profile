@@ -16,9 +16,9 @@ export function HeroSection() {
         <div className="flex items-center justify-between border-b border-[#E2E5DC] pb-3 sm:pb-6 text-[10px] sm:text-xs uppercase tracking-widest text-slate-500 font-mono">
           <span>
             <span className="sm:hidden">PT. Jamparing Masagi</span>
-            <span className="hidden sm:inline">PT. Jamparing Masagi &mdash; Bandung &amp; Cimahi</span>
+            <span className="hidden sm:inline text-sm">PT. Jamparing Masagi &mdash; Bandung &amp; Cimahi</span>
           </span>
-          <span className="text-slate-400 shrink-0 font-medium">Infrastruktur &amp; Solusi TIK</span>
+          <span className="text-slate-400 shrink-0 font-medium text-sm">Infrastruktur &amp; Solusi TIK</span>
         </div>
 
         {/* Editorial Headline & Interactive 3D Brand Logo */}

@@ -28,18 +28,6 @@ export interface ServiceItem {
   readonly summary: string;
 }
 
-export interface SolutionItem {
-  readonly id: string;
-  readonly slug: string;
-  readonly num: string;
-  readonly title: string;
-  readonly shortTag: string;
-  readonly subtitle: string;
-  readonly description: string;
-  readonly features: readonly string[];
-  readonly url: string;
-}
-
 export interface ValuePillar {
   readonly title: string;
   readonly description: string;
