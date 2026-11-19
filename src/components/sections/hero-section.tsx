@@ -12,13 +12,15 @@ export function HeroSection() {
       className="relative min-h-[90dvh] flex flex-col justify-between overflow-hidden bg-[#F6F7F3] text-slate-900 pt-8 pb-16 sm:pt-16 sm:pb-24 border-b border-[#E2E5DC]"
     >
       <Container className="grow flex flex-col justify-between">
-        {/* Top Ticker / Meta text - Clean single-line layout on mobile and desktop */}
-        <div className="flex items-center justify-between border-b border-[#E2E5DC] pb-3 sm:pb-6 text-[10px] sm:text-xs uppercase tracking-widest text-slate-500 font-mono">
-          <span>
+        {/* Top Ticker / Meta text - Responsive single-line layout */}
+        <div className="flex items-center justify-between border-b border-[#E2E5DC] pb-3 sm:pb-6 text-[11px] min-[390px]:text-xs sm:text-sm lg:text-base uppercase tracking-wider sm:tracking-widest text-slate-500 font-mono gap-3">
+          <span className="shrink-0 whitespace-nowrap">
             <span className="sm:hidden">PT. Jamparing Masagi</span>
-            <span className="hidden sm:inline text-sm">PT. Jamparing Masagi &mdash; Bandung &amp; Cimahi</span>
+            <span className="hidden sm:inline">PT. Jamparing Masagi &mdash; Bandung &amp; Cimahi</span>
           </span>
-          <span className="text-slate-400 shrink-0 font-medium text-sm">Infrastruktur &amp; Solusi TIK</span>
+          <span className="text-slate-400 shrink-0 font-medium whitespace-nowrap text-right">
+            Infrastruktur &amp; Solusi TIK
+          </span>
         </div>
 
         {/* Editorial Headline & Interactive 3D Brand Logo */}
