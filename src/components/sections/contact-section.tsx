@@ -68,135 +68,137 @@ export function ContactSection() {
               Hubungi Kami
             </span>
 
-            <AnimatePresence mode="wait">
-              {isSubmitted ? (
-                <motion.div
-                  key="contact-success"
-                  initial={{ opacity: 0, y: 16, scale: 0.98 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: -12, scale: 0.98 }}
-                  transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                  className="p-8 border border-emerald-200 bg-emerald-50/60 text-slate-900 space-y-4"
-                >
-                  <div className="flex items-center gap-2.5 text-emerald-700">
-                    <motion.div
-                      initial={{ scale: 0, rotate: -45 }}
-                      animate={{ scale: 1, rotate: 0 }}
-                      transition={{ type: "spring", stiffness: 300, damping: 20, delay: 0.1 }}
-                    >
-                      <CheckCircle2 className="size-5 shrink-0" />
-                    </motion.div>
-                    <span className="font-semibold text-sm uppercase tracking-wider font-mono">
-                      Pesan Terkirim
-                    </span>
-                  </div>
-                  <p className="text-sm text-slate-600 leading-relaxed font-light">
-                    Terima kasih, <strong className="font-medium text-slate-900">{formData.name}</strong>. Tim PT. Jamparing Masagi akan segera menindaklanjuti pesan Anda melalui email <strong className="font-medium text-slate-900">{formData.email}</strong>.
-                  </p>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setIsSubmitted(false);
-                      setFormData({ name: "", email: "", subject: "", message: "" });
-                    }}
-                    className="inline-flex items-center gap-2 pt-2 text-xs font-mono uppercase tracking-widest text-slate-700 hover:text-slate-950 hover:translate-x-1 transition-all underline underline-offset-4 cursor-pointer focus-visible:outline-2 focus-visible:outline-slate-900"
+            <div className="min-h-[480px] sm:min-h-[400px] flex flex-col justify-start">
+              <AnimatePresence mode="wait">
+                {isSubmitted ? (
+                  <motion.div
+                    key="contact-success"
+                    initial={{ opacity: 0, y: 16, scale: 0.98 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: -12, scale: 0.98 }}
+                    transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                    className="p-8 sm:p-10 border border-emerald-200 bg-emerald-50/60 text-slate-900 flex flex-col justify-center min-h-[480px] sm:min-h-[400px] space-y-4"
                   >
-                    <span>Kirim Pesan Lainnya</span>
-                    <span>&rarr;</span>
-                  </button>
-                </motion.div>
-              ) : (
-                <motion.form
-                  key="contact-form"
-                  initial={{ opacity: 0, y: 16, scale: 0.98 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: -12, scale: 0.98 }}
-                  transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                  onSubmit={handleSubmit}
-                  className="space-y-5"
-                >
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div className="flex items-center gap-2.5 text-emerald-700">
+                      <motion.div
+                        initial={{ scale: 0, rotate: -45 }}
+                        animate={{ scale: 1, rotate: 0 }}
+                        transition={{ type: "spring", stiffness: 300, damping: 20, delay: 0.1 }}
+                      >
+                        <CheckCircle2 className="size-5 shrink-0" />
+                      </motion.div>
+                      <span className="font-semibold text-sm uppercase tracking-wider font-mono">
+                        Pesan Terkirim
+                      </span>
+                    </div>
+                    <p className="text-sm text-slate-600 leading-relaxed font-light">
+                      Terima kasih, <strong className="font-medium text-slate-900">{formData.name}</strong>. Tim PT. Jamparing Masagi akan segera menindaklanjuti pesan Anda melalui email <strong className="font-medium text-slate-900">{formData.email}</strong>.
+                    </p>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setIsSubmitted(false);
+                        setFormData({ name: "", email: "", subject: "", message: "" });
+                      }}
+                      className="inline-flex items-center gap-2 pt-2 text-xs font-mono uppercase tracking-widest text-slate-700 hover:text-slate-950 hover:translate-x-1 transition-all underline underline-offset-4 cursor-pointer focus-visible:outline-2 focus-visible:outline-slate-900"
+                    >
+                      <span>Kirim Pesan Lainnya</span>
+                      <span>&rarr;</span>
+                    </button>
+                  </motion.div>
+                ) : (
+                  <motion.form
+                    key="contact-form"
+                    initial={{ opacity: 0, y: 16, scale: 0.98 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: -12, scale: 0.98 }}
+                    transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                    onSubmit={handleSubmit}
+                    className="space-y-5"
+                  >
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                      <div className="space-y-1.5">
+                        <label htmlFor="name" className="text-xs font-mono uppercase tracking-wider text-slate-600 block">
+                          Nama <span className="text-red-500">*</span>
+                        </label>
+                        <input
+                          id="name"
+                          type="text"
+                          required
+                          placeholder="Masukkan nama lengkap"
+                          value={formData.name}
+                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                          className="w-full border border-slate-300 bg-[#FBFBFA] px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-slate-950 focus:bg-white transition-colors"
+                        />
+                      </div>
+
+                      <div className="space-y-1.5">
+                        <label htmlFor="email" className="text-xs font-mono uppercase tracking-wider text-slate-600 block">
+                          Email <span className="text-red-500">*</span>
+                        </label>
+                        <input
+                          id="email"
+                          type="email"
+                          required
+                          placeholder="nama@perusahaan.com"
+                          value={formData.email}
+                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                          className="w-full border border-slate-300 bg-[#FBFBFA] px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-slate-950 focus:bg-white transition-colors"
+                        />
+                      </div>
+                    </div>
+
                     <div className="space-y-1.5">
-                      <label htmlFor="name" className="text-xs font-mono uppercase tracking-wider text-slate-600 block">
-                        Nama <span className="text-red-500">*</span>
+                      <label htmlFor="subject" className="text-xs font-mono uppercase tracking-wider text-slate-600 block">
+                        Subjek <span className="text-red-500">*</span>
                       </label>
                       <input
-                        id="name"
+                        id="subject"
                         type="text"
                         required
-                        placeholder="Masukkan nama lengkap"
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        placeholder="Contoh: Pengadaan Perangkat / Integrasi Sistem"
+                        value={formData.subject}
+                        onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                         className="w-full border border-slate-300 bg-[#FBFBFA] px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-slate-950 focus:bg-white transition-colors"
                       />
                     </div>
 
                     <div className="space-y-1.5">
-                      <label htmlFor="email" className="text-xs font-mono uppercase tracking-wider text-slate-600 block">
-                        Email <span className="text-red-500">*</span>
+                      <label htmlFor="message" className="text-xs font-mono uppercase tracking-wider text-slate-600 block">
+                        Isi <span className="text-red-500">*</span>
                       </label>
-                      <input
-                        id="email"
-                        type="email"
+                      <textarea
+                        id="message"
                         required
-                        placeholder="nama@perusahaan.com"
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full border border-slate-300 bg-[#FBFBFA] px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-slate-950 focus:bg-white transition-colors"
+                        rows={4}
+                        placeholder="Tuliskan isi pesan atau spesifikasi kebutuhan Anda..."
+                        value={formData.message}
+                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                        className="w-full border border-slate-300 bg-[#FBFBFA] px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-slate-950 focus:bg-white transition-colors resize-none min-h-[120px]"
                       />
                     </div>
-                  </div>
 
-                  <div className="space-y-1.5">
-                    <label htmlFor="subject" className="text-xs font-mono uppercase tracking-wider text-slate-600 block">
-                      Subjek <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      id="subject"
-                      type="text"
-                      required
-                      placeholder="Contoh: Pengadaan Perangkat / Integrasi Sistem"
-                      value={formData.subject}
-                      onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                      className="w-full border border-slate-300 bg-[#FBFBFA] px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-slate-950 focus:bg-white transition-colors"
-                    />
-                  </div>
-
-                  <div className="space-y-1.5">
-                    <label htmlFor="message" className="text-xs font-mono uppercase tracking-wider text-slate-600 block">
-                      Isi <span className="text-red-500">*</span>
-                    </label>
-                    <textarea
-                      id="message"
-                      required
-                      rows={4}
-                      placeholder="Tuliskan isi pesan atau spesifikasi kebutuhan Anda..."
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full border border-slate-300 bg-[#FBFBFA] px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-slate-950 focus:bg-white transition-colors resize-y min-h-[120px]"
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="inline-flex min-h-11 items-center justify-center gap-2 bg-slate-950 px-8 py-3.5 text-xs font-semibold uppercase tracking-widest text-white hover:bg-red-600 transition-colors duration-300 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <Loader2 className="size-3.5 shrink-0 animate-spin" />
-                        <span>Mengirim...</span>
-                      </>
-                    ) : (
-                      <>
-                        <Send className="size-3.5 shrink-0" />
-                        <span>Kirim Pesan</span>
-                      </>
-                    )}
-                  </button>
-                </motion.form>
-              )}
-            </AnimatePresence>
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="inline-flex min-h-11 items-center justify-center gap-2 bg-slate-950 px-8 py-3.5 text-xs font-semibold uppercase tracking-widest text-white hover:bg-red-600 transition-colors duration-300 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className="size-3.5 shrink-0 animate-spin" />
+                          <span>Mengirim...</span>
+                        </>
+                      ) : (
+                        <>
+                          <Send className="size-3.5 shrink-0" />
+                          <span>Kirim Pesan</span>
+                        </>
+                      )}
+                    </button>
+                  </motion.form>
+                )}
+              </AnimatePresence>
+            </div>
           </div>
         </div>
       </Container>
