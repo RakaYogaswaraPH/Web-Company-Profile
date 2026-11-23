@@ -21,22 +21,21 @@ export function SmoothScrollProvider({ children }: SmoothScrollProviderProps) {
         navigator.userAgent
       );
 
-    // On touch/mobile devices, use native 120Hz hardware momentum scroll for peak performance
-    const isMobile = window.innerWidth < 768;
-
-    if (prefersReducedMotion || isAuditBot || isMobile) {
+    if (prefersReducedMotion || isAuditBot) {
       return;
     }
 
-    // Initialize Lenis on desktop for silky-smooth inertial scroll
+    // Initialize Lenis for buttery-smooth inertial scroll across desktop and mobile
     const lenis = new Lenis({
-      duration: 1.1,
+      duration: 1.2,
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: "vertical",
       gestureOrientation: "vertical",
       smoothWheel: true,
-      wheelMultiplier: 1.0,
-      syncTouch: false,
+      wheelMultiplier: 1.05,
+      touchMultiplier: 1.3,
+      syncTouch: true,
+      syncTouchLerp: 0.08,
     });
 
     setLenisInstance(lenis);

@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useRef, useSyncExternalStore } from "react";
+import { useEffect, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
 import { SITE_CONFIG } from "@/config/site";
 import { smoothScrollTo, getLenisInstance } from "@/lib/smooth-scroll";
 
@@ -19,89 +20,31 @@ function useMounted() {
   return useSyncExternalStore(emptySubscribe, () => true, () => false);
 }
 
-// ── External store: shouldRender (controls drawer DOM presence) ──────────
-type Listener = () => void;
-const renderSubs = new Set<Listener>();
-let _shouldRender = false;
-
-function subscribeDrawer(cb: Listener) {
-  renderSubs.add(cb);
-  return () => renderSubs.delete(cb);
-}
-function getDrawerSnapshot() {
-  return _shouldRender;
-}
-function setDrawerVisible(v: boolean) {
-  if (_shouldRender !== v) {
-    _shouldRender = v;
-    renderSubs.forEach((cb) => cb());
-  }
-}
-
-function useDrawerVisible() {
-  return useSyncExternalStore(subscribeDrawer, getDrawerSnapshot, () => false);
-}
-
 // ── Component ────────────────────────────────────────────────────────────
 export function MobileNav({ isOpen, onToggle, onClose }: MobileNavProps) {
   const isMounted = useMounted();
-  const drawerVisible = useDrawerVisible();
-  const drawerRef = useRef<HTMLDivElement>(null);
-  const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Open / close animation + body scroll-lock + scrollbar-jump fix
+  // Open / close body scroll-lock + Lenis pause/resume
   useEffect(() => {
     if (isOpen) {
-      if (closeTimerRef.current) {
-        clearTimeout(closeTimerRef.current);
-        closeTimerRef.current = null;
-      }
-
-      setDrawerVisible(true);
-
-      // Compensate scrollbar width to prevent layout shift
       const sbw = window.innerWidth - document.documentElement.clientWidth;
       document.body.style.paddingRight = sbw > 0 ? `${sbw}px` : "";
       document.body.style.overflow = "hidden";
       getLenisInstance()?.stop();
-
-      // Two rAF frames: ensure drawer is painted before transition starts
-      const raf = requestAnimationFrame(() =>
-        requestAnimationFrame(() => {
-          if (drawerRef.current) {
-            drawerRef.current.style.opacity = "1";
-            drawerRef.current.style.transform = "translateX(0)";
-          }
-        })
-      );
-      return () => cancelAnimationFrame(raf);
     } else {
-      // Restore scroll immediately (prevents layout jump during close)
       document.body.style.overflow = "";
       document.body.style.paddingRight = "";
       getLenisInstance()?.start();
-
-      if (drawerRef.current) {
-        drawerRef.current.style.opacity = "0";
-        drawerRef.current.style.transform = "translateX(100%)";
-      }
-
-      // Remove from DOM after transition ends
-      closeTimerRef.current = setTimeout(() => {
-        setDrawerVisible(false);
-        closeTimerRef.current = null;
-      }, 360);
-
-      return () => {
-        if (closeTimerRef.current) {
-          clearTimeout(closeTimerRef.current);
-          closeTimerRef.current = null;
-        }
-      };
     }
+
+    return () => {
+      document.body.style.overflow = "";
+      document.body.style.paddingRight = "";
+      getLenisInstance()?.start();
+    };
   }, [isOpen]);
 
-  // Escape key
+  // Escape key handler
   useEffect(() => {
     if (!isOpen) return;
     function handleKeyDown(e: KeyboardEvent) {
@@ -110,6 +53,15 @@ export function MobileNav({ isOpen, onToggle, onClose }: MobileNavProps) {
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isOpen, onClose]);
+
+  // Smooth item click: close drawer and smoothly glide to section
+  const handleNavClick = (href: string) => {
+    onClose();
+    getLenisInstance()?.start();
+    setTimeout(() => {
+      smoothScrollTo(href);
+    }, 120);
+  };
 
   return (
     <div className="lg:hidden">
@@ -126,7 +78,7 @@ export function MobileNav({ isOpen, onToggle, onClose }: MobileNavProps) {
           className="absolute transition-all duration-300 ease-in-out"
           style={{
             opacity: isOpen ? 0 : 1,
-            transform: isOpen ? "rotate(90deg) scale(0.5)" : "rotate(0deg) scale(1)",
+            transform: isOpen ? "rotate(90deg) scale(0.6)" : "rotate(0deg) scale(1)",
           }}
           aria-hidden="true"
         >
@@ -136,7 +88,7 @@ export function MobileNav({ isOpen, onToggle, onClose }: MobileNavProps) {
           className="absolute transition-all duration-300 ease-in-out"
           style={{
             opacity: isOpen ? 1 : 0,
-            transform: isOpen ? "rotate(0deg) scale(1)" : "rotate(-90deg) scale(0.5)",
+            transform: isOpen ? "rotate(0deg) scale(1)" : "rotate(-90deg) scale(0.6)",
           }}
           aria-hidden="true"
         >
@@ -144,101 +96,152 @@ export function MobileNav({ isOpen, onToggle, onClose }: MobileNavProps) {
         </span>
       </button>
 
-      {/* Drawer — stays in DOM during close animation via drawerVisible */}
+      {/* Drawer Portal with AnimatePresence */}
       {isMounted &&
-        drawerVisible &&
         createPortal(
-          <div
-            id="mobile-navigation-drawer"
-            data-lenis-prevent
-            role="dialog"
-            aria-modal="true"
-            aria-label="Menu navigasi mobile"
-            ref={drawerRef}
-            style={{
-              opacity: 0,
-              transform: "translateX(100%)",
-              transition:
-                "opacity 0.35s ease, transform 0.35s cubic-bezier(0.16,1,0.3,1)",
-              overflowY: "auto",
-              overscrollBehavior: "contain",
-            }}
-            className="fixed inset-0 z-[9999] flex flex-col justify-between bg-[#F6F7F3] text-slate-900 p-6 sm:p-12"
-          >
-            {/* Header: Centered logo with right-aligned close button */}
-            <div className="relative flex items-center justify-between border-b border-slate-200 pb-6">
-              <div className="absolute left-1/2 -translate-x-1/2 flex items-center justify-center z-10">
-                <a
-                  href="#beranda"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    onClose();
-                    smoothScrollTo("beranda");
+          <AnimatePresence>
+            {isOpen && (
+              <>
+                {/* Subtle Backdrop Dim */}
+                <motion.div
+                  key="mobile-nav-backdrop"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  onClick={onClose}
+                  className="fixed inset-0 z-[9998] bg-black/30 backdrop-blur-sm lg:hidden"
+                  aria-hidden="true"
+                />
+
+                {/* Drawer Container Panel */}
+                <motion.div
+                  key="mobile-nav-panel"
+                  id="mobile-navigation-drawer"
+                  data-lenis-prevent
+                  role="dialog"
+                  aria-modal="true"
+                  aria-label="Menu navigasi mobile"
+                  initial={{ x: "100%" }}
+                  animate={{ x: 0 }}
+                  exit={{ x: "100%" }}
+                  transition={{
+                    duration: 0.45,
+                    ease: [0.16, 1, 0.3, 1],
                   }}
-                  className="flex items-center justify-center cursor-pointer focus-visible:outline-2 focus-visible:outline-slate-900"
+                  className="fixed inset-0 z-[9999] flex flex-col justify-between bg-[#F6F7F3] text-slate-900 p-6 sm:p-12 overflow-y-auto overscroll-contain"
                 >
-                  <div className="relative h-8 w-36 sm:w-40">
-                    <Image
-                      src="/images/brands/logo.webp"
-                      alt={SITE_CONFIG.name}
-                      fill
-                      className="object-contain object-center"
-                      sizes="160px"
-                    />
-                  </div>
-                </a>
-              </div>
-              <button
-                type="button"
-                onClick={onClose}
-                aria-label="Tutup menu navigasi"
-                className="ml-auto flex size-11 items-center justify-center rounded text-slate-900 hover:text-red-600 transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-slate-900"
-              >
-                <X className="size-7" />
-              </button>
-            </div>
+                  {/* Top Bar Header with Centered Logo */}
+                  <motion.div
+                    initial={{ opacity: 0, y: -16 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                      duration: 0.35,
+                      delay: 0.1,
+                      ease: [0.16, 1, 0.3, 1],
+                    }}
+                    className="relative flex items-center justify-between border-b border-slate-200 pb-6 shrink-0"
+                  >
+                    {/* Centered logo */}
+                    <div className="absolute left-1/2 -translate-x-1/2 flex items-center justify-center z-10">
+                      <a
+                        href="#beranda"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handleNavClick("beranda");
+                        }}
+                        className="flex items-center justify-center cursor-pointer focus-visible:outline-2 focus-visible:outline-slate-900"
+                      >
+                        <div className="relative h-8 w-36 sm:w-40">
+                          <Image
+                            src="/images/brands/logo.webp"
+                            alt={SITE_CONFIG.name}
+                            fill
+                            className="object-contain object-center"
+                            sizes="160px"
+                          />
+                        </div>
+                      </a>
+                    </div>
 
-            {/* Nav Links */}
-            <nav className="my-auto py-10">
-              <ul className="flex flex-col gap-5 sm:gap-7">
-                {SITE_CONFIG.navItems.map((item) => (
-                  <li key={item.href}>
-                    <a
-                      href={item.href}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        onClose();
-                        smoothScrollTo(item.href);
-                      }}
-                      className="font-heading text-4xl sm:text-6xl font-medium tracking-tight text-slate-900 hover:text-red-600 hover:translate-x-3 transition-all inline-block cursor-pointer"
+                    {/* Close button with subtle spin hover */}
+                    <button
+                      type="button"
+                      onClick={onClose}
+                      aria-label="Tutup menu navigasi"
+                      className="ml-auto flex size-11 items-center justify-center rounded text-slate-900 hover:text-red-600 hover:rotate-90 transition-all duration-300 cursor-pointer focus-visible:outline-2 focus-visible:outline-slate-900"
                     >
-                      {item.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </nav>
+                      <X className="size-7" />
+                    </button>
+                  </motion.div>
 
-            {/* Footer */}
-            <div className="border-t border-slate-200 pt-6 flex flex-col sm:flex-row justify-between text-xs tracking-wider uppercase font-mono text-slate-500 gap-4">
-              <div>
-                <p className="font-semibold text-slate-900">
-                  Kantor:
-                </p>
-                <p>Graha DLA Lt. 3 Suite 6, Bandung</p>
-                <p>Jl. Telexina No. 4, Cimahi</p>
-              </div>
-              <div>
-                <a
-                  href={`mailto:${SITE_CONFIG.email}`}
-                  className="font-semibold text-slate-900 hover:underline"
-                >
-                  {SITE_CONFIG.email}
-                </a>
-                <p className="mt-1">{SITE_CONFIG.phone}</p>
-              </div>
-            </div>
-          </div>,
+                  {/* Staggered Navigation Links */}
+                  <nav className="my-auto py-8">
+                    <ul className="flex flex-col gap-4 sm:gap-6">
+                      {SITE_CONFIG.navItems.map((item, index) => (
+                        <motion.li
+                          key={item.href}
+                          initial={{ opacity: 0, x: 50, y: 15 }}
+                          animate={{ opacity: 1, x: 0, y: 0 }}
+                          transition={{
+                            duration: 0.45,
+                            delay: 0.12 + index * 0.05,
+                            ease: [0.16, 1, 0.3, 1],
+                          }}
+                        >
+                          <a
+                            href={item.href}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              handleNavClick(item.href);
+                            }}
+                            className="group flex items-center justify-between font-heading text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-slate-900 hover:text-red-600 hover:translate-x-3 transition-all duration-300 cursor-pointer py-1.5"
+                          >
+                            <span className="flex items-baseline gap-3">
+                              <span className="text-xs sm:text-sm font-mono text-slate-400 group-hover:text-red-500 transition-colors">
+                                0{index + 1}
+                              </span>
+                              <span>{item.label}</span>
+                            </span>
+                            <span className="opacity-0 -translate-x-3 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-red-600 text-2xl font-light">
+                              &rarr;
+                            </span>
+                          </a>
+                        </motion.li>
+                      ))}
+                    </ul>
+                  </nav>
+
+                  {/* Footer with animated fade in */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                      duration: 0.4,
+                      delay: 0.4,
+                      ease: [0.16, 1, 0.3, 1],
+                    }}
+                    className="border-t border-slate-200 pt-6 flex flex-col sm:flex-row justify-between text-xs tracking-wider uppercase font-mono text-slate-500 gap-4 shrink-0"
+                  >
+                    <div>
+                      <p className="font-semibold text-slate-900">Kantor:</p>
+                      <p>Graha DLA Lt. 3 Suite 6, Bandung</p>
+                      <p>Jl. Telexina No. 4, Cimahi</p>
+                    </div>
+                    <div>
+                      <a
+                        href={`mailto:${SITE_CONFIG.email}`}
+                        className="font-semibold text-slate-900 hover:underline hover:text-red-600 transition-colors"
+                      >
+                        {SITE_CONFIG.email}
+                      </a>
+                      <p className="mt-1">{SITE_CONFIG.phone}</p>
+                    </div>
+                  </motion.div>
+                </motion.div>
+              </>
+            )}
+          </AnimatePresence>,
           document.body
         )}
     </div>
