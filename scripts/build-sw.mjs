@@ -36,8 +36,9 @@ function generateSW() {
     "/",
     "/offline.html",
     "/icons/icon-192.png",
+    "/icons/icon-192.png?v=2",
     "/icons/icon-512.png",
-    "/icons/icon-maskable-512.png",
+    "/icons/icon-512.png?v=2",
     "/icons/apple-touch-icon.png",
     "/icons/favicon-32x32.png",
     "/icons/favicon-16x16.png",
@@ -116,7 +117,7 @@ self.addEventListener("fetch", (event) => {
   // Static assets (/_next/static/* or /images/* or /icons/*): Cache-first
   if (url.pathname.startsWith("/_next/static/") || url.pathname.startsWith("/images/") || url.pathname.startsWith("/icons/")) {
     event.respondWith(
-      caches.match(request).then((cachedResponse) => {
+      caches.match(request, { ignoreSearch: true }).then((cachedResponse) => {
         if (cachedResponse) {
           return cachedResponse;
         }

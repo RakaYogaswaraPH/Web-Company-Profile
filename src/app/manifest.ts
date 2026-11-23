@@ -8,7 +8,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: `${SITE_CONFIG.name} — ${SITE_CONFIG.tagline}`,
     short_name: SITE_CONFIG.name,
     description: SITE_CONFIG.description,
-    id: "/",
+    id: "/?v=2",
     lang: "id",
     start_url: "/",
     scope: "/",
@@ -17,22 +17,16 @@ export default function manifest(): MetadataRoute.Manifest {
     theme_color: "#F6F7F3",
     icons: [
       {
-        src: "/icons/icon-192.png",
+        src: "/icons/icon-192.png?v=2",
         sizes: "192x192",
         type: "image/png",
         purpose: "any",
       },
       {
-        src: "/icons/icon-512.png",
+        src: "/icons/icon-512.png?v=2",
         sizes: "512x512",
         type: "image/png",
         purpose: "any",
-      },
-      {
-        src: "/icons/icon-maskable-512.png",
-        sizes: "512x512",
-        type: "image/png",
-        purpose: "maskable",
       },
     ],
   };
