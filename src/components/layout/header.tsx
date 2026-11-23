@@ -79,7 +79,7 @@ export function Header() {
                 e.preventDefault();
                 smoothScrollTo(item.href);
               }}
-              className="hover:text-red-600 transition-colors py-2 cursor-pointer"
+              className="hover:text-red-600 transition-colors py-2 cursor-pointer text-sm"
             >
               {item.label}
             </a>

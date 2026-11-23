@@ -13,7 +13,7 @@ export function HeroSection() {
     >
       <Container className="grow flex flex-col justify-between">
         {/* Top Ticker / Meta text - Responsive single-line layout */}
-        <div className="flex items-center justify-between border-b border-[#E2E5DC] pb-3 sm:pb-6 text-[11px] min-[390px]:text-xs sm:text-sm lg:text-base uppercase tracking-wider sm:tracking-widest text-slate-500 font-mono gap-3">
+        <div className="flex items-center justify-between border-b border-[#E2E5DC] pb-3 sm:pb-6 text-[11px] min-[390px]:text-xs sm:text-sm lg:text-md uppercase tracking-wider sm:tracking-widest text-slate-500 font-mono gap-3">
           <span className="shrink-0 whitespace-nowrap">
             <span className="sm:hidden">PT. Jamparing Masagi</span>
             <span className="hidden sm:inline">PT. Jamparing Masagi &mdash; Bandung &amp; Cimahi</span>
