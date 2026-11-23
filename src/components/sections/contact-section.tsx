@@ -68,25 +68,19 @@ export function ContactSection() {
               Hubungi Kami
             </span>
 
-            <div className="min-h-[480px] sm:min-h-[400px] flex flex-col justify-start">
+            <div className="min-h-[475px] sm:min-h-[385px]">
               <AnimatePresence mode="wait">
                 {isSubmitted ? (
                   <motion.div
                     key="contact-success"
-                    initial={{ opacity: 0, y: 16, scale: 0.98 }}
+                    initial={{ opacity: 0, y: 12, scale: 0.98 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: -12, scale: 0.98 }}
-                    transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                    className="p-8 sm:p-10 border border-emerald-200 bg-emerald-50/60 text-slate-900 flex flex-col justify-center min-h-[480px] sm:min-h-[400px] space-y-4"
+                    transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                    className="p-6 sm:p-8 border border-emerald-200 bg-emerald-50/60 text-slate-900 space-y-3"
                   >
-                    <div className="flex items-center gap-2.5 text-emerald-700">
-                      <motion.div
-                        initial={{ scale: 0, rotate: -45 }}
-                        animate={{ scale: 1, rotate: 0 }}
-                        transition={{ type: "spring", stiffness: 300, damping: 20, delay: 0.1 }}
-                      >
-                        <CheckCircle2 className="size-5 shrink-0" />
-                      </motion.div>
+                    <div className="flex items-center gap-2 text-emerald-700">
+                      <CheckCircle2 className="size-5 shrink-0" />
                       <span className="font-semibold text-sm uppercase tracking-wider font-mono">
                         Pesan Terkirim
                       </span>
@@ -100,10 +94,9 @@ export function ContactSection() {
                         setIsSubmitted(false);
                         setFormData({ name: "", email: "", subject: "", message: "" });
                       }}
-                      className="inline-flex items-center gap-2 pt-2 text-xs font-mono uppercase tracking-widest text-slate-700 hover:text-slate-950 hover:translate-x-1 transition-all underline underline-offset-4 cursor-pointer focus-visible:outline-2 focus-visible:outline-slate-900"
+                      className="pt-2 text-xs font-mono uppercase tracking-widest text-slate-700 hover:text-slate-950 underline underline-offset-4 cursor-pointer focus-visible:outline-2 focus-visible:outline-slate-900 block"
                     >
-                      <span>Kirim Pesan Lainnya</span>
-                      <span>&rarr;</span>
+                      Kirim Pesan Lainnya &rarr;
                     </button>
                   </motion.div>
                 ) : (
