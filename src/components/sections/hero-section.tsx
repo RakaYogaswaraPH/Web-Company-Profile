@@ -13,7 +13,7 @@ export function HeroSection() {
     >
       <Container className="grow flex flex-col justify-between">
         {/* Top Ticker / Meta text - Responsive single-line layout */}
-        <div className="flex items-center justify-between border-b border-[#E2E5DC] pb-3 sm:pb-6 text-[11px] min-[390px]:text-xs sm:text-sm lg:text-md uppercase tracking-wider sm:tracking-widest text-slate-500 font-mono gap-3">
+        <div className="flex items-center justify-between border-b border-[#E2E5DC] pb-3 sm:pb-6 text-[9.5px] min-[390px]:text-[10px] sm:text-xs md:text-sm lg:text-base uppercase tracking-normal sm:tracking-wider lg:tracking-widest text-slate-500 font-mono gap-4">
           <span className="shrink-0 whitespace-nowrap">
             <span className="sm:hidden">PT. Jamparing Masagi</span>
             <span className="hidden sm:inline">PT. Jamparing Masagi &mdash; Bandung &amp; Cimahi</span>
@@ -27,7 +27,7 @@ export function HeroSection() {
         <div className="my-auto py-8 sm:py-12 lg:py-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             <div className="lg:col-span-7 xl:col-span-7 space-y-6 sm:space-y-8 text-center lg:text-left">
-              <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-light tracking-tight text-slate-950 leading-[1.08] text-balance mx-auto lg:mx-0">
+              <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-normal tracking-tight text-slate-950 leading-[1.08] text-balance mx-auto lg:mx-0">
                 More Than Just ICT Solution.
               </h1>
               <p className="max-w-2xl text-base sm:text-lg lg:text-xl font-light text-slate-600 leading-relaxed mx-auto lg:mx-0">
