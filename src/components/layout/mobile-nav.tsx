@@ -165,22 +165,34 @@ export function MobileNav({ isOpen, onToggle, onClose }: MobileNavProps) {
             }}
             className="fixed inset-0 z-[9999] flex flex-col justify-between bg-[#F6F7F3] text-slate-900 p-6 sm:p-12"
           >
-            {/* Header */}
-            <div className="flex items-center justify-between border-b border-slate-200 pb-6">
-              <div className="relative h-8 w-36 sm:w-40">
-                <Image
-                  src="/images/brands/logo.webp"
-                  alt={SITE_CONFIG.name}
-                  fill
-                  className="object-contain object-left"
-                  sizes="160px"
-                />
+            {/* Header: Centered logo with right-aligned close button */}
+            <div className="relative flex items-center justify-between border-b border-slate-200 pb-6">
+              <div className="absolute left-1/2 -translate-x-1/2 flex items-center justify-center z-10">
+                <a
+                  href="#beranda"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onClose();
+                    smoothScrollTo("beranda");
+                  }}
+                  className="flex items-center justify-center cursor-pointer focus-visible:outline-2 focus-visible:outline-slate-900"
+                >
+                  <div className="relative h-8 w-36 sm:w-40">
+                    <Image
+                      src="/images/brands/logo.webp"
+                      alt={SITE_CONFIG.name}
+                      fill
+                      className="object-contain object-center"
+                      sizes="160px"
+                    />
+                  </div>
+                </a>
               </div>
               <button
                 type="button"
                 onClick={onClose}
                 aria-label="Tutup menu navigasi"
-                className="flex size-11 items-center justify-center rounded text-slate-900 hover:text-red-600 transition-colors cursor-pointer"
+                className="ml-auto flex size-11 items-center justify-center rounded text-slate-900 hover:text-red-600 transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-slate-900"
               >
                 <X className="size-7" />
               </button>

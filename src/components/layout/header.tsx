@@ -42,16 +42,16 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-[#E2E5DC] bg-[#F6F7F3]/95 backdrop-blur-md">
-      <Container className="flex h-20 items-center justify-between">
-        {/* Left: Brand identity */}
-        <div className="flex items-center w-36 sm:w-48 shrink-0">
+      <Container className="relative flex h-20 items-center justify-between">
+        {/* Brand identity: Centered on mobile, left-aligned on desktop */}
+        <div className="absolute left-1/2 -translate-x-1/2 lg:static lg:translate-x-0 lg:left-auto flex items-center justify-center lg:justify-start w-36 sm:w-44 lg:w-48 shrink-0 z-10">
           <Link
             href="/"
             onClick={(e) => {
               e.preventDefault();
               smoothScrollTo("beranda");
             }}
-            className="group flex items-center focus-visible:outline-2 focus-visible:outline-slate-900"
+            className="group flex items-center justify-center lg:justify-start focus-visible:outline-2 focus-visible:outline-slate-900"
           >
             <div className="relative h-8 w-36 sm:w-44">
               <Image
@@ -59,7 +59,7 @@ export function Header() {
                 alt={SITE_CONFIG.name}
                 fill
                 priority
-                className="object-contain object-left"
+                className="object-contain object-center lg:object-left"
                 sizes="(max-width: 640px) 144px, 176px"
               />
             </div>
@@ -87,7 +87,7 @@ export function Header() {
         </nav>
 
         {/* Right: Balanced Spacer on Desktop / Hamburger on Mobile */}
-        <div className="flex items-center justify-end w-36 sm:w-48 shrink-0">
+        <div className="ml-auto lg:ml-0 flex items-center justify-end w-auto lg:w-48 shrink-0">
           <MobileNav
             isOpen={isMobileNavOpen}
             onToggle={() => setIsMobileNavOpen((prev) => !prev)}
