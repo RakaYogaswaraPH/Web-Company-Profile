@@ -26,28 +26,28 @@ export function Preloader() {
     const originalOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
 
-    // Smooth & snappy increments
+    // Deliberate, elegant progress pacing so the animation and branding are clearly enjoyed
     const steps = [
-      { pct: 28, delay: 50 },
-      { pct: 62, delay: 220 },
-      { pct: 88, delay: 480 },
-      { pct: 100, delay: 720 },
+      { pct: 24, delay: 180 },
+      { pct: 58, delay: 560 },
+      { pct: 84, delay: 980 },
+      { pct: 100, delay: 1420 },
     ];
 
     const timeouts = steps.map(({ pct, delay }) =>
       setTimeout(() => setProgress(pct), delay)
     );
 
-    // Trigger shutter columns exit after reaching 100%
+    // Give a clear, intentional pause at 100% (450ms pause) before shutter columns reveal
     const hideTimeout = setTimeout(() => {
       setIsHiding(true);
       document.body.style.overflow = originalOverflow;
-    }, 850);
+    }, 1880);
 
     // Completely unmount after all staggered columns lift out
     const removeTimeout = setTimeout(() => {
       setIsDone(true);
-    }, 1800);
+    }, 2850);
 
     return () => {
       timeouts.forEach(clearTimeout);
