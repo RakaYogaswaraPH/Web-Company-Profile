@@ -42,13 +42,16 @@ export function Header() {
   }
 
   return (
-    <header
-      className={cn(
-        "sticky top-0 z-[10000] lg:z-40 w-full border-b border-[#E2E5DC] bg-[#F6F7F3]/95 backdrop-blur-md transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] translate-y-0 opacity-100",
-        isMobileNavOpen &&
-          "-translate-y-full opacity-0 pointer-events-none lg:translate-y-0 lg:opacity-100 lg:pointer-events-auto"
-      )}
-    >
+    <>
+      {/* Spacer to prevent layout jump on mobile since header is fixed on mobile, sticky on desktop */}
+      <div className="h-20 w-full lg:hidden" aria-hidden="true" />
+      <header
+        className={cn(
+          "fixed top-0 left-0 right-0 lg:sticky z-[10000] lg:z-40 w-full border-b border-[#E2E5DC] bg-[#F6F7F3]/95 backdrop-blur-md transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] translate-y-0 opacity-100",
+          isMobileNavOpen &&
+            "-translate-y-full opacity-0 pointer-events-none lg:translate-y-0 lg:opacity-100 lg:pointer-events-auto"
+        )}
+      >
       <Container className="relative flex h-20 items-center justify-between">
         {/* Brand identity: Centered on mobile, left-aligned on desktop */}
         <div className="absolute left-1/2 -translate-x-1/2 lg:static lg:translate-x-0 lg:left-auto flex items-center justify-center lg:justify-start w-36 sm:w-44 lg:w-48 shrink-0 z-10">
@@ -103,5 +106,6 @@ export function Header() {
         </div>
       </Container>
     </header>
+  </>
   );
 }

@@ -27,19 +27,12 @@ export function MobileNav({ isOpen, onToggle, onClose }: MobileNavProps) {
   // Open / close body scroll-lock + Lenis pause/resume
   useEffect(() => {
     if (isOpen) {
-      const sbw = window.innerWidth - document.documentElement.clientWidth;
-      document.body.style.paddingRight = sbw > 0 ? `${sbw}px` : "";
-      document.body.style.overflow = "hidden";
       getLenisInstance()?.stop();
     } else {
-      document.body.style.overflow = "";
-      document.body.style.paddingRight = "";
       getLenisInstance()?.start();
     }
 
     return () => {
-      document.body.style.overflow = "";
-      document.body.style.paddingRight = "";
       getLenisInstance()?.start();
     };
   }, [isOpen]);
