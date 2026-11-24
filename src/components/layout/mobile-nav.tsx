@@ -60,7 +60,7 @@ export function MobileNav({ isOpen, onToggle, onClose }: MobileNavProps) {
     getLenisInstance()?.start();
     setTimeout(() => {
       smoothScrollTo(href);
-    }, 120);
+    }, 200);
   };
 
   return (
@@ -75,7 +75,7 @@ export function MobileNav({ isOpen, onToggle, onClose }: MobileNavProps) {
         className="relative z-40 flex size-11 items-center justify-center rounded text-slate-900 hover:text-red-600 transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-slate-900"
       >
         <span
-          className="absolute transition-all duration-300 ease-in-out"
+          className="absolute transition-all duration-500 ease-in-out"
           style={{
             opacity: isOpen ? 0 : 1,
             transform: isOpen ? "rotate(90deg) scale(0.6)" : "rotate(0deg) scale(1)",
@@ -85,7 +85,7 @@ export function MobileNav({ isOpen, onToggle, onClose }: MobileNavProps) {
           <Menu className="size-6" />
         </span>
         <span
-          className="absolute transition-all duration-300 ease-in-out"
+          className="absolute transition-all duration-500 ease-in-out"
           style={{
             opacity: isOpen ? 1 : 0,
             transform: isOpen ? "rotate(0deg) scale(1)" : "rotate(-90deg) scale(0.6)",
@@ -108,7 +108,7 @@ export function MobileNav({ isOpen, onToggle, onClose }: MobileNavProps) {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  transition={{ duration: 0.45, ease: "easeInOut" }}
                   onClick={onClose}
                   className="fixed inset-0 z-[9998] bg-black/30 backdrop-blur-sm lg:hidden"
                   aria-hidden="true"
@@ -126,8 +126,8 @@ export function MobileNav({ isOpen, onToggle, onClose }: MobileNavProps) {
                   animate={{ x: 0 }}
                   exit={{ x: "100%" }}
                   transition={{
-                    duration: 0.45,
-                    ease: [0.16, 1, 0.3, 1],
+                    duration: 0.65,
+                    ease: [0.22, 1, 0.36, 1],
                   }}
                   className="fixed inset-0 z-[9999] flex flex-col justify-between bg-[#F6F7F3] text-slate-900 p-6 sm:p-12 overflow-y-auto overscroll-contain"
                 >
@@ -136,9 +136,9 @@ export function MobileNav({ isOpen, onToggle, onClose }: MobileNavProps) {
                     initial={{ opacity: 0, y: -16 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{
-                      duration: 0.35,
-                      delay: 0.1,
-                      ease: [0.16, 1, 0.3, 1],
+                      duration: 0.5,
+                      delay: 0.15,
+                      ease: [0.22, 1, 0.36, 1],
                     }}
                     className="relative flex items-center justify-between border-b border-slate-200 pb-6 shrink-0"
                   >
@@ -184,9 +184,9 @@ export function MobileNav({ isOpen, onToggle, onClose }: MobileNavProps) {
                           initial={{ opacity: 0, x: 50, y: 15 }}
                           animate={{ opacity: 1, x: 0, y: 0 }}
                           transition={{
-                            duration: 0.45,
-                            delay: 0.12 + index * 0.05,
-                            ease: [0.16, 1, 0.3, 1],
+                            duration: 0.55,
+                            delay: 0.18 + index * 0.08,
+                            ease: [0.22, 1, 0.36, 1],
                           }}
                         >
                           <a
@@ -217,9 +217,9 @@ export function MobileNav({ isOpen, onToggle, onClose }: MobileNavProps) {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{
-                      duration: 0.4,
-                      delay: 0.4,
-                      ease: [0.16, 1, 0.3, 1],
+                      duration: 0.5,
+                      delay: 0.55,
+                      ease: [0.22, 1, 0.36, 1],
                     }}
                     className="border-t border-slate-200 pt-6 flex flex-col sm:flex-row justify-between text-xs tracking-wider uppercase font-mono text-slate-500 gap-4 shrink-0"
                   >
