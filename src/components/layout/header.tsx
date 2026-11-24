@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { cn } from "@/lib/cn";
 import { SITE_CONFIG } from "@/config/site";
 import { Container } from "@/components/ui/container";
 import { smoothScrollTo } from "@/lib/smooth-scroll";
@@ -41,7 +42,13 @@ export function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-[#E2E5DC] bg-[#F6F7F3]/95 backdrop-blur-md">
+    <header
+      className={cn(
+        "sticky top-0 z-40 w-full border-b border-[#E2E5DC] bg-[#F6F7F3]/95 backdrop-blur-md transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
+        isMobileNavOpen &&
+          "-translate-y-full opacity-0 pointer-events-none lg:translate-y-0 lg:opacity-100 lg:pointer-events-auto"
+      )}
+    >
       <Container className="relative flex h-20 items-center justify-between">
         {/* Brand identity: Centered on mobile, left-aligned on desktop */}
         <div className="absolute left-1/2 -translate-x-1/2 lg:static lg:translate-x-0 lg:left-auto flex items-center justify-center lg:justify-start w-36 sm:w-44 lg:w-48 shrink-0 z-10">
