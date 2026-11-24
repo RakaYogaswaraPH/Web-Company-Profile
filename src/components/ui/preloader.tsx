@@ -93,15 +93,13 @@ export function Preloader() {
           {/* Inner Content (Center: Logo + Bar + Ticker) */}
           <div className="relative z-10 flex h-full w-full items-center justify-center">
             <motion.div
-              initial={{ opacity: 0, y: 16, scale: 0.98 }}
+              initial={{ opacity: 0 }}
               animate={{
                 opacity: isHiding ? 0 : 1,
-                y: isHiding ? -24 : 0,
-                scale: isHiding ? 0.96 : 1,
               }}
               transition={{
-                duration: isHiding ? 0.45 : 0.6,
-                ease: [0.22, 1, 0.36, 1],
+                duration: isHiding ? 0.35 : 0.6,
+                ease: "easeInOut",
               }}
               className="flex w-64 flex-col items-center text-center"
             >
