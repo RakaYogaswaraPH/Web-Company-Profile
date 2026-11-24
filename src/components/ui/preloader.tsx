@@ -93,42 +93,42 @@ export function Preloader() {
           {/* Inner Content (Center: Logo + Bar + Ticker) */}
           <div className="relative z-10 flex h-full w-full items-center justify-center">
             <motion.div
-              initial={{ opacity: 1, scale: 1, y: 0 }}
+              initial={{ opacity: 0, y: 16, scale: 0.98 }}
               animate={{
                 opacity: isHiding ? 0 : 1,
-                scale: isHiding ? 0.94 : 1,
                 y: isHiding ? -24 : 0,
+                scale: isHiding ? 0.96 : 1,
               }}
               transition={{
-                duration: 0.45,
+                duration: isHiding ? 0.45 : 0.6,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="flex flex-col items-center space-y-6 px-6 text-center"
+              className="flex w-64 flex-col items-center text-center"
             >
-              {/* Company Logo */}
-              <div className="relative h-10 w-44 sm:h-12 sm:w-52 md:h-14 md:w-60">
+              {/* Company Logo - Fixed dimensions container to prevent layout shifts */}
+              <div className="relative h-12 w-48 sm:h-14 sm:w-56 shrink-0 mb-6 flex items-center justify-center">
                 <Image
                   src="/images/brands/logo.webp"
                   alt="PT. Jamparing Masagi"
                   fill
                   priority
                   className="object-contain"
-                  sizes="(max-width: 640px) 176px, 240px"
+                  sizes="(max-width: 640px) 192px, 224px"
                 />
               </div>
 
-              {/* Progress Bar with accent red indicator */}
-              <div className="w-52 sm:w-64 h-1.5 bg-[#E2E5DC] rounded-full overflow-hidden">
+              {/* Progress Bar with accent red indicator - Fixed width */}
+              <div className="w-56 sm:w-64 h-1.5 bg-[#E2E5DC] rounded-full overflow-hidden shrink-0 mb-3">
                 <div
                   className="h-full bg-red-600 rounded-full transition-all duration-300 ease-out"
                   style={{ width: `${progress}%` }}
                 />
               </div>
 
-              {/* Monospace Ticker */}
-              <div className="flex items-center justify-between w-52 sm:w-64 text-[11px] font-mono tracking-widest text-slate-500 uppercase font-medium">
+              {/* Monospace Ticker - Fixed width & tabular numbers to prevent text shifting */}
+              <div className="flex items-center justify-between w-56 sm:w-64 text-[11px] font-mono tracking-widest text-slate-500 uppercase font-medium tabular-nums shrink-0">
                 <span>MEMUAT</span>
-                <span>{progress}%</span>
+                <span className="w-10 text-right">{progress}%</span>
               </div>
             </motion.div>
           </div>
