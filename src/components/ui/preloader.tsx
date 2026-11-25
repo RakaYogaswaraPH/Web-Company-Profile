@@ -38,14 +38,14 @@ export function Preloader() {
       setTimeout(() => setProgress(pct), delay)
     );
 
-    // Give a clear, intentional pause at 100% (450ms pause) before shutter columns reveal
+    // Trigger shutter columns exit after reaching 100%
     const hideTimeout = setTimeout(() => {
       setIsHiding(true);
-      document.body.style.overflow = originalOverflow;
     }, 1880);
 
-    // Completely unmount after all staggered columns lift out
+    // Completely unmount after all staggered columns lift out, then restore body scroll
     const removeTimeout = setTimeout(() => {
+      document.body.style.overflow = originalOverflow;
       setIsDone(true);
     }, 2850);
 

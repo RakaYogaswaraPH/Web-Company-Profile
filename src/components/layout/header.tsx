@@ -54,7 +54,7 @@ export function Header() {
       >
       <Container className="relative flex h-20 items-center justify-between">
         {/* Brand identity: Centered on mobile, left-aligned on desktop */}
-        <div className="absolute left-1/2 -translate-x-1/2 lg:static lg:translate-x-0 lg:left-auto flex items-center justify-center lg:justify-start w-36 sm:w-44 lg:w-48 shrink-0 z-10">
+        <div className="absolute left-1/2 -translate-x-1/2 lg:static lg:translate-x-0 lg:left-auto flex items-center justify-center lg:justify-start w-36 sm:w-44 lg:w-56 shrink-0 z-10">
           <Link
             href="/"
             onClick={(e) => {
@@ -63,14 +63,14 @@ export function Header() {
             }}
             className="group flex items-center justify-center lg:justify-start focus-visible:outline-2 focus-visible:outline-slate-900"
           >
-            <div className="relative h-8 w-36 sm:w-44">
+            <div className="relative h-9 sm:h-10 w-40 sm:w-48 lg:w-52">
               <Image
                 src="/images/brands/logo.webp"
                 alt={SITE_CONFIG.name}
                 fill
                 priority
                 className="object-contain object-center lg:object-left"
-                sizes="(max-width: 640px) 144px, 176px"
+                sizes="(max-width: 640px) 160px, (max-width: 1024px) 192px, 208px"
               />
             </div>
           </Link>
@@ -97,7 +97,7 @@ export function Header() {
         </nav>
 
         {/* Right: Balanced Spacer on Desktop / Hamburger on Mobile */}
-        <div className="ml-auto lg:ml-0 flex items-center justify-end w-auto lg:w-48 shrink-0">
+        <div className="ml-auto lg:ml-0 flex items-center justify-end w-auto lg:w-56 shrink-0">
           <MobileNav
             isOpen={isMobileNavOpen}
             onToggle={() => setIsMobileNavOpen((prev) => !prev)}
