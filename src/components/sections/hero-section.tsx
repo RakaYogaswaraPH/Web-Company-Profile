@@ -26,7 +26,7 @@ export function HeroSection() {
         {/* Editorial Headline & Interactive 3D Brand Logo */}
         <div className="my-auto py-8 sm:py-12 lg:py-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            <div className="lg:col-span-7 xl:col-span-7 space-y-6 sm:space-y-8 text-center lg:text-left">
+            <div className="lg:col-span-7 xl:col-span-7 space-y-6 sm:space-y-8 text-center lg:text-left order-2 lg:order-1">
               <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-normal tracking-tight text-slate-950 leading-[1.08] text-balance mx-auto lg:mx-0">
                 More Than Just ICT Solution.
               </h1>
@@ -58,8 +58,8 @@ export function HeroSection() {
               </div>
             </div>
 
-            {/* 3D Interactive Brand Logo Asset */}
-            <div className="lg:col-span-5 xl:col-span-5 flex flex-col items-center justify-center">
+            {/* 3D Interactive Brand Logo Asset - Displays first on mobile, right on desktop */}
+            <div className="lg:col-span-5 xl:col-span-5 flex flex-col items-center justify-center order-1 lg:order-2">
               <Logo3DViewer />
             </div>
           </div>
