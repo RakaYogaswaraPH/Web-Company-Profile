@@ -37,6 +37,11 @@ body {
   color: #FFFFFF;
 }
 
+/* Prevent layout shifts when scrollbar appears / disappears */
+html {
+  scrollbar-gutter: stable;
+}
+
 /* Lenis inertial smooth scroll styles */
 html.lenis, html.lenis body {
   height: auto;
